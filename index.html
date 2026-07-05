@@ -1,659 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexaVerse - Digital Excellence</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="templatemo-nexaverse.css">
-<!-- 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siddhant Shah — Kathmandu</title>
+<meta name="description" content="Siddhant Shah — BSc CSIT student in Kathmandu, building toward a Python/FastAPI internship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0b0b0b;
+    --paper:#efeeea;
+    --gray:#8c8c88;
+    --gray-dim:#59594f;
+    --line:rgba(239,238,234,0.13);
+    --line-strong:rgba(239,238,234,0.32);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--black);color:var(--paper);
+    font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--paper);color:var(--black);}
+  a{color:inherit;}
+  .serif{font-family:'Fraunces',serif;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  em{font-style:italic;font-family:'Fraunces',serif;}
 
-TemplateMo 603 Nexaverse
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+  .wrap-wide{max-width:920px;margin:0 auto;padding:0 28px;}
 
-https://templatemo.com/tm-603-nexaverse
+  /* nav */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(11,11,11,0.85);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:920px;margin:0 auto;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;}
+  .nav-mark{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.03em;}
+  .nav-mark span{color:var(--gray);}
+  nav.links{display:flex;gap:26px;font-size:13px;}
+  nav.links a{text-decoration:none;color:var(--gray);transition:color .2s;}
+  nav.links a:hover,nav.links a:focus-visible{color:var(--paper);}
+  @media (max-width:680px){nav.links{display:none;}}
 
--->
+  /* hero */
+  .hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 60px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--gray);letter-spacing:0.05em;margin-bottom:22px;}
+  h1.title{
+    font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(38px,6vw,64px);line-height:1.12;margin:0 0 26px;letter-spacing:-0.01em;
+  }
+  .hero-p{color:#cfcfca;font-size:17px;line-height:1.75;max-width:560px;margin:0 0 34px;}
+  .hero-p b{color:var(--paper);font-weight:600;}
+
+  .meta-rows{display:flex;flex-direction:column;gap:4px;margin-bottom:34px;}
+  .meta-rows div{font-size:15px;}
+  .meta-rows b{font-weight:600;}
+  .meta-rows .sep{color:var(--gray);margin:0 6px;}
+  .meta-rows span.gray{color:var(--gray);}
+
+  .term{
+    border-left:2px solid var(--line-strong);
+    padding-left:18px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.9;
+    color:var(--gray);max-width:480px;margin-bottom:8px;
+  }
+  .term .cmd{color:var(--paper);}
+  .caret{display:inline-block;width:7px;height:14px;background:var(--paper);vertical-align:text-bottom;margin-left:2px;animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  .portrait{margin-top:56px;}
+  .portrait img{
+    width:100%;max-width:340px;display:block;
+    filter:grayscale(1) contrast(1.1) brightness(0.97);
+  }
+  .portrait-cap{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);margin-top:12px;letter-spacing:0.02em;}
+
+  .scroll-cue{
+    display:flex;align-items:center;gap:10px;margin-top:70px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);letter-spacing:0.15em;
+  }
+  .scroll-cue .ln{width:1px;height:34px;background:var(--line-strong);animation:scrollmove 1.8s ease-in-out infinite;}
+  @keyframes scrollmove{0%,100%{transform:scaleY(1);opacity:.4;}50%{transform:scaleY(0.5);opacity:1;}}
+
+  /* section pattern */
+  section.pad{padding:96px 0;border-top:1px solid var(--line);}
+  @media (max-width:680px){section.pad{padding:70px 0;}}
+  .sec-num{
+    font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gray);
+    display:flex;align-items:center;gap:10px;margin-bottom:20px;
+  }
+  .sec-num .cmdtag{color:var(--gray-dim);}
+  h2.sec-title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(26px,4vw,36px);margin:0 0 30px;letter-spacing:-0.01em;}
+  .body-text p{color:#cfcfca;font-size:16px;line-height:1.85;margin:0 0 20px;}
+  .body-text b{color:var(--paper);font-weight:600;}
+  .body-text em{color:var(--paper);}
+
+  /* focus / two-col tags */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:44px;}
+  @media (max-width:680px){.two-col{grid-template-columns:1fr;gap:34px;}}
+  .col h3{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);letter-spacing:0.05em;margin:0 0 16px;text-transform:uppercase;}
+  .plain-list{list-style:none;margin:0;padding:0;}
+  .plain-list li{
+    padding:11px 0;border-top:1px solid var(--line);font-size:16px;
+  }
+  .plain-list li:first-child{border-top:none;}
+
+  /* toolkit */
+  .tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  @media (max-width:780px){.tool-grid{grid-template-columns:repeat(2,1fr);}}
+  .tool-col h3{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);letter-spacing:0.04em;margin:0 0 14px;text-transform:uppercase;}
+  .tool-col ul{list-style:none;margin:0;padding:0;}
+  .tool-col li{font-size:14.5px;padding:6px 0;color:#dcdcd8;}
+
+  /* projects */
+  .proj{border-top:1px solid var(--line);padding:34px 0;}
+  .proj:first-of-type{border-top:none;}
+  .proj-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);margin-bottom:10px;}
+  .proj h3{font-family:'Fraunces',serif;font-weight:500;font-size:22px;margin:0 0 12px;}
+  .proj p{color:#cfcfca;font-size:15px;line-height:1.75;margin:0 0 14px;max-width:600px;}
+  .proj-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:11.5px;border:1px solid var(--line-strong);padding:5px 10px;color:var(--gray);}
+  .commitlog{margin:14px 0 4px;font-family:'JetBrains Mono',monospace;font-size:12.5px;border-left:2px solid var(--line-strong);padding-left:16px;}
+  .commitlog div{color:var(--gray);margin-bottom:6px;}
+  .commitlog div b{color:var(--paper);font-weight:600;}
+
+  /* content creation cards */
+  .feed{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px;}
+  @media (max-width:780px){.feed{grid-template-columns:1fr;}}
+  .feed-card{background:var(--black);padding:26px 22px;}
+  .feed-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);margin-bottom:12px;}
+  .feed-card h4{margin:0 0 8px;font-size:16px;font-weight:600;}
+  .feed-card p{color:#cfcfca;font-size:13.5px;line-height:1.7;margin:0;}
+
+  /* path / timeline */
+  .tl-item{display:grid;grid-template-columns:130px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line);}
+  .tl-item:first-child{border-top:none;}
+  @media (max-width:600px){.tl-item{grid-template-columns:1fr;gap:6px;}}
+  .tl-date{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--gray);padding-top:3px;}
+  .tl-body h4{margin:0 0 6px;font-size:16.5px;font-weight:600;}
+  .tl-body span{color:var(--gray);font-size:13.5px;}
+  .tl-body p{margin:8px 0 0;color:#cfcfca;font-size:14.5px;line-height:1.7;}
+
+  /* contact */
+  .contact-title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(30px,5vw,44px);margin:0 0 22px;}
+  .contact-title em{font-style:italic;}
+  .contact-links{display:flex;flex-direction:column;gap:2px;margin-top:30px;}
+  .clink{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 0;border-top:1px solid var(--line);
+    text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:14px;
+    color:var(--paper);transition:padding-left .2s ease;
+  }
+  .contact-links .clink:last-child{border-bottom:1px solid var(--line);}
+  .clink:hover{padding-left:8px;color:var(--paper);}
+  .clink .arrow{color:var(--gray);}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-dim);}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.show{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}.reveal{opacity:1;transform:none;}}
+</style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader-ring"></div>
-        <div class="loading-text">Initializing Experience...</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark">SIDDHANT SHAH <span>/ Kathmandu</span></div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#path">Path</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Second-semester BSc CSIT student</div>
+    <h1 class="title">Building the backend<br><em>and</em> the model.</h1>
+    <p class="hero-p">
+      I'm Siddhant — based in Kathmandu, studying <b>BSc CSIT</b> at Tribhuvan University.
+      I'm teaching myself Python from zero with one goal: an internship in six months,
+      split evenly between <b>backend engineering</b> and <b>data/ML</b>, so I end up
+      useful on both sides of the stack.
+    </p>
+
+    <div class="meta-rows">
+      <div><b>2026 — present</b><span class="sep">·</span><span class="gray">BSc CSIT, Tribhuvan University</span></div>
+      <div><b>Kathmandu</b><span class="sep">·</span><span class="gray">Nepal based</span></div>
     </div>
 
-    <!-- Ambient Background -->
-    <div class="ambient-bg">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
+    <div class="term">
+      <div><span class="cmd">$ whoami</span></div>
+      <div>&gt; CSIT undergrad · backend-in-training · content creator</div>
+      <div>&gt; stack: python · fastapi · react native · c/c++</div>
+      <div><span class="cmd">$</span><span class="caret"></span></div>
     </div>
 
-    <!-- Grid Overlay -->
-    <div class="grid-overlay"></div>
-
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Header -->
-        <div class="header" id="mainHeader">
-            <div class="logo">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00f0ff"/>
-                            <stop offset="100%" style="stop-color:#ff00d4"/>
-                        </linearGradient>
-                    </defs>
-                    <polygon points="50,5 95,30 95,70 50,95 5,70 5,30" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
-                    <polygon points="50,20 80,37 80,63 50,80 20,63 20,37" fill="none" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.6"/>
-                    <circle cx="50" cy="50" r="12" fill="url(#logoGradient)" opacity="0.3"/>
-                    <circle cx="50" cy="50" r="6" fill="url(#logoGradient)"/>
-                </svg>
-            </div>
-            <h1 class="brand-name">NexaVerse</h1>
-            <p class="tagline">Digital Excellence Redefined</p>
-        </div>
-
-        <!-- Menu Grid -->
-        <div class="menu-grid" id="menuGrid">
-            <div class="menu-item initial-load" data-section="introduction">
-                <div class="menu-badge">IN</div>
-                <div class="menu-title">Introduction</div>
-            </div>
-            <div class="menu-item initial-load" data-section="services">
-                <div class="menu-badge">SV</div>
-                <div class="menu-title">Services</div>
-            </div>
-            <div class="menu-item initial-load" data-section="gallery">
-                <div class="menu-badge">GL</div>
-                <div class="menu-title">Gallery</div>
-            </div>
-            <div class="menu-item initial-load" data-section="testimonials">
-                <div class="menu-badge">TM</div>
-                <div class="menu-title">Testimonials</div>
-            </div>
-            <div class="menu-item initial-load" data-section="about">
-                <div class="menu-badge">AB</div>
-                <div class="menu-title">About</div>
-            </div>
-            <div class="menu-item initial-load" data-section="contact">
-                <div class="menu-badge">CT</div>
-                <div class="menu-title">Contact</div>
-            </div>
-        </div>
-
-        <!-- Content Sections -->
-        <div id="contentArea">
-            <!-- Introduction Section -->
-            <div class="content-section" id="introduction">
-                <div class="section-header-small">
-                    <div class="small-logo">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="smallLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#00f0ff"/>
-                                    <stop offset="100%" style="stop-color:#ff00d4"/>
-                                </linearGradient>
-                            </defs>
-                            <polygon points="50,10 85,32 85,68 50,90 15,68 15,32" fill="none" stroke="url(#smallLogoGrad)" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="10" fill="url(#smallLogoGrad)"/>
-                        </svg>
-                    </div>
-                    <div class="small-brand">
-                        <h3>NEXAVERSE</h3>
-                        <p>Digital Excellence</p>
-                    </div>
-                </div>
-                <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
-                
-                <!-- Hero Banner -->
-                <div class="intro-hero">
-                    <div class="intro-hero-content">
-                        <span class="intro-badge">Est. 2020</span>
-                        <h1 class="intro-headline">We Build Digital<br><span>Experiences</span> That Matter</h1>
-                        <p class="intro-subtext">Transforming visionary ideas into powerful digital realities through cutting-edge technology and creative excellence.</p>
-                        <div class="intro-cta-group">
-                            <button class="intro-cta-primary">Explore Our Work</button>
-                            <button class="intro-cta-secondary">Watch Showreel</button>
-                        </div>
-                    </div>
-                    <div class="intro-hero-visual">
-                        <div class="intro-floating-card card-1">
-                            <span class="card-icon">⚡</span>
-                            <span class="card-text">Lightning Fast</span>
-                        </div>
-                        <div class="intro-floating-card card-2">
-                            <span class="card-icon">🎯</span>
-                            <span class="card-text">Pixel Perfect</span>
-                        </div>
-                        <div class="intro-floating-card card-3">
-                            <span class="card-icon">🔒</span>
-                            <span class="card-text">Secure & Reliable</span>
-                        </div>
-                        <div class="intro-orb"></div>
-                    </div>
-                </div>
-
-                <!-- Metrics Strip -->
-                <div class="intro-metrics">
-                    <div class="metric-item">
-                        <span class="metric-value" data-target="500">0</span>
-                        <span class="metric-label">Projects Delivered</span>
-                    </div>
-                    <div class="metric-divider"></div>
-                    <div class="metric-item">
-                        <span class="metric-value" data-target="98">0</span>
-                        <span class="metric-suffix">%</span>
-                        <span class="metric-label">Client Retention</span>
-                    </div>
-                    <div class="metric-divider"></div>
-                    <div class="metric-item">
-                        <span class="metric-value" data-target="12">0</span>
-                        <span class="metric-label">Industry Awards</span>
-                    </div>
-                    <div class="metric-divider"></div>
-                    <div class="metric-item">
-                        <span class="metric-value">24/7</span>
-                        <span class="metric-label">Global Support</span>
-                    </div>
-                </div>
-
-                <!-- Core Values -->
-                <div class="intro-values">
-                    <div class="value-card">
-                        <div class="value-number">01</div>
-                        <h3>Innovation First</h3>
-                        <p>We embrace emerging technologies and push creative boundaries to deliver solutions that set new industry standards.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-number">02</div>
-                        <h3>Human-Centered</h3>
-                        <p>Every pixel, every interaction is designed with real users in mind. We create experiences people genuinely love.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-number">03</div>
-                        <h3>Results Driven</h3>
-                        <p>Beautiful design meets measurable impact. We track, iterate, and optimize for outcomes that matter to your business.</p>
-                    </div>
-                </div>
-
-                <!-- Tech Stack Preview -->
-                <div class="intro-tech">
-                    <p class="tech-label">Technologies We Master</p>
-                    <div class="tech-marquee">
-                        <div class="tech-track">
-                            <span class="tech-item">React</span>
-                            <span class="tech-item">Next.js</span>
-                            <span class="tech-item">Node.js</span>
-                            <span class="tech-item">Python</span>
-                            <span class="tech-item">TensorFlow</span>
-                            <span class="tech-item">AWS</span>
-                            <span class="tech-item">Flutter</span>
-                            <span class="tech-item">Figma</span>
-                            <span class="tech-item">React</span>
-                            <span class="tech-item">Next.js</span>
-                            <span class="tech-item">Node.js</span>
-                            <span class="tech-item">Python</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Services Section -->
-            <div class="content-section" id="services">
-                <div class="section-header-small">
-                    <div class="small-logo">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="smallLogoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#00f0ff"/>
-                                    <stop offset="100%" style="stop-color:#ff00d4"/>
-                                </linearGradient>
-                            </defs>
-                            <polygon points="50,10 85,32 85,68 50,90 15,68 15,32" fill="none" stroke="url(#smallLogoGrad2)" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="10" fill="url(#smallLogoGrad2)"/>
-                        </svg>
-                    </div>
-                    <div class="small-brand">
-                        <h3>NEXAVERSE</h3>
-                        <p>Digital Excellence</p>
-                    </div>
-                </div>
-                <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
-
-                <div class="section-header">
-                    <h2 class="section-title">Our Services</h2>
-                    <p class="section-subtitle">Comprehensive solutions for the digital age</p>
-                </div>
-
-                <div class="tabs-container">
-                    <div class="tab-buttons">
-                        <button class="tab-btn active" onclick="switchTab(this, 'development')">Development</button>
-                        <button class="tab-btn" onclick="switchTab(this, 'design')">Design</button>
-                        <button class="tab-btn" onclick="switchTab(this, 'consulting')">Consulting</button>
-                        <button class="tab-btn" onclick="switchTab(this, 'support')">Support</button>
-                    </div>
-
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="development">
-                            <div class="services-list">
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/ai-optimized-templates.jpg" alt="AI Development">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>AI Development</h4>
-                                        <p>Custom AI solutions powered by machine learning and neural networks for intelligent automation and predictive analytics.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/coding-screen.jpg" alt="Web Applications">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>Web Applications</h4>
-                                        <p>Responsive, scalable web apps built with modern frameworks like React, Vue, and Next.js for optimal performance.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/ai-mobile-app.jpg" alt="Mobile Apps">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>Mobile Apps</h4>
-                                        <p>Native and cross-platform mobile solutions for iOS and Android that deliver seamless user experiences.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane" id="design">
-                            <div class="services-list">
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/design-screen.jpg" alt="UX/UI Design">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>UX/UI Design</h4>
-                                        <p>Beautiful, intuitive interfaces that delight users and drive engagement through research-backed design principles.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/brand-identity.jpg" alt="Brand Identity">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>Brand Identity</h4>
-                                        <p>Complete brand packages including logos, typography, color systems, and comprehensive brand guidelines.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/motion-design.jpg" alt="Motion Design">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>Motion Design</h4>
-                                        <p>Engaging animations and interactive experiences that bring your digital products to life.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane" id="consulting">
-                            <div class="services-list">
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/digital-strategy.jpg" alt="Digital Strategy">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>Digital Strategy</h4>
-                                        <p>Strategic planning for digital transformation initiatives that align technology with business objectives.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/tech-audit.jpg" alt="Technology Audit">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>Technology Audit</h4>
-                                        <p>Comprehensive assessment of your tech infrastructure to identify opportunities and optimize performance.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/process-optimized.jpg" alt="Process Optimization">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>Process Optimization</h4>
-                                        <p>Streamline workflows with automation and best practices for maximum efficiency and productivity.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane" id="support">
-                            <div class="services-list">
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/247-support.jpg" alt="24/7 Support">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>24/7 Support</h4>
-                                        <p>Round-the-clock technical assistance and maintenance to keep your systems running smoothly.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/training-center.jpg" alt="Training">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>Training & Workshops</h4>
-                                        <p>Empower your team with expert-led training sessions tailored to your technology stack.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                                <div class="service-row">
-                                    <div class="service-row-icon">
-                                        <img src="images/managed-service.jpg" alt="Managed Services">
-                                    </div>
-                                    <div class="service-row-content">
-                                        <h4>Managed Services</h4>
-                                        <p>End-to-end management of your digital infrastructure for worry-free operations.</p>
-                                    </div>
-                                    <div class="service-row-arrow">→</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Section -->
-            <div class="content-section" id="gallery">
-                <div class="section-header-small">
-                    <div class="small-logo">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="smallLogoGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#00f0ff"/>
-                                    <stop offset="100%" style="stop-color:#ff00d4"/>
-                                </linearGradient>
-                            </defs>
-                            <polygon points="50,10 85,32 85,68 50,90 15,68 15,32" fill="none" stroke="url(#smallLogoGrad3)" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="10" fill="url(#smallLogoGrad3)"/>
-                        </svg>
-                    </div>
-                    <div class="small-brand">
-                        <h3>NEXAVERSE</h3>
-                        <p>Digital Excellence</p>
-                    </div>
-                </div>
-                <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
-
-                <div class="section-header">
-                    <h2 class="section-title">Our Portfolio</h2>
-                    <p class="section-subtitle">Explore our latest works</p>
-                </div>
-
-                <div class="filter-buttons">
-                    <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
-                    <button class="filter-btn" onclick="filterGallery('web', this)">Web</button>
-                    <button class="filter-btn" onclick="filterGallery('mobile', this)">Mobile</button>
-                    <button class="filter-btn" onclick="filterGallery('branding', this)">Branding</button>
-                </div>
-
-                <div class="gallery-grid">
-                    <div class="gallery-item" data-category="web">
-                        <img src="images/coding-screen.jpg" alt="Project 1">
-                        <div class="gallery-overlay">
-                            <h4>E-Commerce Platform</h4>
-                            <p>Web Development</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-category="mobile">
-                        <img src="images/ai-mobile-app.jpg" alt="Project 2">
-                        <div class="gallery-overlay">
-                            <h4>Fitness App</h4>
-                            <p>Mobile Development</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-category="branding">
-                        <img src="images/brand-identity.jpg" alt="Project 3">
-                        <div class="gallery-overlay">
-                            <h4>Brand Identity</h4>
-                            <p>Design & Branding</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-category="web">
-                        <img src="images/managed-service.jpg" alt="Project 4">
-                        <div class="gallery-overlay">
-                            <h4>Analytics Dashboard</h4>
-                            <p>Web Application</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-category="mobile">
-                        <img src="images/ai-optimized-templates.jpg" alt="Project 5">
-                        <div class="gallery-overlay">
-                            <h4>Banking App</h4>
-                            <p>Mobile Development</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-category="branding">
-                        <img src="images/digital-strategy.jpg" alt="Project 6">
-                        <div class="gallery-overlay">
-                            <h4>Startup Branding</h4>
-                            <p>Design & Identity</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonials Section -->
-            <div class="content-section" id="testimonials">
-                <div class="section-header-small">
-                    <div class="small-logo">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="smallLogoGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#00f0ff"/>
-                                    <stop offset="100%" style="stop-color:#ff00d4"/>
-                                </linearGradient>
-                            </defs>
-                            <polygon points="50,10 85,32 85,68 50,90 15,68 15,32" fill="none" stroke="url(#smallLogoGrad4)" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="10" fill="url(#smallLogoGrad4)"/>
-                        </svg>
-                    </div>
-                    <div class="small-brand">
-                        <h3>NEXAVERSE</h3>
-                        <p>Digital Excellence</p>
-                    </div>
-                </div>
-                <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
-
-                <div class="section-header">
-                    <h2 class="section-title">Client Stories</h2>
-                    <p class="section-subtitle">What our clients say about us</p>
-                </div>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">Working with NexaVerse transformed our digital presence. Their innovative approach and attention to detail exceeded our expectations at every turn.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Client 1">
-                            </div>
-                            <div class="author-info">
-                                <h5>Michael Chen</h5>
-                                <p>CEO, TechVentures</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">The team's expertise in UX design helped us create an app that our users absolutely love. Our engagement metrics have increased by 200%.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Client 2">
-                            </div>
-                            <div class="author-info">
-                                <h5>Sarah Johnson</h5>
-                                <p>Product Director, InnovateCo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">From strategy to execution, NexaVerse delivered exceptional results. Their commitment to quality is unmatched in the industry.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop" alt="Client 3">
-                            </div>
-                            <div class="author-info">
-                                <h5>David Park</h5>
-                                <p>Founder, StartupHub</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">The AI solutions they built for us have revolutionized our operations. We've seen a 40% increase in efficiency since implementation.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Client 4">
-                            </div>
-                            <div class="author-info">
-                                <h5>Emily Zhang</h5>
-                                <p>COO, DataFlow Inc</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- About Section -->
-            <div class="content-section" id="about">
-                <div class="section-header-small">
-                    <div class="small-logo">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="smallLogoGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#00f0ff"/>
-                                    <stop offset="100%" style="stop-color:#ff00d4"/>
-                                </linearGradient>
-                            </defs>
-                            <polygon points="50,10 85,32 85,68 50,90 15,68 15,32" fill="none" stroke="url(#smallLogoGrad5)" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="10" fill="url(#smallLogoGrad5)"/>
-                        </svg>
-                    </div>
-                    <div class="small-brand">
-                        <h3>NEXAVERSE</h3>
-                        <p>Digital Excellence</p>
-                    </div>
-                </div>
-                <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
-
-                <div class="section-header">
-                    <h2 class="section-title">About Us</h2>
-                    <p class="section-subtitle">Our story, mission, and values</p>
-                </div>
-
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Pioneering Digital Innovation</h3>
-                        <p>Founded in 2020, NexaVerse has grown from a small team of passionate developers into a leading digital agency. We believe in pushing boundaries and creating solutions that make a real difference.</p>
-                        <p>Our diverse team brings together expertise from design, development, AI, and strategy to deliver holistic solutions that drive business growth and user engagement.</p>
-                        <p>We're not just building products – we're shaping the future of digital experiences.</p>
-                        <p>Discover AI-optimized web templates from <a href="https://templatemo.com" rel="nofollow" target="_blank">TemplateMo</a>. Maximize efficiency with the timer platform at <a href="https://timermo.com" rel="nofollow" target="_blank">TimerMo</a>. Design like a pro using vector stickers from <a href="https://www.vectorsticker.com" rel="nofollow" target="_blank">VectorSticker</a>.</p>
-                    </div>
-                    <div class="about-image">
-                        <img src="images/about-our-team.jpg" alt="Our Team">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Section -->
-            <div class="content-section" id="contact">
-                <div class="section-header-small">
-                    <div class="small-logo">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="smallLogoGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#00f0ff"/>
-                                    <stop offset="100%" style="stop-color:#ff00d4"/>
-                                </linearGradient>
-                            </defs>
-                            <polygon points="50,10 85,32 85,68 50,90 15,68 15,32" fill="none" stroke="url(#smallLogoGrad6)" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="10" fill="url(#smallLogoGrad6)"/>
-                        </svg>
-                    </div>
-                    <div class="small-brand">
-                        <h3>NEXAVERSE</h3>
-                        <p>Digital Excellence</p>
-                    </div>
-                </div>
-                <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
-
-                <div class="section-header">
-                    <h2 class="section-title">Get in Touch</h2>
-                    <p class="section-subtitle">Let's create something amazing together</p>
-                </div>
-
-                <div class="contact-grid">
-                    <div class="contact-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message"></textarea>
-                        </div>
-                        <button class="submit-btn">Send Message</button>
-                    </div>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-details">
-                                <h4>Location</h4>
-                                <p>123 Innovation Drive, San Francisco, CA 94107</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-details">
-                                <h4>Email</h4>
-                                <p>hello@nexaverse.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-details">
-                                <h4>Phone</h4>
-                                <p>+1 (555) 123-4567</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer" id="mainFooter">
-            <p>© 2026 NexaVerse. Crafted with passion. Design by <a href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-        </footer>
+    <div class="portrait reveal">
+      <img src="data:image/jpeg;base64,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" alt="Siddhant Shah">
+      <div class="portrait-cap">Kathmandu, NP — 2026</div>
     </div>
-<script src="templatemo-nexa-scripts.js"></script>
+
+    <div class="scroll-cue"><span class="ln"></span> SCROLL</div>
+  </div>
+</section>
+
+<!-- 01 ABOUT -->
+<section class="pad" id="about">
+  <div class="wrap">
+    <div class="sec-num reveal">01 — About <span class="cmdtag">// $ cat about.md</span></div>
+    <h2 class="sec-title reveal">Why I'm doing this</h2>
+    <div class="body-text reveal">
+      <p>I picked Python as the main thing to get good at, and I split my time evenly
+      between two directions on purpose — <b>FastAPI on the backend</b> and
+      <b>data/ML on the other side</b> — because I don't want to be a developer who's
+      scared of a model, or a model tinkerer who can't ship an API.</p>
+      <p>Before any of this was coursework, it was curiosity: quantization, LoRA, GGUF
+      files, running models locally with Ollama, poking at how a small LLM gets trained
+      from scratch. That head start is why the ML side isn't intimidating — it's
+      familiar ground I'm now learning to formalize properly.</p>
+      <p>The goal is concrete, not vague ambition: an internship at a Kathmandu or
+      Lalitpur-based team — <b>Leapfrog, Fusemachines, Cotiviti, CloudFactory, Locus</b> —
+      within six months of starting from zero.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 FOCUS -->
+<section class="pad" id="focus">
+  <div class="wrap">
+    <div class="sec-num reveal">02 — Focus <span class="cmdtag">// $ ls focus/</span></div>
+    <h2 class="sec-title reveal">What I'm drawn to, and what I'm learning right now</h2>
+    <div class="two-col reveal">
+      <div class="col">
+        <h3>Drawn to</h3>
+        <ul class="plain-list">
+          <li>Backend Engineering</li>
+          <li>FastAPI &amp; APIs</li>
+          <li>Data &amp; Machine Learning</li>
+          <li>Local LLMs &amp; Inference</li>
+          <li>Short-form Content &amp; AI Video</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Currently learning</h3>
+        <ul class="plain-list">
+          <li>Python Fundamentals</li>
+          <li>FastAPI &amp; REST APIs</li>
+          <li>Pandas &amp; NumPy</li>
+          <li>Applied ML Foundations</li>
+          <li>Git &amp; Version Control</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 LONG TERM -->
+<section class="pad" id="longterm">
+  <div class="wrap">
+    <div class="sec-num reveal">03 — Long-term <span class="cmdtag">// $ cat goals.md</span></div>
+    <div class="body-text reveal">
+      <p>I want to be genuinely useful on a real engineering team within the year —
+      not just able to follow a tutorial, but able to <em>ship</em> something a team
+      relies on. Kathmandu's tech scene is small enough that showing up consistently
+      and building in public actually gets noticed, and that's the bet I'm making.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TOOLKIT -->
+<section class="pad" id="toolkit">
+  <div class="wrap">
+    <div class="sec-num reveal">04 — Toolkit <span class="cmdtag">// $ ls toolkit/</span></div>
+    <h2 class="sec-title reveal">What I build with</h2>
+    <div class="tool-grid reveal">
+      <div class="tool-col">
+        <h3>Programming</h3>
+        <ul><li>Python</li><li>C</li><li>C++</li></ul>
+      </div>
+      <div class="tool-col">
+        <h3>Web &amp; Mobile</h3>
+        <ul><li>React Native</li><li>Expo</li><li>HTML / CSS / JS</li></ul>
+      </div>
+      <div class="tool-col">
+        <h3>ML &amp; Local Inference</h3>
+        <ul><li>LoRA</li><li>GGUF</li><li>Ollama</li><li>Unsloth</li></ul>
+      </div>
+      <div class="tool-col">
+        <h3>Tools</h3>
+        <ul><li>Git</li><li>GitHub</li><li>FastAPI</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PROJECTS -->
+<section class="pad" id="projects">
+  <div class="wrap">
+    <div class="sec-num reveal">05 — Projects <span class="cmdtag">// $ ls -la projects/</span></div>
+    <h2 class="sec-title reveal">Things I've actually built</h2>
+
+    <div class="proj reveal">
+      <div class="proj-tag">P.01 — Full-stack · React Native + FastAPI</div>
+      <h3>Caesar Cipher App</h3>
+      <p>A React Native + Expo front end talking to a FastAPI backend doing the actual
+      cipher work — built and debugged end-to-end on web, plus a fair share of
+      Windows dev-environment troubleshooting along the way.</p>
+      <div class="proj-chips"><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">FastAPI</span><span class="chip">Python</span></div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-tag">P.02 — Iterated project · C / React / GTK</div>
+      <h3>Bus Ticket Management System</h3>
+      <p>The same idea, rebuilt three times as my skills grew — a running lesson in what
+      changes when you swap the stack under a product.</p>
+      <div class="commitlog">
+        <div><b>v1</b> — terminal app in C, core booking logic</div>
+        <div><b>v2</b> — rebuilt as a React web app, added a real UI</div>
+        <div><b>v3</b> — rebuilt again in GTK as a native desktop app</div>
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-tag">P.03 — Academic · C</div>
+      <h3>Library Management System</h3>
+      <p>My first real submission-grade project — first-semester C, written with heavy
+      annotation and a beginner-friendly structure so it doubles as a study reference.</p>
+      <div class="proj-chips"><span class="chip">C</span><span class="chip">Academic</span></div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-tag">P.04 — Single-file · HTML/CSS/JS</div>
+      <h3>CEE Chemistry Quiz App</h3>
+      <p>200 questions on the Alcohol chapter, split into 10 timed sets — a single
+      self-contained HTML file with a dark UI and results that auto-download when
+      you finish.</p>
+      <div class="proj-chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span></div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-tag">P.05 — Academic tooling · Python</div>
+      <h3>Digital Logic (CSC111) Solved Notes</h3>
+      <p>Compiled and solved past Tribhuvan University exam papers into a clean DOCX,
+      using a PDF-rasterization pipeline to pull questions straight from scanned papers.</p>
+      <div class="proj-chips"><span class="chip">Python</span><span class="chip">DOCX</span></div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-tag">P.06 — Academic · 30 slides × 2</div>
+      <h3>Cryptography Presentation Decks</h3>
+      <p>Two 30-slide academic decks — general cryptography and digital signatures —
+      generated programmatically, each with its own visual palette and coverage
+      running through post-quantum standards.</p>
+      <div class="proj-chips"><span class="chip">Research</span><span class="chip">Slides</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CONTENT -->
+<section class="pad" id="content">
+  <div class="wrap">
+    <div class="sec-num reveal">06 — Off the Terminal <span class="cmdtag">// $ open feed/</span></div>
+    <h2 class="sec-title reveal">The other half of the work</h2>
+    <p class="reveal" style="color:#cfcfca;font-size:15.5px;line-height:1.75;margin:-10px 0 30px;">
+      Outside the codebase, I make short-form video for Reels and Shorts —
+      increasingly using AI generation tools as part of the production pipeline,
+      not just the topic.
+    </p>
+    <div class="feed reveal">
+      <div class="feed-card">
+        <div class="feed-tag">FORMAT</div>
+        <h4>Reels &amp; Shorts</h4>
+        <p>Short-form educational content built for fast-scroll platforms — tight hooks, tighter runtimes.</p>
+      </div>
+      <div class="feed-card">
+        <div class="feed-tag">PIPELINE</div>
+        <h4>AI-generated video</h4>
+        <p>Cinematic prompt-writing for tools like Sora, Runway, Kling and Pika, treating the prompt as a script.</p>
+      </div>
+      <div class="feed-card">
+        <div class="feed-tag">EXAMPLE</div>
+        <h4>Hindi health explainer</h4>
+        <p>A Hindi-language short on the health benefits of guava, scripted and shot entirely through generative prompts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 PATH -->
+<section class="pad" id="path">
+  <div class="wrap">
+    <div class="sec-num reveal">07 — Path <span class="cmdtag">// $ cat roadmap.md</span></div>
+    <h2 class="sec-title reveal">Education &amp; the six-month plan</h2>
+
+    <div class="tl-item reveal">
+      <div class="tl-date">2026 — Present</div>
+      <div class="tl-body">
+        <h4>Tribhuvan University</h4>
+        <span>BSc CSIT — currently second semester, Kathmandu</span>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-date">Jun 2026</div>
+      <div class="tl-body">
+        <h4>Started from zero in Python</h4>
+        <span>2–3 hrs/day, split evenly across two tracks</span>
+        <p>Backend track: Python fundamentals → REST APIs with FastAPI → auth, databases, deployment.
+        Data/ML track: Python for data → pandas/numpy → applied ML foundations.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-date">Dec 2026</div>
+      <div class="tl-body">
+        <h4>Target: internship-ready</h4>
+        <span>Applying to Kathmandu &amp; Lalitpur teams</span>
+        <p>Leapfrog, Fusemachines, Cotiviti, CloudFactory, Locus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="pad" id="contact">
+  <div class="wrap">
+    <div class="sec-num reveal">08 — Contact <span class="cmdtag">// $ ./reach_out.sh</span></div>
+    <h2 class="contact-title reveal">Let's talk, if it's <em>worth</em> talking about.</h2>
+    <div class="contact-links reveal">
+      <a class="clink" href="mailto:your.email@example.com">Email <span class="arrow">→</span></a>
+      <a class="clink" href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub <span class="arrow">→</span></a>
+      <a class="clink" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn <span class="arrow">→</span></a>
+      <a class="clink" href="https://www.facebook.com/siddhant.shah.923159" target="_blank" rel="noopener">Facebook <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Siddhant Shah — Kathmandu, Nepal</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+  },{threshold:0.12});
+  els.forEach(el=>io.observe(el));
+</script>
+
 </body>
 </html>
