@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — siddhant.sh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  (function(){
+    var saved = localStorage.getItem('theme');
+    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
+  })();
+</script>
+<style>
+  :root[data-theme="dark"]{
+    --bg:#0b0b0b; --fg:#efeeea; --gray:#8c8c88; --gray-dim:#59594f;
+    --line:rgba(239,238,234,0.13); --line-strong:rgba(239,238,234,0.32);
+    --surface:#141413;
+  }
+  :root[data-theme="light"]{
+    --bg:#fbfbfa; --fg:#0b0b0b; --gray:#63635e; --gray-dim:#9a9a94;
+    --line:rgba(11,11,11,0.12); --line-strong:rgba(11,11,11,0.30);
+    --surface:#f0f0ee;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;transition:background .25s ease,color .25s ease;}
+  a{color:inherit;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb, var(--bg) 85%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:920px;margin:0 auto;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;}
+  .nav-brand{font-family:'JetBrains Mono',monospace;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:2px;}
+  .nav-brand .prompt{color:var(--gray);}
+  .nav-brand .path{color:var(--fg);font-weight:600;}
+  .nav-brand .blk{display:inline-block;width:8px;height:15px;background:var(--fg);margin-left:3px;animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  nav.links{display:flex;gap:22px;font-size:13px;}
+  nav.links a{text-decoration:none;color:var(--gray);transition:color .2s;}
+  nav.links a:hover,nav.links a:focus-visible{color:var(--fg);}
+  @media (max-width:640px){nav.links{display:none;}}
+  .nav-div{width:1px;height:18px;background:var(--line-strong);}
+  .theme-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--fg);background:linear-gradient(90deg, var(--fg) 50%, transparent 50%);cursor:pointer;padding:0;}
+
+  .page-head{padding:140px 0 40px;border-bottom:1px solid var(--line);}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--gray);letter-spacing:0.05em;margin-bottom:18px;}
+  h1.title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,6vw,54px);margin:0 0 16px;letter-spacing:-0.01em;}
+  .page-head p{color:var(--gray);font-size:16px;max-width:520px;line-height:1.7;}
+
+  section.pad{padding:60px 0;}
+  .proj{border-top:1px solid var(--line);padding:38px 0;}
+  .proj:first-of-type{border-top:none;}
+  .proj-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);margin-bottom:10px;}
+  .proj h3{font-family:'Fraunces',serif;font-weight:500;font-size:23px;margin:0 0 12px;}
+  .proj p{color:var(--gray);font-size:15px;line-height:1.75;margin:0 0 16px;max-width:600px;}
+  .proj-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:11.5px;border:1px solid var(--line-strong);padding:5px 10px;color:var(--gray);}
+  .commitlog{margin:14px 0 16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;border-left:2px solid var(--line-strong);padding-left:16px;}
+  .commitlog div{color:var(--gray);margin-bottom:6px;}
+  .commitlog div b{color:var(--fg);font-weight:600;}
+  .proj-link{
+    font-family:'JetBrains Mono',monospace;font-size:13px;text-decoration:none;
+    border-bottom:1px solid var(--line-strong);padding-bottom:2px;color:var(--fg);
+  }
+  .proj-link:hover{border-color:var(--fg);}
+
+  .back{display:inline-flex;gap:8px;font-family:'JetBrains Mono',monospace;font-size:13.5px;text-decoration:none;color:var(--gray);margin-top:10px;}
+  .back:hover{color:var(--fg);}
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-dim);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="prompt">&gt; $</span>&nbsp;<span class="path">cd /home/siddhant</span><span class="blk"></span></a>
+    <div class="nav-right">
+      <nav class="links">
+        <a href="index.html#about">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-div"></div>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme"></button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">// $ ls -la projects/</div>
+    <h1 class="title">Things I've actually built</h1>
+    <p>Six projects, from first-semester C to a full-stack app. Each entry has room
+    for a live link — drop your repo or demo URL into the placeholders below.</p>
+  </div>
+</div>
+
+<section class="pad">
+  <div class="wrap">
+
+    <div class="proj">
+      <div class="proj-tag">P.01 — Full-stack · React Native + FastAPI</div>
+      <h3>Caesar Cipher App</h3>
+      <p>A React Native + Expo front end talking to a FastAPI backend doing the actual
+      cipher work — built and debugged end-to-end on web, plus a fair share of
+      Windows dev-environment troubleshooting along the way.</p>
+      <div class="proj-chips"><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">FastAPI</span><span class="chip">Python</span></div>
+      <a class="proj-link" href="https://github.com/yourusername/caesar-cipher-app" target="_blank" rel="noopener">View repo →</a>
+    </div>
+
+    <div class="proj">
+      <div class="proj-tag">P.02 — Iterated project · C / React / GTK</div>
+      <h3>Bus Ticket Management System</h3>
+      <p>The same idea, rebuilt three times as my skills grew — a running lesson in what
+      changes when you swap the stack under a product.</p>
+      <div class="commitlog">
+        <div><b>v1</b> — terminal app in C, core booking logic</div>
+        <div><b>v2</b> — rebuilt as a React web app, added a real UI</div>
+        <div><b>v3</b> — rebuilt again in GTK as a native desktop app</div>
+      </div>
+      <a class="proj-link" href="https://github.com/yourusername/bus-ticket-system" target="_blank" rel="noopener">View repo →</a>
+    </div>
+
+    <div class="proj">
+      <div class="proj-tag">P.03 — Academic · C</div>
+      <h3>Library Management System</h3>
+      <p>My first real submission-grade project — first-semester C, written with heavy
+      annotation and a beginner-friendly structure so it doubles as a study reference.</p>
+      <div class="proj-chips"><span class="chip">C</span><span class="chip">Academic</span></div>
+      <a class="proj-link" href="https://github.com/yourusername/library-management-system" target="_blank" rel="noopener">View repo →</a>
+    </div>
+
+    <div class="proj">
+      <div class="proj-tag">P.04 — Single-file · HTML/CSS/JS</div>
+      <h3>CEE Chemistry Quiz App</h3>
+      <p>200 questions on the Alcohol chapter, split into 10 timed sets — a single
+      self-contained HTML file with a dark UI and results that auto-download when
+      you finish.</p>
+      <div class="proj-chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span></div>
+      <a class="proj-link" href="#" target="_blank" rel="noopener">View demo →</a>
+    </div>
+
+    <div class="proj">
+      <div class="proj-tag">P.05 — Academic tooling · Python</div>
+      <h3>Digital Logic (CSC111) Solved Notes</h3>
+      <p>Compiled and solved past Tribhuvan University exam papers into a clean DOCX,
+      using a PDF-rasterization pipeline to pull questions straight from scanned papers.</p>
+      <div class="proj-chips"><span class="chip">Python</span><span class="chip">DOCX</span></div>
+      <a class="proj-link" href="#" target="_blank" rel="noopener">View notes →</a>
+    </div>
+
+    <div class="proj">
+      <div class="proj-tag">P.06 — Academic · 30 slides × 2</div>
+      <h3>Cryptography Presentation Decks</h3>
+      <p>Two 30-slide academic decks — general cryptography and digital signatures —
+      generated programmatically, each with its own visual palette and coverage
+      running through post-quantum standards.</p>
+      <div class="proj-chips"><span class="chip">Research</span><span class="chip">Slides</span></div>
+      <a class="proj-link" href="#" target="_blank" rel="noopener">View slides →</a>
+    </div>
+
+    <a class="back" href="index.html">← back home</a>
+  </div>
+</section>
+
+<footer>© 2026 Siddhant Shah — Kathmandu, Nepal</footer>
+
+<script>
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeToggle');
+  function currentTheme(){ return root.getAttribute('data-theme') || 'dark'; }
+  themeBtn.addEventListener('click', ()=>{
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>
+
+</body>
+</html>
