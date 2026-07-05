@@ -252,7 +252,7 @@ for i in range(3):
     print(f"learning fastapi — day {i+1}")</textarea>
       </div>
       <div class="term-actions">
-        <span class="run-hint">this actually runs — powered by a public Python runtime</span>
+        <span class="run-hint">this actually runs — real Python, in your browser</span>
         <button class="run-btn" id="runBtn">Run ▶</button>
       </div>
       <div class="term-output mono" id="pyOutput">// output will show up here</div>
@@ -486,32 +486,43 @@ for i in range(3):
     localStorage.setItem('theme', next);
   });
 
-  // live python terminal (Piston public API)
+  // live python terminal — real CPython running in-browser via Pyodide (WebAssembly)
   const runBtn = document.getElementById('runBtn');
   const pyInput = document.getElementById('pyInput');
   const pyOutput = document.getElementById('pyOutput');
 
+  let pyodideReady = null;
+  function loadPyodideOnce(){
+    if(pyodideReady) return pyodideReady;
+    pyodideReady = new Promise((resolve, reject)=>{
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js';
+      s.onload = async ()=>{
+        try{ resolve(await loadPyodide()); } catch(e){ reject(e); }
+      };
+      s.onerror = ()=>reject(new Error('failed to load runtime script'));
+      document.head.appendChild(s);
+    });
+    return pyodideReady;
+  }
+
   async function runPython(){
     runBtn.disabled = true;
-    runBtn.textContent = 'Running…';
-    pyOutput.textContent = '';
     pyOutput.classList.remove('has-output');
+    let out = '';
     try{
-      const res = await fetch('https://emkc.org/api/v2/piston/execute', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({
-          language: 'python',
-          version: '3.10.0',
-          files: [{ content: pyInput.value }]
-        })
-      });
-      const data = await res.json();
-      const out = data && data.run ? (data.run.output || data.run.stderr || '(no output)') : 'Unexpected response from runtime.';
-      pyOutput.textContent = out;
+      runBtn.textContent = 'Loading…';
+      pyOutput.textContent = 'booting a real Python runtime (first run only)…';
+      const py = await loadPyodideOnce();
+      runBtn.textContent = 'Running…';
+      py.setStdout({ batched: (s)=>{ out += s + '\n'; } });
+      py.setStderr({ batched: (s)=>{ out += s + '\n'; } });
+      await py.runPythonAsync(pyInput.value);
+      pyOutput.textContent = out || '(no output)';
       pyOutput.classList.add('has-output');
     }catch(err){
-      pyOutput.textContent = 'Could not reach the Python runtime — check your connection. (' + err.message + ')';
+      pyOutput.textContent = (out ? out + '\n' : '') + 'Error: ' + err.message;
+      pyOutput.classList.add('has-output');
     }finally{
       runBtn.disabled = false;
       runBtn.textContent = 'Run ▶';
