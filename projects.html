@@ -130,6 +130,83 @@
   .no-results{display:none;text-align:center;padding:60px 0;font-family:'JetBrains Mono',monospace;color:var(--gray);font-size:13.5px;}
   .no-results.show{display:block;}
 
+  /* ── Online Compiler ── */
+  .compiler{border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);padding:26px 28px;margin:34px 0;}
+  .compiler-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
+  .compiler-title{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;}
+  .compiler-sub{color:var(--gray);font-size:13.5px;line-height:1.6;margin:4px 0 18px;max-width:640px;}
+  .compiler-sub code{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:12px;}
+  .gear-btn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line-strong);background:transparent;color:var(--gray);cursor:pointer;font-size:14px;flex-shrink:0;transition:all .15s;}
+  .gear-btn:hover{color:var(--fg);border-color:var(--fg);}
+
+  .lang-tabs{display:flex;gap:8px;margin-bottom:14px;}
+  .lang-tab{font-family:'JetBrains Mono',monospace;font-size:12.5px;border:1px solid var(--line-strong);background:transparent;color:var(--gray);padding:7px 16px;border-radius:20px;cursor:pointer;transition:all .15s ease;}
+  .lang-tab:hover{color:var(--fg);border-color:var(--fg);}
+  .lang-tab.active{background:var(--fg);color:var(--bg);border-color:var(--fg);}
+
+  .compiler-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+  .filename-input{
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--bg);
+    border:1px solid var(--line-strong);border-radius:6px;padding:7px 10px;color:var(--fg);
+    outline:none;min-width:160px;
+  }
+  .filename-input:focus{border-color:var(--fg);}
+  .toolbar-spacer{flex:1;}
+  .tbtn{
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;border:1px solid var(--line-strong);
+    background:transparent;color:var(--fg);padding:8px 16px;border-radius:6px;cursor:pointer;
+    transition:all .15s ease;display:inline-flex;align-items:center;gap:6px;
+  }
+  .tbtn:hover{border-color:var(--fg);}
+  .tbtn.primary{background:var(--green);color:#08130b;border-color:var(--green);font-weight:700;}
+  .tbtn.primary:hover{opacity:.88;}
+  .tbtn.primary:disabled{opacity:.5;cursor:not-allowed;}
+  .tbtn:disabled{opacity:.5;cursor:not-allowed;}
+
+  .code-editor{
+    width:100%;min-height:220px;resize:vertical;
+    background:var(--bg);color:var(--fg);border:1px solid var(--line-strong);border-radius:8px;
+    font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;padding:14px 16px;
+    outline:none;tab-size:4;white-space:pre;overflow:auto;
+  }
+  .code-editor:focus{border-color:var(--fg);}
+
+  .stdin-wrap{margin-top:10px;}
+  .stdin-label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray-dim);margin-bottom:6px;display:block;}
+  .stdin-input{
+    width:100%;min-height:60px;resize:vertical;background:var(--bg);color:var(--fg);
+    border:1px solid var(--line);border-radius:8px;font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;padding:10px 12px;outline:none;
+  }
+  .stdin-input:focus{border-color:var(--fg);}
+
+  .run-status{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);margin:10px 0 4px;min-height:16px;}
+  .run-status.err{color:#e0685f;}
+  .run-status.ok{color:var(--green);}
+
+  .output-console{
+    margin-top:8px;background:var(--bg);border:1px solid var(--line);border-radius:8px;
+    padding:14px 16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.7;
+    white-space:pre-wrap;word-break:break-word;max-height:340px;overflow-y:auto;color:var(--gray-dim);font-style:italic;
+  }
+  .output-console.filled{color:var(--fg);font-style:normal;}
+  .output-console .stderr-line{color:#e0685f;}
+  .output-console .meta-line{color:var(--gray-dim);font-size:11.5px;margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);}
+
+  .settings-panel{
+    display:none;margin-top:14px;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--bg);
+  }
+  .settings-panel.open{display:block;}
+  .settings-row{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
+  .settings-row label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+  .settings-row input{
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--surface);
+    border:1px solid var(--line-strong);border-radius:6px;padding:8px 10px;color:var(--fg);outline:none;
+  }
+  .settings-row input:focus{border-color:var(--fg);}
+  .settings-note{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:12px;}
+  .settings-note a{text-decoration:underline;text-underline-offset:2px;}
+
   .back{display:inline-flex;gap:8px;font-family:'JetBrains Mono',monospace;font-size:13.5px;text-decoration:none;color:var(--gray);margin-top:30px;}
   .back:hover{color:var(--fg);}
   footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-dim);}
@@ -171,6 +248,57 @@
       <button class="filter-btn" data-filter="c">C</button>
       <button class="filter-btn" data-filter="cpp">C++</button>
       <button class="filter-btn" data-filter="embedded">Embedded</button>
+    </div>
+  </div>
+
+  <div class="compiler">
+    <div class="compiler-head">
+      <div class="compiler-title">🖥️ Online Compiler</div>
+      <button class="gear-btn" id="settingsToggle" title="API settings" aria-expanded="false">⚙</button>
+    </div>
+    <p class="compiler-sub">
+      Write C++ or Python, run it, and download the file — right from the browser, no install needed.
+      Execution is powered by a <a href="https://github.com/engineer-man/piston" target="_blank" rel="noopener">Piston-compatible</a> API.
+      Click ⚙ to point it at your own key/endpoint if the default one is rate-limited.
+    </p>
+
+    <div class="lang-tabs" id="langTabs">
+      <button class="lang-tab active" data-lang="cpp">C++</button>
+      <button class="lang-tab" data-lang="python">Python</button>
+    </div>
+
+    <div class="compiler-toolbar">
+      <input type="text" class="filename-input" id="filenameInput" value="main.cpp" spellcheck="false">
+      <div class="toolbar-spacer"></div>
+      <button class="tbtn" id="downloadBtn">⭳ Download</button>
+      <button class="tbtn primary" id="runBtn">▶ Run</button>
+    </div>
+
+    <textarea class="code-editor" id="codeEditor" spellcheck="false"></textarea>
+
+    <div class="stdin-wrap">
+      <span class="stdin-label">stdin (optional — one line per input() / cin call)</span>
+      <textarea class="stdin-input" id="stdinInput" placeholder="Input for your program, if it reads any…"></textarea>
+    </div>
+
+    <div class="run-status" id="runStatus"></div>
+    <div class="output-console" id="outputConsole">// output will appear here after you hit Run</div>
+
+    <div class="settings-panel" id="settingsPanel">
+      <p class="settings-note">
+        The public Piston API now requires an authorization key (ask on their Discord — see the
+        <a href="https://github.com/engineer-man/piston" target="_blank" rel="noopener">repo</a> — or self-host your own instance).
+        Enter your endpoint/key here; they're saved only in your browser's local storage, never sent anywhere but the API you specify.
+      </p>
+      <div class="settings-row">
+        <label for="apiBaseInput">API base URL</label>
+        <input type="text" id="apiBaseInput" placeholder="https://emkc.org/api/v2/piston">
+      </div>
+      <div class="settings-row">
+        <label for="apiKeyInput">Authorization header value (optional)</label>
+        <input type="text" id="apiKeyInput" placeholder="leave blank if your endpoint needs none">
+      </div>
+      <button class="tbtn" id="saveSettingsBtn">Save settings</button>
     </div>
   </div>
 </div>
@@ -1050,7 +1178,7 @@ void loop() {
               <span>▸ Output</span><span class="chevron">▾</span>
             </button>
             <div class="acc-panel" id="oop-output">
-              <pre class="acc-panel-inner output">Click view repo-> to see output</pre>
+              <pre class="acc-panel-inner output">// paste real program output here</pre>
             </div>
           </div>
         </div>
@@ -1241,6 +1369,224 @@ PS F:\sahsiddhant.com.np> </pre>
   searchInput.addEventListener('input', applyFilters);
 
   applyFilters();
+</script>
+
+<script>
+(function(){
+  // ── Config (persisted locally, never hard-coded with a real key) ──
+  const DEFAULT_API_BASE = 'https://emkc.org/api/v2/piston';
+  let apiBase = localStorage.getItem('compilerApiBase') || DEFAULT_API_BASE;
+  let apiKey  = localStorage.getItem('compilerApiKey')  || '';
+
+  // ── Starter snippets, kept independently per language ──
+  const STARTERS = {
+    cpp: `#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello from C++!" << endl;
+    return 0;
+}
+`,
+    python: `print("Hello from Python!")
+`
+  };
+
+  const FILE_META = {
+    cpp:    { ext: 'cpp',  filename: 'main.cpp',  pistonLang: 'c++',    label: 'C++'    },
+    python: { ext: 'py',   filename: 'main.py',   pistonLang: 'python', label: 'Python' }
+  };
+
+  const state = {
+    lang: 'cpp',
+    code: { cpp: STARTERS.cpp, python: STARTERS.python },
+    runtimeVersions: null // cached from /runtimes
+  };
+
+  // ── Elements ──
+  const codeEditor    = document.getElementById('codeEditor');
+  const filenameInput = document.getElementById('filenameInput');
+  const stdinInput    = document.getElementById('stdinInput');
+  const runBtn        = document.getElementById('runBtn');
+  const downloadBtn   = document.getElementById('downloadBtn');
+  const runStatus     = document.getElementById('runStatus');
+  const outputConsole = document.getElementById('outputConsole');
+  const langTabs      = document.querySelectorAll('.lang-tab');
+  const settingsToggle= document.getElementById('settingsToggle');
+  const settingsPanel = document.getElementById('settingsPanel');
+  const apiBaseInput  = document.getElementById('apiBaseInput');
+  const apiKeyInput   = document.getElementById('apiKeyInput');
+  const saveSettingsBtn = document.getElementById('saveSettingsBtn');
+
+  apiBaseInput.value = apiBase;
+  apiKeyInput.value  = apiKey;
+  codeEditor.value = state.code[state.lang];
+
+  // ── Language tab switching (keeps each language's code independently) ──
+  langTabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      state.code[state.lang] = codeEditor.value; // save current before switching
+      langTabs.forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      state.lang = tab.dataset.lang;
+      codeEditor.value = state.code[state.lang];
+      filenameInput.value = FILE_META[state.lang].filename;
+      resetOutput();
+    });
+  });
+
+  // ── Tab key inserts spaces instead of moving focus ──
+  codeEditor.addEventListener('keydown', (e)=>{
+    if(e.key === 'Tab'){
+      e.preventDefault();
+      const start = codeEditor.selectionStart, end = codeEditor.selectionEnd;
+      codeEditor.value = codeEditor.value.slice(0,start) + '    ' + codeEditor.value.slice(end);
+      codeEditor.selectionStart = codeEditor.selectionEnd = start + 4;
+    }
+  });
+
+  function resetOutput(){
+    outputConsole.className = 'output-console';
+    outputConsole.textContent = '// output will appear here after you hit Run';
+    runStatus.className = 'run-status';
+    runStatus.textContent = '';
+  }
+
+  // ── Settings panel ──
+  settingsToggle.addEventListener('click', ()=>{
+    const open = settingsPanel.classList.toggle('open');
+    settingsToggle.setAttribute('aria-expanded', String(open));
+  });
+  saveSettingsBtn.addEventListener('click', ()=>{
+    apiBase = apiBaseInput.value.trim() || DEFAULT_API_BASE;
+    apiKey  = apiKeyInput.value.trim();
+    localStorage.setItem('compilerApiBase', apiBase);
+    localStorage.setItem('compilerApiKey', apiKey);
+    state.runtimeVersions = null; // force re-fetch against the new endpoint
+    runStatus.className = 'run-status ok';
+    runStatus.textContent = 'Settings saved.';
+  });
+
+  // ── Download the current code as a real file ──
+  downloadBtn.addEventListener('click', ()=>{
+    const meta = FILE_META[state.lang];
+    const name = (filenameInput.value.trim() || meta.filename);
+    const blob = new Blob([codeEditor.value], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  // ── Fetch and cache available runtime versions from the API ──
+  async function getRuntimeVersion(pistonLang){
+    if(!state.runtimeVersions){
+      const res = await fetch(apiBase.replace(/\/$/, '') + '/runtimes', {
+        headers: apiKey ? { 'Authorization': apiKey } : {}
+      });
+      if(!res.ok) throw new Error('runtimes:' + res.status);
+      state.runtimeVersions = await res.json();
+    }
+    const match = state.runtimeVersions.find(r =>
+      r.language === pistonLang || (r.aliases && r.aliases.includes(pistonLang))
+    );
+    return match ? match.version : '*';
+  }
+
+  // ── Run the code ──
+  runBtn.addEventListener('click', async ()=>{
+    const meta = FILE_META[state.lang];
+    const code = codeEditor.value;
+    if(!code.trim()){
+      runStatus.className = 'run-status err';
+      runStatus.textContent = 'Write some code first.';
+      return;
+    }
+
+    runBtn.disabled = true;
+    runBtn.textContent = '⏳ Running…';
+    runStatus.className = 'run-status';
+    runStatus.textContent = 'Contacting compiler API…';
+    outputConsole.className = 'output-console';
+    outputConsole.textContent = '';
+
+    try {
+      const version = await getRuntimeVersion(meta.pistonLang);
+
+      const res = await fetch(apiBase.replace(/\/$/, '') + '/execute', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(apiKey ? { 'Authorization': apiKey } : {})
+        },
+        body: JSON.stringify({
+          language: meta.pistonLang,
+          version: version,
+          files: [{ name: filenameInput.value.trim() || meta.filename, content: code }],
+          stdin: stdinInput.value
+        })
+      });
+
+      if(!res.ok){
+        let detail = '';
+        try { detail = (await res.json()).message || ''; } catch(e){}
+        throw new Error('HTTP ' + res.status + (detail ? ' — ' + detail : ''));
+      }
+
+      const data = await res.json();
+      renderResult(data);
+
+    } catch(err){
+      runStatus.className = 'run-status err';
+      runStatus.textContent = 'Run failed: ' + err.message +
+        ' — open ⚙ settings and check your API endpoint/key.';
+      outputConsole.className = 'output-console';
+      outputConsole.textContent = '// no output — the request to the compiler API failed';
+    } finally {
+      runBtn.disabled = false;
+      runBtn.textContent = '▶ Run';
+    }
+  });
+
+  function renderResult(data){
+    const compile = data.compile;
+    const run = data.run || {};
+    let out = '';
+
+    if(compile && (compile.stdout || compile.stderr)){
+      out += '$ compiling…\n';
+      if(compile.stdout) out += compile.stdout;
+      if(compile.stderr) out += compile.stderr;
+      out += '\n';
+    }
+
+    out += '$ running…\n';
+    out += (run.stdout || '');
+    if(run.stderr){
+      out += (run.stdout ? '\n' : '') + run.stderr;
+    }
+    if(!run.stdout && !run.stderr){
+      out += '(no output)';
+    }
+
+    outputConsole.className = 'output-console filled';
+    outputConsole.textContent = out;
+
+    const exitCode = run.code;
+    const ok = exitCode === 0 || exitCode === null;
+    runStatus.className = 'run-status ' + (ok ? 'ok' : 'err');
+    runStatus.textContent = ok
+      ? 'Finished — exit code ' + exitCode
+      : 'Finished with a non-zero exit code (' + exitCode + ')';
+  }
+
+  // Init filename to match default language
+  filenameInput.value = FILE_META[state.lang].filename;
+})();
 </script>
 
 </body>
