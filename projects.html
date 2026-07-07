@@ -313,31 +313,7 @@
               <span>▸ Source Code</span><span class="chevron">▾</span>
             </button>
             <div class="acc-panel" id="caesar-code">
-              <pre class="acc-panel-inner">#include<iostream>
-#include<graphics.h>
-#include<conio.h>
-#include<cctype>
-#include<string>
-
-using namespace std;
-
-string encrypt(string text, int shift)
-{
-    for(int i=0; i<text.length(); i++)
-    {
-        if(isupper(text[i]))
-        {
-            text[i] = ((text[i]-'A'+shift)%26)+'A';
-        }
-        else if(islower(text[i]))
-        {
-            text[i] = ((text[i]-'a'+shift)%26)+'a';
-        }
-    }
-    return text;
-}
-
-#include <iostream>
+              <pre class="acc-panel-inner">#include <iostream>
 #include <string>
 using namespace std;
 
@@ -368,7 +344,6 @@ int main()
     cout << "\nEncrypted Message: " << text << endl;
 
     return 0;
-}
 }</pre>
             </div>
           </div>
