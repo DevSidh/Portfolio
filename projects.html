@@ -202,8 +202,7 @@
               <span>▸ Source Code</span><span class="chevron">▾</span>
             </button>
             <div class="acc-panel" id="esp-code">
-              <pre class="acc-panel-inner"><!-- paste a real snippet from this repo here-->
-                /*
+              <pre class="acc-panel-inner filled">                /*
  * ╔══════════════════════════════════════════════╗
  * ║         ESP Chat Pro  –  v4.0                ║
  * ║  WhatsApp-style • Rooms • Timestamps         ║
@@ -234,8 +233,8 @@
  *   ✓ Double-tick (✓✓) on own messages
  */
 
-#include <ESP8266WiFi.h>
-#include <ESP8266WebServer.h>
+#include &lt;ESP8266WiFi.h&gt;
+#include &lt;ESP8266WebServer.h&gt;
 
 ESP8266WebServer server(80);
 
@@ -265,7 +264,7 @@ int  roomCount = 0;
 
 // Escape for embedding in a JSON string value (not HTML – client handles that)
 String jsonEsc(String s) {
-  if ((int)s.length() > MAX_MSG_LEN) s = s.substring(0, MAX_MSG_LEN);
+  if ((int)s.length() &gt; MAX_MSG_LEN) s = s.substring(0, MAX_MSG_LEN);
   s.replace("\\", "\\\\");
   s.replace("\"", "\\\"");
   s.replace("\r", "");
@@ -281,19 +280,19 @@ String getTime() {
   return String(buf);
 }
 
-int findRoom(const String& name) {
-  for (int i = 0; i < roomCount; i++)
+int findRoom(const String&amp; name) {
+  for (int i = 0; i &lt; roomCount; i++)
     if (rooms[i].name == name) return i;
   return -1;
 }
 
 // Append a message; trim oldest if buffer is full
-void pushMsg(int id, const String& u, const String& m) {
+void pushMsg(int id, const String&amp; u, const String&amp; m) {
   String rec = "{\"u\":\"" + u + "\",\"m\":\"" + m + "\",\"t\":\"" + getTime() + "\"}\n";
   // Drop oldest records until there is room
-  while ((int)(rooms[id].buf.length() + rec.length()) > MAX_MSG_BUF) {
+  while ((int)(rooms[id].buf.length() + rec.length()) &gt; MAX_MSG_BUF) {
     int nl = rooms[id].buf.indexOf('\n');
-    if (nl < 0) { rooms[id].buf = ""; break; }
+    if (nl &lt; 0) { rooms[id].buf = ""; break; }
     rooms[id].buf = rooms[id].buf.substring(nl + 1);
     rooms[id].offset++;
   }
@@ -303,14 +302,14 @@ void pushMsg(int id, const String& u, const String& m) {
 
 // ─── HTML / CSS / JS (stored in Flash) ───────────────────────
 const char PAGE[] PROGMEM = R"rawliteral(
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>ESP Chat</title>
-<style>
-/* ── Reset & tokens ── */
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"&gt;
+&lt;title&gt;ESP Chat&lt;/title&gt;
+&lt;style&gt;
+/* ── Reset &amp; tokens ── */
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
   --g:#25D366;--gd:#075E54;--gt:#128C7E;--gl:#DCF8C6;
@@ -560,86 +559,86 @@ body{
 @media(min-width:1024px){
   #app{max-width:420px}
 }
-</style>
-</head>
-<body>
-<div id="app">
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="app"&gt;
 
-<!-- ══ LOGIN ══ -->
-<div id="sLogin" class="scr on">
-  <div class="card">
-    <div class="wicon">
-      <svg viewBox="0 0 24 24">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/>
-      </svg>
-    </div>
-    <h2>ESP Chat</h2>
-    <p class="sub">Local Network • Private • Instant</p>
-    <input class="inp" id="uname" type="text" placeholder="Your name…"
+&lt;!-- ══ LOGIN ══ --&gt;
+&lt;div id="sLogin" class="scr on"&gt;
+  &lt;div class="card"&gt;
+    &lt;div class="wicon"&gt;
+      &lt;svg viewBox="0 0 24 24"&gt;
+        &lt;path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/&gt;
+      &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h2&gt;ESP Chat&lt;/h2&gt;
+    &lt;p class="sub"&gt;Local Network • Private • Instant&lt;/p&gt;
+    &lt;input class="inp" id="uname" type="text" placeholder="Your name…"
            maxlength="20" autocomplete="off" autocorrect="off"
-           autocapitalize="words" spellcheck="false">
-    <button class="btn bp" onclick="goRooms()">Get Started &rarr;</button>
-  </div>
-</div>
+           autocapitalize="words" spellcheck="false"&gt;
+    &lt;button class="btn bp" onclick="goRooms()"&gt;Get Started &amp;rarr;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-<!-- ══ ROOMS ══ -->
-<div id="sRooms" class="scr">
-  <div class="rhead">
-    <h3>💬 Chat Rooms</h3>
-  </div>
-  <div id="rList" class="rlist"></div>
-  <button class="fab" onclick="showMod('mCreate')" title="Create room">+</button>
-</div>
+&lt;!-- ══ ROOMS ══ --&gt;
+&lt;div id="sRooms" class="scr"&gt;
+  &lt;div class="rhead"&gt;
+    &lt;h3&gt;💬 Chat Rooms&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div id="rList" class="rlist"&gt;&lt;/div&gt;
+  &lt;button class="fab" onclick="showMod('mCreate')" title="Create room"&gt;+&lt;/button&gt;
+&lt;/div&gt;
 
-<!-- ══ CREATE MODAL ══ -->
-<div id="mCreate" class="mover" onclick="bgClose(event,'mCreate')">
-  <div class="modal">
-    <h4>✏️ New Room</h4>
-    <input class="inp" id="cRN" placeholder="Room name" maxlength="20"
-           autocomplete="off" autocorrect="off" spellcheck="false">
-    <input class="inp" id="cRP" type="password" placeholder="Password (optional)"
-           maxlength="20" autocomplete="off">
-    <div class="mbtns">
-      <button class="btn bs" onclick="hideMod('mCreate')">Cancel</button>
-      <button class="btn bp" onclick="doCreate()">Create</button>
-    </div>
-  </div>
-</div>
+&lt;!-- ══ CREATE MODAL ══ --&gt;
+&lt;div id="mCreate" class="mover" onclick="bgClose(event,'mCreate')"&gt;
+  &lt;div class="modal"&gt;
+    &lt;h4&gt;✏️ New Room&lt;/h4&gt;
+    &lt;input class="inp" id="cRN" placeholder="Room name" maxlength="20"
+           autocomplete="off" autocorrect="off" spellcheck="false"&gt;
+    &lt;input class="inp" id="cRP" type="password" placeholder="Password (optional)"
+           maxlength="20" autocomplete="off"&gt;
+    &lt;div class="mbtns"&gt;
+      &lt;button class="btn bs" onclick="hideMod('mCreate')"&gt;Cancel&lt;/button&gt;
+      &lt;button class="btn bp" onclick="doCreate()"&gt;Create&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-<!-- ══ JOIN MODAL ══ -->
-<div id="mJoin" class="mover" onclick="bgClose(event,'mJoin')">
-  <div class="modal">
-    <h4 id="jTitle">🔐 Join Room</h4>
-    <input class="inp" id="jPass" type="password" placeholder="Enter password"
-           maxlength="20" autocomplete="off">
-    <div class="mbtns">
-      <button class="btn bs" onclick="hideMod('mJoin')">Cancel</button>
-      <button class="btn bp" onclick="doJoin()">Join &rarr;</button>
-    </div>
-  </div>
-</div>
+&lt;!-- ══ JOIN MODAL ══ --&gt;
+&lt;div id="mJoin" class="mover" onclick="bgClose(event,'mJoin')"&gt;
+  &lt;div class="modal"&gt;
+    &lt;h4 id="jTitle"&gt;🔐 Join Room&lt;/h4&gt;
+    &lt;input class="inp" id="jPass" type="password" placeholder="Enter password"
+           maxlength="20" autocomplete="off"&gt;
+    &lt;div class="mbtns"&gt;
+      &lt;button class="btn bs" onclick="hideMod('mJoin')"&gt;Cancel&lt;/button&gt;
+      &lt;button class="btn bp" onclick="doJoin()"&gt;Join &amp;rarr;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-<!-- ══ CHAT ══ -->
-<div id="sChat" class="scr">
-  <div class="chead">
-    <button class="cback" onclick="goBack()">&#8592;</button>
-    <div class="cav2" id="cAvL">R</div>
-    <div class="cinfo">
-      <div class="cname" id="cRName">Room</div>
-      <div class="cstatus">🔒 Local Network · ESP8266</div>
-    </div>
-  </div>
-  <div id="cMsgs" class="cmsgs"></div>
-  <div class="cinput">
-    <input class="inp" id="mIn" type="text" placeholder="Message…"
-           maxlength="280" autocomplete="off" autocorrect="off" spellcheck="false">
-    <button class="sbtn" id="sBtnEl">&#10148;</button>
-  </div>
-</div>
+&lt;!-- ══ CHAT ══ --&gt;
+&lt;div id="sChat" class="scr"&gt;
+  &lt;div class="chead"&gt;
+    &lt;button class="cback" onclick="goBack()"&gt;&amp;#8592;&lt;/button&gt;
+    &lt;div class="cav2" id="cAvL"&gt;R&lt;/div&gt;
+    &lt;div class="cinfo"&gt;
+      &lt;div class="cname" id="cRName"&gt;Room&lt;/div&gt;
+      &lt;div class="cstatus"&gt;🔒 Local Network · ESP8266&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id="cMsgs" class="cmsgs"&gt;&lt;/div&gt;
+  &lt;div class="cinput"&gt;
+    &lt;input class="inp" id="mIn" type="text" placeholder="Message…"
+           maxlength="280" autocomplete="off" autocorrect="off" spellcheck="false"&gt;
+    &lt;button class="sbtn" id="sBtnEl"&gt;&amp;#10148;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-</div><!-- #app -->
+&lt;/div&gt;&lt;!-- #app --&gt;
 
-<script>
+&lt;script&gt;
 // ── State ───────────────────────────────────────────────────
 var U='', R='', P='', jRoom='', cnt=0;
 
@@ -673,10 +672,10 @@ function err(id){
 // HTML-escape for safe innerHTML insertion
 function esc(s){
   return String(s)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;');
+    .replace(/&amp;/g,'&amp;amp;')
+    .replace(/&lt;/g,'&amp;lt;')
+    .replace(/&gt;/g,'&amp;gt;')
+    .replace(/"/g,'&amp;quot;');
 }
 
 // ── Login ────────────────────────────────────────────────────
@@ -696,10 +695,10 @@ function loadRooms(){
       var el=document.getElementById('rList');
       if(!data||data.length===0){
         el.innerHTML=
-          '<div class="norooms">'
-          +'<div class="ni">🏠</div>'
-          +'<p>No rooms yet.<br>Tap <b>+</b> to create one!</p>'
-          +'</div>';
+          '&lt;div class="norooms"&gt;'
+          +'&lt;div class="ni"&gt;🏠&lt;/div&gt;'
+          +'&lt;p&gt;No rooms yet.&lt;br&gt;Tap &lt;b&gt;+&lt;/b&gt; to create one!&lt;/p&gt;'
+          +'&lt;/div&gt;';
         return;
       }
       el.innerHTML='';
@@ -709,11 +708,11 @@ function loadRooms(){
         div.dataset.n=r.n;
         div.dataset.p=r.p?'1':'0';
         div.innerHTML=
-          '<div class="rav">'+esc(r.n[0].toUpperCase())+'</div>'
-          +'<div class="ri-info">'
-          +'<div class="ri-name">'+esc(r.n)+'</div>'
-          +'<div class="ri-sub">'+(r.p?'🔒 Password protected':'🔓 Open room')+'</div>'
-          +'</div>';
+          '&lt;div class="rav"&gt;'+esc(r.n[0].toUpperCase())+'&lt;/div&gt;'
+          +'&lt;div class="ri-info"&gt;'
+          +'&lt;div class="ri-name"&gt;'+esc(r.n)+'&lt;/div&gt;'
+          +'&lt;div class="ri-sub"&gt;'+(r.p?'🔒 Password protected':'🔓 Open room')+'&lt;/div&gt;'
+          +'&lt;/div&gt;';
         div.addEventListener('click',function(){
           askJoin(this.dataset.n, this.dataset.p==='1');
         });
@@ -728,7 +727,7 @@ function doCreate(){
   var r=document.getElementById('cRN').value.trim();
   var p=document.getElementById('cRP').value;
   if(!r){err('cRN');return;}
-  fetch('/create?room='+encodeURIComponent(r)+'&pass='+encodeURIComponent(p))
+  fetch('/create?room='+encodeURIComponent(r)+'&amp;pass='+encodeURIComponent(p))
     .then(function(res){return res.text();})
     .then(function(d){
       if(d==='ok'){
@@ -765,7 +764,7 @@ function doJoin(){
 }
 
 function joinWith(r,p){
-  fetch('/join?room='+encodeURIComponent(r)+'&pass='+encodeURIComponent(p))
+  fetch('/join?room='+encodeURIComponent(r)+'&amp;pass='+encodeURIComponent(p))
     .then(function(res){return res.text();})
     .then(function(d){
       if(d==='ok'){
@@ -783,7 +782,7 @@ function enterChat(r,p){
   document.getElementById('cRName').textContent=r;
   document.getElementById('cAvL').textContent=r[0].toUpperCase();
   document.getElementById('cMsgs').innerHTML=
-    '<div class="sysmsg"><span>🔒 Messages are local — no internet</span></div>';
+    '&lt;div class="sysmsg"&gt;&lt;span&gt;🔒 Messages are local — no internet&lt;/span&gt;&lt;/div&gt;';
   show('sChat');
   setTimeout(function(){document.getElementById('mIn').focus();},200);
 }
@@ -799,35 +798,35 @@ function sendMsg(){
   if(!m||!R) return;
   document.getElementById('mIn').value='';
   fetch('/send?room='+encodeURIComponent(R)
-       +'&user='+encodeURIComponent(U)
-       +'&msg='+encodeURIComponent(m));
+       +'&amp;user='+encodeURIComponent(U)
+       +'&amp;msg='+encodeURIComponent(m));
 }
 
 // ── Polling ──────────────────────────────────────────────────
 function pollChat(){
   if(!R) return;
-  fetch('/get?room='+encodeURIComponent(R)+'&since='+cnt)
+  fetch('/get?room='+encodeURIComponent(R)+'&amp;since='+cnt)
     .then(function(r){return r.json();})
     .then(function(data){
       if(!data||!data.msgs||!data.msgs.length) return;
 
       var box=document.getElementById('cMsgs');
       // Auto-scroll only if already near bottom
-      var atBottom=(box.scrollHeight-box.clientHeight<=box.scrollTop+60);
+      var atBottom=(box.scrollHeight-box.clientHeight&lt;=box.scrollTop+60);
 
       data.msgs.forEach(function(msg){
         var mine=(msg.u===U);
         var div=document.createElement('div');
         div.className='mw '+(mine?'me':'them');
         div.innerHTML=
-          '<div class="bub">'
-          +(mine?'':'<div class="bn">'+esc(msg.u)+'</div>')
-          +'<div class="bm">'+esc(msg.m)+'</div>'
-          +'<div class="bt">'
+          '&lt;div class="bub"&gt;'
+          +(mine?'':'&lt;div class="bn"&gt;'+esc(msg.u)+'&lt;/div&gt;')
+          +'&lt;div class="bm"&gt;'+esc(msg.m)+'&lt;/div&gt;'
+          +'&lt;div class="bt"&gt;'
           +esc(msg.t)
-          +(mine?'<span class="tick">✓✓</span>':'')
-          +'</div>'
-          +'</div>';
+          +(mine?'&lt;span class="tick"&gt;✓✓&lt;/span&gt;':'')
+          +'&lt;/div&gt;'
+          +'&lt;/div&gt;';
         box.appendChild(div);
       });
 
@@ -849,9 +848,9 @@ setInterval(pollChat,1000);     // Refresh chat messages
 setInterval(function(){         // Refresh room list when visible
   if(document.getElementById('sRooms').classList.contains('on')) loadRooms();
 },5000);
-</script>
-</body>
-</html>
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 )rawliteral";
 
 // ─── HTTP Handlers ───────────────────────────────────────────
@@ -863,7 +862,7 @@ void hRoot() {
 // GET /rooms → JSON array of {n, p}
 void hRooms() {
   String j = "[";
-  for (int i = 0; i < roomCount; i++) {
+  for (int i = 0; i &lt; roomCount; i++) {
     if (i) j += ",";
     j += "{\"n\":\"" + rooms[i].name + "\",\"p\":"
        + (rooms[i].pass.length() ? "true" : "false") + "}";
@@ -872,19 +871,19 @@ void hRooms() {
   server.send(200, "application/json", j);
 }
 
-// GET /create?room=X&pass=Y
+// GET /create?room=X&amp;pass=Y
 void hCreate() {
   String r = server.arg("room");
   String p = server.arg("pass");
 
   // Validate name
-  if (r.length() == 0 || (int)r.length() > MAX_NAME_LEN) {
+  if (r.length() == 0 || (int)r.length() &gt; MAX_NAME_LEN) {
     server.send(200, "text/plain", "fail"); return;
   }
-  if (findRoom(r) >= 0) {
+  if (findRoom(r) &gt;= 0) {
     server.send(200, "text/plain", "exists"); return;
   }
-  if (roomCount >= MAX_ROOMS) {
+  if (roomCount &gt;= MAX_ROOMS) {
     server.send(200, "text/plain", "full"); return;
   }
 
@@ -898,21 +897,21 @@ void hCreate() {
   server.send(200, "text/plain", "ok");
 }
 
-// GET /join?room=X&pass=Y
+// GET /join?room=X&amp;pass=Y
 void hJoin() {
   String r = server.arg("room");
   String p = server.arg("pass");
   int id = findRoom(r);
-  if (id < 0 || rooms[id].pass != p)
+  if (id &lt; 0 || rooms[id].pass != p)
     server.send(200, "text/plain", "fail");
   else
     server.send(200, "text/plain", "ok");
 }
 
-// GET /send?room=X&user=Y&msg=Z
+// GET /send?room=X&amp;user=Y&amp;msg=Z
 void hSend() {
   int id = findRoom(server.arg("room"));
-  if (id < 0) { server.send(200, "text/plain", "fail"); return; }
+  if (id &lt; 0) { server.send(200, "text/plain", "fail"); return; }
 
   String m = server.arg("msg");
   if (m.length() == 0) { server.send(200, "text/plain", "ok"); return; }
@@ -924,30 +923,30 @@ void hSend() {
   server.send(200, "text/plain", "ok");
 }
 
-// GET /get?room=X&since=N
-// Returns: { "count": <total>, "msgs": [ {u,m,t}, ... ] }
+// GET /get?room=X&amp;since=N
+// Returns: { "count": &lt;total&gt;, "msgs": [ {u,m,t}, ... ] }
 void hGet() {
   int id = findRoom(server.arg("room"));
-  if (id < 0) {
+  if (id &lt; 0) {
     server.send(200, "application/json", "{\"count\":0,\"msgs\":[]}");
     return;
   }
 
   int since = server.arg("since").toInt();
   int start = since - rooms[id].offset;   // line index in current buf
-  if (start < 0) start = 0;
+  if (start &lt; 0) start = 0;
 
-  String& all = rooms[id].buf;
+  String&amp; all = rooms[id].buf;
   String res = "{\"count\":" + String(rooms[id].count) + ",\"msgs\":[";
 
   int line = 0, pos = 0;
   bool first = true;
 
-  while (pos < (int)all.length()) {
+  while (pos &lt; (int)all.length()) {
     int nl = all.indexOf('\n', pos);
-    if (nl < 0) nl = all.length();
+    if (nl &lt; 0) nl = all.length();
 
-    if (line >= start && nl > pos) {
+    if (line &gt;= start &amp;&amp; nl &gt; pos) {
       if (!first) res += ',';
       res += all.substring(pos, nl);
       first = false;
@@ -995,7 +994,7 @@ void setup() {
 void loop() {
   server.handleClient();
 }
-              </pre>
+</pre>
             </div>
           </div>
           <div class="acc-item">
@@ -1043,16 +1042,7 @@ void loop() {
               <span>▸ Source Code</span><span class="chevron">▾</span>
             </button>
             <div class="acc-panel" id="oop-code">
-              <pre class="acc-panel-inner">
-                <!--
-                write code here to display
-                
-                
-                -->
-                Click the below github repo to see the C++ Program source codes
-
-
-              </pre>
+              <pre class="acc-panel-inner">Click the below github repo to see the C++ Program source codes</pre>
             </div>
           </div>
           <div class="acc-item">
@@ -1126,8 +1116,8 @@ void loop() {
               <span>▸ Source Code</span><span class="chevron">▾</span>
             </button>
             <div class="acc-panel" id="caesar-code">
-              <pre class="acc-panel-inner">#include <iostream>
-#include <string>
+              <pre class="acc-panel-inner filled">#include &lt;iostream&gt;
+#include &lt;string&gt;
 using namespace std;
 
 int main()
@@ -1135,29 +1125,30 @@ int main()
     string text;
     int shift;
 
-    cout << "Enter a message: ";
+    cout &lt;&lt; "Enter a message: ";
     getline(cin, text);
 
-    cout << "Enter shift value: ";
-    cin >> shift;
+    cout &lt;&lt; "Enter shift value: ";
+    cin &gt;&gt; shift;
 
     // Encryption
-    for (int i = 0; i < text.length(); i++)
+    for (int i = 0; i &lt; text.length(); i++)
     {
-        if (text[i] >= 'A' && text[i] <= 'Z')
+        if (text[i] &gt;= 'A' &amp;&amp; text[i] &lt;= 'Z')
         {
             text[i] = ((text[i] - 'A' + shift) % 26) + 'A';
         }
-        else if (text[i] >= 'a' && text[i] <= 'z')
+        else if (text[i] &gt;= 'a' &amp;&amp; text[i] &lt;= 'z')
         {
             text[i] = ((text[i] - 'a' + shift) % 26) + 'a';
         }
     }
 
-    cout << "\nEncrypted Message: " << text << endl;
+    cout &lt;&lt; "\nEncrypted Message: " &lt;&lt; text &lt;&lt; endl;
 
     return 0;
-}</pre>
+}
+</pre>
             </div>
           </div>
           <div class="acc-item">
