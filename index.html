@@ -63,8 +63,38 @@
   nav.links{display:flex;gap:22px;font-size:13px;}
   nav.links a{text-decoration:none;color:var(--gray);transition:color .2s;}
   nav.links a:hover,nav.links a:focus-visible{color:var(--fg);}
-  @media (max-width:640px){nav.links{display:none;}}
+  nav.links a.active{color:var(--fg);}
   .nav-div{width:1px;height:18px;background:var(--line-strong);}
+
+  /* mobile nav toggle (hamburger) */
+  .nav-toggle{
+    display:none;width:26px;height:18px;flex-direction:column;justify-content:space-between;
+    background:transparent;border:none;cursor:pointer;padding:0;
+  }
+  .nav-toggle span{display:block;height:2px;width:100%;background:var(--fg);border-radius:2px;transition:transform .25s ease,opacity .2s ease;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+  .nav-toggle:focus-visible{outline:2px solid var(--gray);outline-offset:3px;}
+
+  .mobile-menu{
+    display:none;flex-direction:column;max-height:0;overflow:hidden;
+    background:var(--bg);border-top:1px solid var(--line);transition:max-height .3s ease;
+  }
+  .mobile-menu a{
+    padding:15px 28px;text-decoration:none;color:var(--gray);
+    font-family:'JetBrains Mono',monospace;font-size:14.5px;
+    border-bottom:1px solid var(--line);
+  }
+  .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu a:hover,.mobile-menu a.active{color:var(--fg);}
+  .mobile-menu.open{max-height:320px;}
+
+  @media (max-width:700px){
+    nav.links{display:none;}
+    .nav-toggle{display:flex;}
+    .mobile-menu{display:flex;}
+  }
 
   .theme-btn{
     width:26px;height:26px;border-radius:50%;
@@ -216,12 +246,22 @@
       <nav class="links">
         <a href="#about">About</a>
         <a href="projects.html">Projects</a>
+        <a href="questions.html">Questions</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-div"></div>
       <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme"></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="questions.html">Questions</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <!-- HERO -->
@@ -484,6 +524,20 @@ for i in range(3):
     const next = currentTheme() === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
+  });
+
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', ()=>{
+    const open = mobileMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      mobileMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
   });
 
   // live python terminal — real CPython running in-browser via Pyodide (WebAssembly)

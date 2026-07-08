@@ -46,9 +46,38 @@
   nav.links a{text-decoration:none;color:var(--gray);transition:color .2s;}
   nav.links a:hover,nav.links a:focus-visible{color:var(--fg);}
   nav.links a.active{color:var(--fg);}
-  @media (max-width:640px){nav.links{display:none;}}
   .nav-div{width:1px;height:18px;background:var(--line-strong);}
   .theme-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--fg);background:linear-gradient(90deg, var(--fg) 50%, transparent 50%);cursor:pointer;padding:0;}
+
+  /* mobile nav toggle (hamburger) */
+  .nav-toggle{
+    display:none;width:26px;height:18px;flex-direction:column;justify-content:space-between;
+    background:transparent;border:none;cursor:pointer;padding:0;
+  }
+  .nav-toggle span{display:block;height:2px;width:100%;background:var(--fg);border-radius:2px;transition:transform .25s ease,opacity .2s ease;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+  .nav-toggle:focus-visible{outline:2px solid var(--gray);outline-offset:3px;}
+
+  .mobile-menu{
+    display:none;flex-direction:column;max-height:0;overflow:hidden;
+    background:var(--bg);border-top:1px solid var(--line);transition:max-height .3s ease;
+  }
+  .mobile-menu a{
+    padding:15px 28px;text-decoration:none;color:var(--gray);
+    font-family:'JetBrains Mono',monospace;font-size:14.5px;
+    border-bottom:1px solid var(--line);
+  }
+  .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu a:hover,.mobile-menu a.active{color:var(--fg);}
+  .mobile-menu.open{max-height:320px;}
+
+  @media (max-width:700px){
+    nav.links{display:none;}
+    .nav-toggle{display:flex;}
+    .mobile-menu{display:flex;}
+  }
 
   .page-head{padding:140px 0 34px;border-bottom:1px solid var(--line);}
   .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--gray);letter-spacing:0.05em;margin-bottom:18px;}
@@ -221,12 +250,22 @@
       <nav class="links">
         <a href="index.html#about">About</a>
         <a href="projects.html" class="active">Projects</a>
+        <a href="questions.html">Questions</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <div class="nav-div"></div>
       <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme"></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about">About</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="questions.html">Questions</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
 </header>
 
 <div class="wrap">
@@ -258,8 +297,7 @@
     </div>
     <p class="compiler-sub">
       Write C++ or Python, run it, and download the file — right from the browser, no install needed.
-      Execution is powered by a <a href="https://github.com/engineer-man/piston" target="_blank" rel="noopener">Piston-compatible</a> API.
-      Click ⚙ to point it at your own key/endpoint if the default one is rate-limited.
+      Execution is powered by the free <a href="https://paiza.io" target="_blank" rel="noopener">paiza.io</a> guest API — no signup or key required.
     </p>
 
     <div class="lang-tabs" id="langTabs">
@@ -286,17 +324,17 @@
 
     <div class="settings-panel" id="settingsPanel">
       <p class="settings-note">
-        The public Piston API now requires an authorization key (ask on their Discord — see the
-        <a href="https://github.com/engineer-man/piston" target="_blank" rel="noopener">repo</a> — or self-host your own instance).
-        Enter your endpoint/key here; they're saved only in your browser's local storage, never sent anywhere but the API you specify.
+        No key needed by default — runs on paiza.io's free guest tier (a couple of runs per minute, ~2–10s each).
+        If you'd rather use your own paiza-compatible endpoint or your own <code>guest</code>/account key, set it here.
+        Saved only in your browser's local storage.
       </p>
       <div class="settings-row">
         <label for="apiBaseInput">API base URL</label>
-        <input type="text" id="apiBaseInput" placeholder="https://emkc.org/api/v2/piston">
+        <input type="text" id="apiBaseInput" placeholder="https://api.paiza.io">
       </div>
       <div class="settings-row">
-        <label for="apiKeyInput">Authorization header value (optional)</label>
-        <input type="text" id="apiKeyInput" placeholder="leave blank if your endpoint needs none">
+        <label for="apiKeyInput">api_key value</label>
+        <input type="text" id="apiKeyInput" placeholder="guest">
       </div>
       <button class="tbtn" id="saveSettingsBtn">Save settings</button>
     </div>
@@ -1320,6 +1358,20 @@ PS F:\sahsiddhant.com.np> </pre>
     localStorage.setItem('theme', next);
   });
 
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', ()=>{
+    const open = mobileMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      mobileMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
   // accordion: each head toggles only its own panel, independent of the others
   document.querySelectorAll('.acc-head').forEach(head=>{
     head.addEventListener('click', ()=>{
@@ -1373,10 +1425,11 @@ PS F:\sahsiddhant.com.np> </pre>
 
 <script>
 (function(){
-  // ── Config (persisted locally, never hard-coded with a real key) ──
-  const DEFAULT_API_BASE = 'https://emkc.org/api/v2/piston';
+  // ── Config (persisted locally; paiza.io's free "guest" tier needs no real key) ──
+  const DEFAULT_API_BASE = 'https://api.paiza.io';
+  const DEFAULT_API_KEY  = 'guest';
   let apiBase = localStorage.getItem('compilerApiBase') || DEFAULT_API_BASE;
-  let apiKey  = localStorage.getItem('compilerApiKey')  || '';
+  let apiKey  = localStorage.getItem('compilerApiKey')  || DEFAULT_API_KEY;
 
   // ── Starter snippets, kept independently per language ──
   const STARTERS = {
@@ -1393,14 +1446,13 @@ int main() {
   };
 
   const FILE_META = {
-    cpp:    { ext: 'cpp',  filename: 'main.cpp',  pistonLang: 'c++',    label: 'C++'    },
-    python: { ext: 'py',   filename: 'main.py',   pistonLang: 'python', label: 'Python' }
+    cpp:    { ext: 'cpp', filename: 'main.cpp', paizaLang: 'cpp',     label: 'C++'    },
+    python: { ext: 'py',  filename: 'main.py',  paizaLang: 'python3', label: 'Python' }
   };
 
   const state = {
     lang: 'cpp',
-    code: { cpp: STARTERS.cpp, python: STARTERS.python },
-    runtimeVersions: null // cached from /runtimes
+    code: { cpp: STARTERS.cpp, python: STARTERS.python }
   };
 
   // ── Elements ──
@@ -1458,11 +1510,10 @@ int main() {
     settingsToggle.setAttribute('aria-expanded', String(open));
   });
   saveSettingsBtn.addEventListener('click', ()=>{
-    apiBase = apiBaseInput.value.trim() || DEFAULT_API_BASE;
-    apiKey  = apiKeyInput.value.trim();
+    apiBase = (apiBaseInput.value.trim() || DEFAULT_API_BASE).replace(/\/$/, '');
+    apiKey  = apiKeyInput.value.trim() || DEFAULT_API_KEY;
     localStorage.setItem('compilerApiBase', apiBase);
     localStorage.setItem('compilerApiKey', apiKey);
-    state.runtimeVersions = null; // force re-fetch against the new endpoint
     runStatus.className = 'run-status ok';
     runStatus.textContent = 'Settings saved.';
   });
@@ -1482,19 +1533,45 @@ int main() {
     URL.revokeObjectURL(url);
   });
 
-  // ── Fetch and cache available runtime versions from the API ──
-  async function getRuntimeVersion(pistonLang){
-    if(!state.runtimeVersions){
-      const res = await fetch(apiBase.replace(/\/$/, '') + '/runtimes', {
-        headers: apiKey ? { 'Authorization': apiKey } : {}
-      });
-      if(!res.ok) throw new Error('runtimes:' + res.status);
-      state.runtimeVersions = await res.json();
+  function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+  // ── paiza.io execution: create → poll status → get details ──
+  async function paizaRun(paizaLang, code, stdin){
+    const base = apiBase.replace(/\/$/, '');
+
+    const createRes = await fetch(base + '/runners/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source_code: code,
+        language: paizaLang,
+        input: stdin || '',
+        api_key: apiKey,
+        longpoll: true,
+        longpoll_timeout: 10
+      })
+    });
+    if(!createRes.ok) throw new Error('create failed: HTTP ' + createRes.status);
+    const createData = await createRes.json();
+    if(createData.error) throw new Error(createData.error);
+    const id = createData.id;
+    if(!id) throw new Error('no run id returned by the API');
+
+    // Poll get_status in case longpoll didn't finish in time
+    let status = createData.status;
+    let tries = 0;
+    while(status !== 'completed' && tries < 20){
+      await sleep(1000);
+      const statusRes = await fetch(base + '/runners/get_status?id=' + encodeURIComponent(id) + '&api_key=' + encodeURIComponent(apiKey));
+      if(!statusRes.ok) throw new Error('get_status failed: HTTP ' + statusRes.status);
+      const statusData = await statusRes.json();
+      status = statusData.status;
+      tries++;
     }
-    const match = state.runtimeVersions.find(r =>
-      r.language === pistonLang || (r.aliases && r.aliases.includes(pistonLang))
-    );
-    return match ? match.version : '*';
+
+    const detailsRes = await fetch(base + '/runners/get_details?id=' + encodeURIComponent(id) + '&api_key=' + encodeURIComponent(apiKey));
+    if(!detailsRes.ok) throw new Error('get_details failed: HTTP ' + detailsRes.status);
+    return await detailsRes.json();
   }
 
   // ── Run the code ──
@@ -1510,40 +1587,17 @@ int main() {
     runBtn.disabled = true;
     runBtn.textContent = '⏳ Running…';
     runStatus.className = 'run-status';
-    runStatus.textContent = 'Contacting compiler API…';
+    runStatus.textContent = 'Compiling and running…';
     outputConsole.className = 'output-console';
     outputConsole.textContent = '';
 
     try {
-      const version = await getRuntimeVersion(meta.pistonLang);
-
-      const res = await fetch(apiBase.replace(/\/$/, '') + '/execute', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(apiKey ? { 'Authorization': apiKey } : {})
-        },
-        body: JSON.stringify({
-          language: meta.pistonLang,
-          version: version,
-          files: [{ name: filenameInput.value.trim() || meta.filename, content: code }],
-          stdin: stdinInput.value
-        })
-      });
-
-      if(!res.ok){
-        let detail = '';
-        try { detail = (await res.json()).message || ''; } catch(e){}
-        throw new Error('HTTP ' + res.status + (detail ? ' — ' + detail : ''));
-      }
-
-      const data = await res.json();
-      renderResult(data);
-
+      const details = await paizaRun(meta.paizaLang, code, stdinInput.value);
+      renderResult(details);
     } catch(err){
       runStatus.className = 'run-status err';
       runStatus.textContent = 'Run failed: ' + err.message +
-        ' — open ⚙ settings and check your API endpoint/key.';
+        ' — open ⚙ settings if you need a different endpoint/key.';
       outputConsole.className = 'output-console';
       outputConsole.textContent = '// no output — the request to the compiler API failed';
     } finally {
@@ -1553,35 +1607,40 @@ int main() {
   });
 
   function renderResult(data){
-    const compile = data.compile;
-    const run = data.run || {};
     let out = '';
 
-    if(compile && (compile.stdout || compile.stderr)){
+    if(data.build_stdout || data.build_stderr){
       out += '$ compiling…\n';
-      if(compile.stdout) out += compile.stdout;
-      if(compile.stderr) out += compile.stderr;
-      out += '\n';
+      if(data.build_stdout) out += data.build_stdout;
+      if(data.build_stderr) out += data.build_stderr;
+      out += '\n\n';
     }
 
     out += '$ running…\n';
-    out += (run.stdout || '');
-    if(run.stderr){
-      out += (run.stdout ? '\n' : '') + run.stderr;
+    out += (data.stdout || '');
+    if(data.stderr){
+      out += (data.stdout ? '\n' : '') + data.stderr;
     }
-    if(!run.stdout && !run.stderr){
+    if(!data.stdout && !data.stderr){
       out += '(no output)';
+    }
+
+    if(data.time || data.memory){
+      out += '\n\n[' + (data.time ? data.time + 's' : '') +
+        (data.time && data.memory ? ' · ' : '') +
+        (data.memory ? Math.round(data.memory/1024) + ' KB' : '') + ']';
     }
 
     outputConsole.className = 'output-console filled';
     outputConsole.textContent = out;
 
-    const exitCode = run.code;
-    const ok = exitCode === 0 || exitCode === null;
+    const ok = data.result === 'success' && (data.build_result === null || data.build_result === 'success' || data.build_result === undefined);
     runStatus.className = 'run-status ' + (ok ? 'ok' : 'err');
     runStatus.textContent = ok
-      ? 'Finished — exit code ' + exitCode
-      : 'Finished with a non-zero exit code (' + exitCode + ')';
+      ? 'Finished — exit code ' + data.exit_code
+      : (data.build_result === 'failure'
+          ? 'Compile error — see output above'
+          : 'Finished with a non-zero exit code (' + data.exit_code + ')');
   }
 
   // Init filename to match default language

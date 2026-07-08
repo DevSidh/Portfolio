@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CEE Physics Most Repeated Questions quiz covering mirrors, total internal reflection, and refraction at plane surfaces with timers and worked solutions.">
+  <meta name="theme-color" content="#0b1020">
+  <title>CEE Physics Most Repeated Questions (2075&ndash;2082)</title>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #080b16;
+  --bg-2: #11182a;
+  --surface: rgba(255, 255, 255, 0.09);
+  --surface-strong: rgba(255, 255, 255, 0.14);
+  --text: #f7fbff;
+  --muted: #aeb9ca;
+  --line: rgba(255, 255, 255, 0.16);
+  --accent: #53d6ff;
+  --accent-2: #76f0b2;
+  --warn: #ffc857;
+  --danger: #ff6b7a;
+  --ok: #57e39d;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --radius: 8px;
+  --ring: 194.78;
+}
+
+body.light {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --bg-2: #eaf1f8;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --text: #111827;
+  --muted: #526071;
+  --line: rgba(27, 38, 58, 0.14);
+  --accent: #0b8fbd;
+  --accent-2: #13885f;
+  --warn: #b47900;
+  --danger: #c8334b;
+  --ok: #087849;
+  --shadow: 0 22px 70px rgba(24, 37, 56, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(83, 214, 255, 0.22), transparent 28rem),
+    radial-gradient(circle at 85% 20%, rgba(118, 240, 178, 0.16), transparent 24rem),
+    linear-gradient(135deg, var(--bg), var(--bg-2));
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 28px));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 14px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 14px 0 26px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #06101e;
+}
+
+.brand-mark svg {
+  width: 31px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand small {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.nav-actions,
+.hero-actions,
+.result-actions,
+.quiz-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.icon-btn,
+.theme-toggle,
+.primary-btn,
+.secondary-btn {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.icon-btn:hover,
+.theme-toggle:hover,
+.primary-btn:hover,
+.secondary-btn:hover,
+.option-btn:hover,
+.set-card:hover {
+  transform: translateY(-2px);
+}
+
+.icon-btn {
+  width: 44px;
+  color: var(--text);
+  background: var(--surface-strong);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  color: var(--text);
+  background: var(--surface-strong);
+}
+
+.toggle-knob {
+  width: 30px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  position: relative;
+}
+
+.toggle-knob::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 180ms ease;
+}
+
+body.light .toggle-knob::after {
+  transform: translateX(12px);
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  font-weight: 800;
+}
+
+.primary-btn {
+  border-color: transparent;
+  color: #05111c;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 16px 38px rgba(83, 214, 255, 0.22);
+}
+
+.primary-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.secondary-btn {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(310px, 0.72fr);
+  gap: 22px;
+  min-height: calc(100vh - 130px);
+  align-items: center;
+  padding: 18px 0 40px;
+}
+
+.hero-copy,
+.hero-panel,
+.quiz-card,
+.transition-panel,
+.result-summary {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+}
+
+.hero-copy {
+  padding: clamp(26px, 5vw, 54px);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent-2);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  max-width: 820px;
+  margin: 0;
+  font-size: clamp(2.25rem, 6.2vw, 5.7rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.9vw, 2.45rem);
+  letter-spacing: 0;
+}
+
+.hero-text {
+  max-width: 720px;
+  margin: 22px 0 28px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.75;
+}
+
+.hero-panel {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.orbit-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 172px;
+  height: 172px;
+  margin: 10px auto 24px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  animation: floatCard 4.8s ease-in-out infinite;
+}
+
+.orbit-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 2px dashed rgba(83, 214, 255, 0.54);
+  border-radius: 50%;
+  animation: spin 12s linear infinite;
+}
+
+.orbit-card strong {
+  font-size: 2.7rem;
+}
+
+.orbit-card small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.spark {
+  position: absolute;
+  top: 22px;
+  right: 32px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--warn);
+  box-shadow: 0 0 24px var(--warn);
+}
+
+.mini-grid,
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.mini-grid div,
+.stats-grid div {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.mini-grid strong,
+.stats-grid strong {
+  display: block;
+  font-size: 1.6rem;
+}
+
+.mini-grid span,
+.stats-grid span {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.hero-diagram {
+  display: block;
+  width: min(100%, 410px);
+  margin: 28px auto 0;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.22));
+}
+
+.set-board,
+.quiz-area,
+.transition-panel,
+.results {
+  margin: 24px 0;
+}
+
+.section-heading {
+  margin-bottom: 16px;
+}
+
+.set-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.set-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  min-height: 250px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  text-align: left;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.set-card[aria-disabled="true"] {
+  opacity: 0.72;
+}
+
+.set-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.set-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.topic-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.topic-chips span {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.quiz-card,
+.result-summary,
+.solutions,
+.transition-panel {
+  padding: clamp(18px, 3vw, 30px);
+}
+
+.quiz-header,
+.progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.timer-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  flex: 0 0 auto;
+}
+
+.timer-ring {
+  position: absolute;
+  inset: 0;
+  width: 86px;
+  height: 86px;
+  transform: rotate(-90deg);
+}
+
+.timer-ring circle {
+  fill: none;
+  stroke-width: 7;
+}
+
+.timer-ring circle:first-child {
+  stroke: rgba(255, 255, 255, 0.13);
+}
+
+#timerCircle {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-dasharray: var(--ring);
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 300ms linear, stroke 180ms ease;
+}
+
+.timer-wrap.warning #timerCircle {
+  stroke: var(--warn);
+}
+
+.timer-wrap.danger #timerCircle {
+  stroke: var(--danger);
+  animation: pulse 900ms ease-in-out infinite;
+}
+
+#timerText {
+  position: relative;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-shell {
+  margin: 22px 0;
+}
+
+.progress-meta {
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.progress-track {
+  height: 11px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#progressFill {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 260ms ease;
+}
+
+.question-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.52fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.question-main {
+  min-width: 0;
+}
+
+.question-text {
+  margin: 0 0 18px;
+  font-size: clamp(1.1rem, 2.1vw, 1.38rem);
+  line-height: 1.55;
+  font-weight: 800;
+}
+
+.options {
+  display: grid;
+  gap: 11px;
+}
+
+.option-btn {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  min-height: 58px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.07);
+  text-align: left;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.option-key {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #07111f;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-weight: 900;
+}
+
+.option-btn.correct {
+  border-color: rgba(87, 227, 157, 0.72);
+  background: rgba(87, 227, 157, 0.16);
+}
+
+.option-btn.wrong {
+  border-color: rgba(255, 107, 122, 0.72);
+  background: rgba(255, 107, 122, 0.14);
+}
+
+.feedback {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.08);
+  line-height: 1.55;
+}
+
+.diagram-frame {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.diagram-frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.diagram-frame figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.quiz-footer {
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+.transition-panel,
+.result-summary {
+  text-align: center;
+}
+
+.result-hero {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.result-hero p,
+.result-summary p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.result-actions {
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.solutions {
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.solution-item {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.solution-item:first-child {
+  border-top: 0;
+}
+
+.solution-item h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.solution-item p,
+.solution-item li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.solution-item ul {
+  padding-left: 20px;
+}
+
+.answer-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  color: #06101e;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-weight: 900;
+}
+
+.noscript {
+  position: fixed;
+  inset: auto 14px 14px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: #ffdde2;
+  color: #570018;
+  font-weight: 800;
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    filter: drop-shadow(0 0 12px var(--danger));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .question-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-panel {
+    min-height: auto;
+  }
+
+  .set-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 18px, 1180px);
+  }
+
+  .topbar {
+    top: 8px;
+    align-items: stretch;
+  }
+
+  .brand {
+    max-width: 190px;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .toggle-label {
+    display: none;
+  }
+
+  .hero-copy,
+  .quiz-card,
+  .result-summary,
+  .solutions,
+  .transition-panel {
+    padding: 16px;
+  }
+
+  .hero-actions,
+  .quiz-footer,
+  .result-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .mini-grid,
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quiz-header {
+    align-items: flex-start;
+  }
+
+  .timer-wrap,
+  .timer-ring {
+    width: 74px;
+    height: 74px;
+  }
+
+  .option-btn {
+    grid-template-columns: 30px minmax(0, 1fr);
+  }
+
+  .option-key {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+  </style>
+
+  <!--
+    Online image resources from Wikimedia Commons:
+    - Concave mirror.svg by Cronholm144, CC BY-SA/GFDL: https://commons.wikimedia.org/wiki/File:Concave_mirror.svg
+    - Total internal reflection-critical angle.svg by Filu, CC BY-SA/GFDL: https://commons.wikimedia.org/wiki/File:Total_internal_reflection-critical_angle.svg
+    - Wavefront Refraction.svg by ??, CC BY-SA 3.0: https://commons.wikimedia.org/wiki/File:Wavefront_Refraction.svg
+  -->
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="CEE Physics Quiz home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M24 5 42 15v18L24 43 6 33V15L24 5Z"></path>
+            <path d="M15 25c6-10 12-10 18 0M15 25c6 10 12 10 18 0"></path>
+            <circle cx="24" cy="25" r="2.8"></circle>
+          </svg>
+        </span>
+        <span>
+          <strong>CEE Physics</strong>
+          <small>Optics quiz</small>
+        </span>
+      </a>
+
+      <nav class="nav-actions" aria-label="Main controls">
+        <button class="icon-btn" id="soundToggle" type="button" aria-pressed="false" title="Toggle sound">
+          <span aria-hidden="true">♪</span>
+          <span class="sr-only">Toggle sound</span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+          <span class="toggle-knob" aria-hidden="true"></span>
+          <span class="toggle-label">Light</span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="pageTitle">
+        <div class="hero-copy">
+          <p class="eyebrow">Mirror · Total Internal Reflection · Refraction at Plane Surface</p>
+          <h1 id="pageTitle">CEE Physics Most Repeated Questions (2075&ndash;2082)</h1>
+          <p class="hero-text">A focused, exam-style optics practice experience with timed MCQs, ray diagrams, numerical reasoning, instant answer checking, set progression, and detailed solutions.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="startQuizBtn" type="button">
+              <span>Start Set 1</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </button>
+            <button class="secondary-btn" id="reviewBtn" type="button">View Question Sets</button>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Quiz highlights">
+          <div class="orbit-card">
+            <span class="spark"></span>
+            <strong>2:00</strong>
+            <small>per question</small>
+          </div>
+          <div class="mini-grid">
+            <div>
+              <strong>20</strong>
+              <span>questions</span>
+            </div>
+            <div>
+              <strong>3</strong>
+              <span>sets</span>
+            </div>
+            <div>
+              <strong>100</strong>
+              <span>test loops</span>
+            </div>
+          </div>
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Wavefront_Refraction.svg" alt="Ray bending at a plane glass surface" class="hero-diagram">
+        </aside>
+      </section>
+
+      <section class="set-board" id="sets" aria-labelledby="setsTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Choose your route</p>
+          <h2 id="setsTitle">Practice Sets</h2>
+        </div>
+        <div class="set-grid" id="setGrid"></div>
+      </section>
+
+      <section class="quiz-area" id="quizArea" hidden aria-live="polite">
+        <div class="quiz-card">
+          <div class="quiz-header">
+            <div>
+              <p class="eyebrow" id="quizTopic">Topic</p>
+              <h2 id="quizSetTitle">Set 1</h2>
+            </div>
+            <div class="timer-wrap" aria-label="Question timer">
+              <svg class="timer-ring" viewBox="0 0 72 72" aria-hidden="true">
+                <circle cx="36" cy="36" r="31"></circle>
+                <circle id="timerCircle" cx="36" cy="36" r="31"></circle>
+              </svg>
+              <strong id="timerText">02:00</strong>
+            </div>
+          </div>
+
+          <div class="progress-shell" aria-label="Quiz progress">
+            <div class="progress-meta">
+              <span id="questionCounter">Question 1 of 7</span>
+              <span id="scorePill">Score 0</span>
+            </div>
+            <div class="progress-track">
+              <span id="progressFill"></span>
+            </div>
+          </div>
+
+          <article class="question-layout">
+            <div class="question-main">
+              <p class="question-text" id="questionText"></p>
+              <div class="options" id="optionsList"></div>
+              <div class="feedback" id="feedbackBox" hidden></div>
+            </div>
+            <figure class="diagram-frame" id="diagramFrame" hidden>
+              <img id="questionImage" alt="">
+              <figcaption id="imageCaption"></figcaption>
+            </figure>
+          </article>
+
+          <div class="quiz-footer">
+            <button class="secondary-btn" id="leaveBtn" type="button">Leave Quiz</button>
+            <button class="primary-btn" id="nextQuestionBtn" type="button" disabled>Next Question</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="transition-panel" id="setComplete" hidden>
+        <div class="result-hero">
+          <p class="eyebrow">Set complete</p>
+          <h2 id="setCompleteTitle">Great work</h2>
+          <p id="setCompleteText"></p>
+          <div class="result-actions">
+            <button class="primary-btn" id="nextSetBtn" type="button">Next Set</button>
+            <button class="secondary-btn" id="leaveAfterSetBtn" type="button">Leave Quiz</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="results" id="resultsArea" hidden aria-labelledby="resultsTitle">
+        <div class="result-summary">
+          <p class="eyebrow">Final report</p>
+          <h2 id="resultsTitle">Your Performance</h2>
+          <p id="performanceMessage"></p>
+          <div class="stats-grid">
+            <div><strong id="finalScore">0/20</strong><span>Total marks</span></div>
+            <div><strong id="finalPercentage">0%</strong><span>Percentage</span></div>
+            <div><strong id="correctCount">0</strong><span>Correct</span></div>
+            <div><strong id="wrongCount">0</strong><span>Wrong/skipped</span></div>
+          </div>
+          <div class="result-actions">
+            <button class="primary-btn" id="restartBtn" type="button">Restart Quiz</button>
+            <button class="secondary-btn" id="solutionsBtn" type="button">Solutions</button>
+          </div>
+        </div>
+
+        <div class="solutions" id="solutionsPanel">
+          <div class="section-heading">
+            <p class="eyebrow">Detailed solutions</p>
+            <h2>Answer Key &amp; Explanations</h2>
+          </div>
+          <div id="solutionsList"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <noscript>
+    <div class="noscript">This quiz needs JavaScript enabled to run timers, scoring, and answer checking.</div>
+  </noscript>
+  <script>
+const QUESTION_SECONDS = 120;
+
+const QUIZ_SETS = [
+  {
+    title: "Set 1: Core Optics",
+    summary: "Foundation questions on image formation, critical angle, Snell's law, and apparent depth.",
+    questions: [
+      {
+        id: "s1-q1",
+        topic: "Mirror",
+        prompt: "A student places an object 30 cm in front of a concave mirror of focal length 15 cm. Where is the image formed and what is its nature?",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Concave_mirror.svg",
+        imageAlt: "Concave mirror ray diagram showing focus and centre of curvature",
+        caption: "For a concave mirror, an object at C forms its image at C.",
+        options: ["At 15 cm, virtual and erect", "At 30 cm, real, inverted and same size", "At infinity, real and highly enlarged", "Behind the mirror, virtual and diminished"],
+        answer: 1,
+        formula: "For an object at C, u = 2f, so image forms at C. Also, 1/f = 1/u + 1/v.",
+        explanation: "Since f = 15 cm, the centre of curvature is 2f = 30 cm. The object is exactly at C. A concave mirror forms a real, inverted image of the same size at C.",
+        steps: ["Find C = 2f = 30 cm.", "Compare object distance with C: object is at 30 cm.", "Therefore image is at 30 cm, real, inverted and same size."]
+      },
+      {
+        id: "s1-q2",
+        topic: "Mirror",
+        prompt: "If a plane mirror is rotated through 10 deg while the incident ray is fixed, through what angle does the reflected ray rotate?",
+        options: ["5 deg", "10 deg", "20 deg", "40 deg"],
+        answer: 2,
+        formula: "Rotation of reflected ray = 2 x rotation of mirror.",
+        explanation: "When a plane mirror rotates by theta, its normal also rotates by theta. The reflected ray turns by 2theta because the angle of incidence and angle of reflection both change.",
+        steps: ["Mirror rotation = 10 deg.", "Reflected ray rotation = 2 x 10 deg.", "Answer = 20 deg."]
+      },
+      {
+        id: "s1-q3",
+        topic: "Total Internal Reflection",
+        prompt: "The refractive index of glass is 1.5. What is the critical angle for a glass-air boundary?",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Total_internal_reflection-critical_angle.svg",
+        imageAlt: "Critical angle diagram at a glass-air interface",
+        caption: "At the critical angle, the refracted ray grazes the surface.",
+        options: ["30.0 deg", "36.9 deg", "41.8 deg", "48.6 deg"],
+        answer: 2,
+        formula: "sin c = n2 / n1 = 1 / 1.5.",
+        explanation: "For glass to air, the ray travels from denser medium to rarer medium. The critical angle c satisfies sin c = 1/1.5 = 0.6667.",
+        steps: ["Use sin c = n_air / n_glass.", "sin c = 1 / 1.5 = 0.6667.", "c = sin^-1(0.6667) = 41.8 deg."]
+      },
+      {
+        id: "s1-q4",
+        topic: "Refraction at Plane Surface",
+        prompt: "A ray enters glass from air at an angle of incidence 45 deg. If refractive index of glass is 1.5, the angle of refraction is closest to:",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wavefront_Refraction.svg",
+        imageAlt: "Refraction at a plane surface from air into glass",
+        caption: "From air to glass, the ray bends towards the normal.",
+        options: ["18.5 deg", "28.1 deg", "41.8 deg", "60.0 deg"],
+        answer: 1,
+        formula: "n1 sin i = n2 sin r.",
+        explanation: "Using Snell's law: 1 x sin45 = 1.5 x sin r. So sin r = 0.7071 / 1.5 = 0.4714.",
+        steps: ["Write Snell's law: n1 sin i = n2 sin r.", "sin r = sin45 / 1.5 = 0.4714.", "r = sin^-1(0.4714) = 28.1 deg."]
+      },
+      {
+        id: "s1-q5",
+        topic: "Mirror",
+        prompt: "In a concave mirror, a paraxial ray parallel to the principal axis after reflection passes through:",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Concave_mirror.svg",
+        imageAlt: "Parallel ray reflecting through focus of a concave mirror",
+        caption: "This is the most used ray rule for concave mirrors.",
+        options: ["Pole of the mirror", "Centre of curvature", "Principal focus", "Any point behind the mirror"],
+        answer: 2,
+        formula: "Parallel incident ray -> reflected through principal focus for a concave mirror.",
+        explanation: "The focus of a concave mirror is defined as the point where rays parallel to the principal axis converge after reflection.",
+        steps: ["Identify the incident ray as parallel to the principal axis.", "Apply the standard concave mirror ray rule.", "The reflected ray passes through F, the principal focus."]
+      },
+      {
+        id: "s1-q6",
+        topic: "Refraction at Plane Surface",
+        prompt: "A coin is at the bottom of a water tank 12 cm deep. If the refractive index of water is 4/3, what is the apparent depth when viewed normally from air?",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wavefront_Refraction.svg",
+        imageAlt: "Coin in water appearing raised due to refraction",
+        caption: "Normal viewing through a plane surface makes objects look raised.",
+        options: ["8 cm", "9 cm", "12 cm", "16 cm"],
+        answer: 1,
+        formula: "Apparent depth = real depth / refractive index.",
+        explanation: "For normal viewing from air into water, apparent depth equals real depth divided by refractive index.",
+        steps: ["Real depth = 12 cm.", "mu = 4/3.", "Apparent depth = 12 / (4/3) = 9 cm."]
+      },
+      {
+        id: "s1-q7",
+        topic: "Refraction at Plane Surface",
+        prompt: "A ray passes through a parallel-sided glass slab obliquely. Which statement about the emergent ray is correct?",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wavefront_Refraction.svg",
+        imageAlt: "Lateral displacement of a ray through a glass slab",
+        caption: "A parallel glass slab changes the ray position, not the final direction.",
+        options: ["It is parallel to the incident ray and laterally displaced", "It bends permanently towards the normal", "It emerges along the normal", "It undergoes total internal reflection at first surface"],
+        answer: 0,
+        formula: "For a parallel slab, angle of emergence e = angle of incidence i.",
+        explanation: "The refraction at the second parallel surface exactly reverses the angular deviation caused at the first surface. The final ray is parallel to the incident ray but shifted sideways.",
+        steps: ["At first surface, ray bends towards normal.", "At second surface, ray bends away from normal.", "Because surfaces are parallel, emergent ray is parallel with lateral displacement."]
+      }
+    ]
+  },
+  {
+    title: "Set 2: CEE Numerical Focus",
+    summary: "Sharper numerical and conceptual patterns used repeatedly in CEE-style optics.",
+    questions: [
+      {
+        id: "s2-q1",
+        topic: "Mirror",
+        prompt: "An object is placed in front of a convex mirror. The image formed by the mirror is always:",
+        options: ["Real, inverted and magnified", "Virtual, erect and diminished", "Real, erect and same size", "Virtual, inverted and magnified"],
+        answer: 1,
+        formula: "Convex mirror image: always virtual, erect, diminished, between pole and focus.",
+        explanation: "A convex mirror diverges reflected rays. Their backward extensions meet behind the mirror, giving a virtual, erect and diminished image.",
+        steps: ["Convex mirror is a diverging mirror.", "Reflected rays do not actually meet in front.", "Image is virtual, erect and diminished behind the mirror."]
+      },
+      {
+        id: "s2-q2",
+        topic: "Mirror",
+        prompt: "For a concave mirror of focal length 15 cm, an object is placed 10 cm from the pole. What type of image is formed?",
+        options: ["Real, inverted and diminished", "Real, inverted and enlarged", "Virtual, erect and enlarged", "Virtual, erect and diminished"],
+        answer: 2,
+        formula: "Object inside focus of concave mirror -> virtual, erect, enlarged image.",
+        explanation: "The object distance is less than focal length, so reflected rays diverge and appear to come from behind the mirror. This creates an enlarged virtual image.",
+        steps: ["Compare u = 10 cm with f = 15 cm.", "Object is between pole and focus.", "Concave mirror forms a virtual, erect and enlarged image."]
+      },
+      {
+        id: "s2-q3",
+        topic: "Total Internal Reflection",
+        prompt: "Which condition is necessary for total internal reflection to occur?",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Total_internal_reflection-critical_angle.svg",
+        imageAlt: "Total internal reflection condition diagram",
+        caption: "TIR requires denser-to-rarer travel and incidence greater than critical angle.",
+        options: ["Light travels from rarer to denser medium", "Angle of incidence is smaller than critical angle", "Light travels from denser to rarer medium and i > c", "Refractive indices of both media are equal"],
+        answer: 2,
+        formula: "TIR condition: n1 > n2 and i > c.",
+        explanation: "Total internal reflection happens only when light attempts to pass from an optically denser medium to a rarer medium at an angle greater than the critical angle.",
+        steps: ["Check medium direction: denser to rarer is required.", "Check angle: incidence must exceed critical angle.", "Both conditions must be satisfied together."]
+      },
+      {
+        id: "s2-q4",
+        topic: "Total Internal Reflection",
+        prompt: "Optical fibres transmit light over long distances mainly due to:",
+        options: ["Regular reflection from metallic coating", "Diffraction at the fibre wall", "Total internal reflection in the core", "Dispersion by the cladding"],
+        answer: 2,
+        formula: "Optical fibre guiding principle: repeated TIR at core-cladding boundary.",
+        explanation: "The fibre core has higher refractive index than the cladding. Rays within the acceptance cone strike the boundary at angles greater than the critical angle and remain trapped by TIR.",
+        steps: ["Core has higher refractive index than cladding.", "Ray hits boundary from denser to rarer medium.", "If i > c, repeated TIR guides light."]
+      },
+      {
+        id: "s2-q5",
+        topic: "Refraction at Plane Surface",
+        prompt: "A glass slab of thickness 6 cm and refractive index 1.5 is viewed normally from air. What is the apparent upward shift of the far surface?",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wavefront_Refraction.svg",
+        imageAlt: "Glass slab producing apparent shift",
+        caption: "Normal apparent shift depends on thickness and refractive index.",
+        options: ["1 cm", "2 cm", "3 cm", "4 cm"],
+        answer: 1,
+        formula: "Shift = t(1 - 1/mu).",
+        explanation: "For normal viewing through a slab, the apparent shift is t(1 - 1/mu). Substituting t = 6 cm and mu = 1.5 gives 2 cm.",
+        steps: ["Use shift = t(1 - 1/mu).", "shift = 6(1 - 1/1.5).", "shift = 6(1 - 0.6667) = 2 cm."]
+      },
+      {
+        id: "s2-q6",
+        topic: "Total Internal Reflection",
+        prompt: "The critical angle for water-air interface is closest to, if refractive index of water is 4/3:",
+        options: ["30.0 deg", "41.8 deg", "48.6 deg", "60.0 deg"],
+        answer: 2,
+        formula: "sin c = 1 / mu.",
+        explanation: "For water to air, sin c = 1/(4/3) = 3/4 = 0.75, so c is about 48.6 deg.",
+        steps: ["Use sin c = n_air / n_water.", "sin c = 1 / (4/3) = 0.75.", "c = sin^-1(0.75) = 48.6 deg."]
+      },
+      {
+        id: "s2-q7",
+        topic: "Refraction at Plane Surface",
+        prompt: "A ray travels from glass (n = 1.5) to air at incidence angle 30 deg. What is the angle of refraction?",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wavefront_Refraction.svg",
+        imageAlt: "Refraction at a plane interface",
+        caption: "From denser to rarer medium, the ray bends away from the normal.",
+        options: ["19.5 deg", "30.0 deg", "41.8 deg", "48.6 deg"],
+        answer: 3,
+        formula: "n1 sin i = n2 sin r.",
+        explanation: "Here n1 = 1.5, n2 = 1. So sin r = 1.5 sin30 = 0.75. Hence r = 48.6 deg.",
+        steps: ["Apply Snell's law: 1.5 sin30 = 1 sin r.", "sin r = 1.5 x 0.5 = 0.75.", "r = sin^-1(0.75) = 48.6 deg."]
+      }
+    ]
+  },
+  {
+    title: "Set 3: Final Mixed Drill",
+    summary: "A compact final set combining mirror formula, TIR decisions, and plane-surface refraction.",
+    questions: [
+      {
+        id: "s3-q1",
+        topic: "Mirror",
+        prompt: "A concave mirror has focal length 10 cm. An object is placed 30 cm in front of it. The image distance is:",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Concave_mirror.svg",
+        imageAlt: "Concave mirror principal ray diagram",
+        caption: "Object beyond C gives a real image between F and C.",
+        options: ["10 cm", "15 cm", "20 cm", "30 cm"],
+        answer: 1,
+        formula: "1/f = 1/u + 1/v.",
+        explanation: "Using magnitudes for the standard mirror calculation: 1/v = 1/f - 1/u = 1/10 - 1/30 = 1/15.",
+        steps: ["Use 1/f = 1/u + 1/v.", "1/v = 1/10 - 1/30 = 2/30 = 1/15.", "v = 15 cm, real image between F and C."]
+      },
+      {
+        id: "s3-q2",
+        topic: "Mirror",
+        prompt: "An object is placed at the centre of curvature of a concave mirror. The magnification is:",
+        options: ["0", "+1", "-1", "+2"],
+        answer: 2,
+        formula: "m = -v/u. At C, v = u.",
+        explanation: "At the centre of curvature, the image is formed at the centre of curvature with the same size but inverted. Therefore magnification is -1.",
+        steps: ["At C, image also forms at C.", "Image size equals object size.", "Inverted image gives negative sign, so m = -1."]
+      },
+      {
+        id: "s3-q3",
+        topic: "Total Internal Reflection",
+        prompt: "A ray travels from air to water. Can total internal reflection occur at the air-water boundary?",
+        options: ["Yes, if incidence angle is large enough", "Yes, if angle is exactly the critical angle", "No, because light is going from rarer to denser medium", "No, because water has no critical angle"],
+        answer: 2,
+        formula: "TIR requires light to travel from denser to rarer medium.",
+        explanation: "When light travels from air to water, it enters a denser medium. Total internal reflection cannot occur in this direction, no matter how large the incidence angle is.",
+        steps: ["Identify direction: air to water.", "Air is optically rarer than water.", "TIR is impossible from rarer to denser medium."]
+      },
+      {
+        id: "s3-q4",
+        topic: "Total Internal Reflection",
+        prompt: "A transparent material has critical angle 42 deg with air. Its refractive index is closest to:",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Total_internal_reflection-critical_angle.svg",
+        imageAlt: "Critical angle relation with refractive index",
+        caption: "For a medium-air boundary, mu = 1/sin c.",
+        options: ["1.20", "1.33", "1.49", "1.73"],
+        answer: 2,
+        formula: "mu = 1 / sin c.",
+        explanation: "For a material-air boundary, sin c = 1/mu. Hence mu = 1/sin42 = 1/0.669 = 1.49 approximately.",
+        steps: ["Use sin c = 1/mu.", "mu = 1/sin42.", "mu = 1/0.669 = 1.49."]
+      },
+      {
+        id: "s3-q5",
+        topic: "Refraction at Plane Surface",
+        prompt: "A mark inside glass appears 15 cm below the surface when viewed normally from air. If refractive index of glass is 1.5, the real depth is:",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wavefront_Refraction.svg",
+        imageAlt: "Apparent depth and real depth diagram",
+        caption: "Real depth is larger than apparent depth when viewed from air.",
+        options: ["10 cm", "15 cm", "22.5 cm", "30 cm"],
+        answer: 2,
+        formula: "Real depth = mu x apparent depth.",
+        explanation: "Apparent depth = real depth / mu. Rearranging gives real depth = mu x apparent depth = 1.5 x 15 cm.",
+        steps: ["Given apparent depth = 15 cm.", "Use real depth = mu x apparent depth.", "Real depth = 1.5 x 15 = 22.5 cm."]
+      },
+      {
+        id: "s3-q6",
+        topic: "Total Internal Reflection",
+        prompt: "In a 45-45-90 glass prism of refractive index 1.5, a ray strikes the hypotenuse internally at 45 deg. What happens?",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Total_internal_reflection-critical_angle.svg",
+        imageAlt: "Right angle prism showing total internal reflection",
+        caption: "Right-angle prisms use TIR because 45 deg is greater than the glass-air critical angle.",
+        options: ["It refracts out normally", "It is totally internally reflected", "It passes undeviated", "It is absorbed completely"],
+        answer: 1,
+        formula: "c = sin^-1(1/1.5) = 41.8 deg; TIR if i > c.",
+        explanation: "The glass-air critical angle is 41.8 deg. Since the internal incidence angle is 45 deg, it is greater than the critical angle, so the ray undergoes total internal reflection.",
+        steps: ["Calculate critical angle: c = sin^-1(1/1.5) = 41.8 deg.", "Compare incidence: i = 45 deg.", "Since 45 deg > 41.8 deg, TIR occurs."]
+      }
+    ]
+  }
+];
+
+const state = {
+  setIndex: 0,
+  questionIndex: 0,
+  answers: [],
+  completedSets: [],
+  timerId: null,
+  remaining: QUESTION_SECONDS,
+  sound: false
+};
+
+const dom = typeof document !== "undefined" ? {
+  body: document.body,
+  startQuizBtn: document.getElementById("startQuizBtn"),
+  reviewBtn: document.getElementById("reviewBtn"),
+  setGrid: document.getElementById("setGrid"),
+  quizArea: document.getElementById("quizArea"),
+  quizTopic: document.getElementById("quizTopic"),
+  quizSetTitle: document.getElementById("quizSetTitle"),
+  timerText: document.getElementById("timerText"),
+  timerCircle: document.getElementById("timerCircle"),
+  timerWrap: document.querySelector(".timer-wrap"),
+  questionCounter: document.getElementById("questionCounter"),
+  scorePill: document.getElementById("scorePill"),
+  progressFill: document.getElementById("progressFill"),
+  questionText: document.getElementById("questionText"),
+  optionsList: document.getElementById("optionsList"),
+  feedbackBox: document.getElementById("feedbackBox"),
+  diagramFrame: document.getElementById("diagramFrame"),
+  questionImage: document.getElementById("questionImage"),
+  imageCaption: document.getElementById("imageCaption"),
+  nextQuestionBtn: document.getElementById("nextQuestionBtn"),
+  leaveBtn: document.getElementById("leaveBtn"),
+  setComplete: document.getElementById("setComplete"),
+  setCompleteTitle: document.getElementById("setCompleteTitle"),
+  setCompleteText: document.getElementById("setCompleteText"),
+  nextSetBtn: document.getElementById("nextSetBtn"),
+  leaveAfterSetBtn: document.getElementById("leaveAfterSetBtn"),
+  resultsArea: document.getElementById("resultsArea"),
+  performanceMessage: document.getElementById("performanceMessage"),
+  finalScore: document.getElementById("finalScore"),
+  finalPercentage: document.getElementById("finalPercentage"),
+  correctCount: document.getElementById("correctCount"),
+  wrongCount: document.getElementById("wrongCount"),
+  solutionsList: document.getElementById("solutionsList"),
+  solutionsBtn: document.getElementById("solutionsBtn"),
+  restartBtn: document.getElementById("restartBtn"),
+  themeToggle: document.getElementById("themeToggle"),
+  soundToggle: document.getElementById("soundToggle")
+} : null;
+
+function getAllQuestions() {
+  return QUIZ_SETS.flatMap((set, setIndex) =>
+    set.questions.map((question, questionIndex) => ({ ...question, setIndex, questionIndex, setTitle: set.title }))
+  );
+}
+
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60).toString().padStart(2, "0");
+  const secs = Math.max(0, seconds % 60).toString().padStart(2, "0");
+  return `${minutes}:${secs}`;
+}
+
+function setHidden(element, hidden) {
+  if (element) element.hidden = hidden;
+}
+
+function calculateAnswersScore(answers) {
+  return answers.reduce((total, answer) => total + (answer && answer.correct ? 1 : 0), 0);
+}
+
+function buildResultStats(answers, totalQuestions) {
+  const correct = calculateAnswersScore(answers);
+  const attempted = answers.filter(Boolean).length;
+  const wrong = Math.max(0, totalQuestions - correct);
+  const percentage = totalQuestions ? Math.round((correct / totalQuestions) * 100) : 0;
+  return { correct, attempted, wrong, total: totalQuestions, percentage };
+}
+
+function getPerformanceMessage(percentage) {
+  if (percentage >= 85) return "Excellent. Your optics fundamentals are CEE-ready; keep revising speed and accuracy.";
+  if (percentage >= 65) return "Strong work. Review the missed concepts and repeat the numerical questions once more.";
+  if (percentage >= 45) return "Good start. Focus on critical angle, mirror positions, and apparent-depth formulas.";
+  return "This set found the weak spots. Rebuild the formulas first, then try the quiz again untimed.";
+}
+
+function runDataAudit() {
+  const ids = new Set();
+  const all = getAllQuestions();
+  const errors = [];
+
+  if (all.length !== 20) errors.push(`Expected exactly 20 questions, found ${all.length}.`);
+  QUIZ_SETS.forEach((set, setIndex) => {
+    const topics = new Set(set.questions.map((question) => question.topic));
+    ["Mirror", "Total Internal Reflection", "Refraction at Plane Surface"].forEach((topic) => {
+      if (!topics.has(topic)) errors.push(`${set.title} is missing topic: ${topic}.`);
+    });
+    set.questions.forEach((question, questionIndex) => {
+      if (ids.has(question.id)) errors.push(`Duplicate id: ${question.id}.`);
+      ids.add(question.id);
+      if (!question.prompt || question.prompt.length < 20) errors.push(`Weak prompt at set ${setIndex + 1}, question ${questionIndex + 1}.`);
+      if (!Array.isArray(question.options) || question.options.length !== 4) errors.push(`${question.id} must have exactly 4 options.`);
+      if (!Number.isInteger(question.answer) || question.answer < 0 || question.answer > 3) errors.push(`${question.id} has invalid answer index.`);
+      if (!question.formula || !question.explanation || !Array.isArray(question.steps) || question.steps.length < 2) errors.push(`${question.id} is missing solution detail.`);
+    });
+  });
+
+  return { ok: errors.length === 0, errors, questionCount: all.length };
+}
+
+function simulateQuiz(strategy) {
+  const all = getAllQuestions();
+  const answers = all.map((question, index) => {
+    const selected = strategy === "allCorrect" ? question.answer : strategy === "allWrong" ? (question.answer + 1) % 4 : index % 5 === 0 ? null : question.answer;
+    return {
+      id: question.id,
+      selected,
+      correct: selected === question.answer,
+      timedOut: selected === null
+    };
+  });
+  return buildResultStats(answers, all.length);
+}
+
+function renderSetCards() {
+  if (!dom) return;
+  dom.setGrid.innerHTML = QUIZ_SETS.map((set, index) => {
+    const count = set.questions.length;
+    return `
+      <button class="set-card" type="button" data-set-index="${index}">
+        <span class="answer-line">Set ${index + 1}</span>
+        <h3>${set.title}</h3>
+        <p>${set.summary}</p>
+        <p><strong>${count}</strong> timed questions · 2 minutes each</p>
+        <div class="topic-chips" aria-label="Topics">
+          <span>Mirror</span>
+          <span>TIR</span>
+          <span>Refraction</span>
+        </div>
+      </button>
+    `;
+  }).join("");
+
+  dom.setGrid.querySelectorAll(".set-card").forEach((card) => {
+    card.addEventListener("click", () => startSet(Number(card.dataset.setIndex)));
+  });
+}
+
+function resetQuiz() {
+  stopTimer();
+  state.setIndex = 0;
+  state.questionIndex = 0;
+  state.answers = [];
+  state.completedSets = [];
+  state.remaining = QUESTION_SECONDS;
+  setHidden(dom.quizArea, true);
+  setHidden(dom.setComplete, true);
+  setHidden(dom.resultsArea, true);
+  document.getElementById("sets").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function startSet(setIndex) {
+  stopTimer();
+  state.setIndex = setIndex;
+  state.questionIndex = 0;
+  setHidden(dom.resultsArea, true);
+  setHidden(dom.setComplete, true);
+  setHidden(dom.quizArea, false);
+  ensureSetAnswerStorage();
+  renderQuestion();
+  dom.quizArea.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function ensureSetAnswerStorage() {
+  if (!state.answers[state.setIndex]) {
+    state.answers[state.setIndex] = Array(QUIZ_SETS[state.setIndex].questions.length).fill(null);
+  }
+}
+
+function currentQuestion() {
+  return QUIZ_SETS[state.setIndex].questions[state.questionIndex];
+}
+
+function renderQuestion() {
+  const set = QUIZ_SETS[state.setIndex];
+  const question = currentQuestion();
+  const answerRecord = state.answers[state.setIndex][state.questionIndex];
+
+  dom.quizTopic.textContent = question.topic;
+  dom.quizSetTitle.textContent = set.title;
+  dom.questionCounter.textContent = `Question ${state.questionIndex + 1} of ${set.questions.length}`;
+  dom.scorePill.textContent = `Score ${calculateAnswersScore(state.answers.flat().filter(Boolean))}`;
+  dom.progressFill.style.width = `${(state.questionIndex / set.questions.length) * 100}%`;
+  dom.questionText.textContent = question.prompt;
+  dom.feedbackBox.hidden = true;
+  dom.feedbackBox.textContent = "";
+  dom.nextQuestionBtn.disabled = !answerRecord;
+  dom.nextQuestionBtn.textContent = state.questionIndex === set.questions.length - 1 ? "Submit Set" : "Next Question";
+
+  renderImage(question);
+  renderOptions(question, answerRecord);
+  startTimer(answerRecord ? 0 : QUESTION_SECONDS);
+  if (answerRecord) showFeedback(answerRecord);
+}
+
+function renderImage(question) {
+  if (question.image) {
+    dom.questionImage.src = question.image;
+    dom.questionImage.alt = question.imageAlt || "";
+    dom.imageCaption.textContent = question.caption || "";
+    dom.diagramFrame.hidden = false;
+  } else {
+    dom.questionImage.removeAttribute("src");
+    dom.questionImage.alt = "";
+    dom.imageCaption.textContent = "";
+    dom.diagramFrame.hidden = true;
+  }
+}
+
+function renderOptions(question, answerRecord) {
+  const letters = ["A", "B", "C", "D"];
+  dom.optionsList.innerHTML = question.options.map((option, index) => {
+    let statusClass = "";
+    if (answerRecord) {
+      if (index === question.answer) statusClass = "correct";
+      if (index === answerRecord.selected && !answerRecord.correct) statusClass = "wrong";
+    }
+    return `
+      <button class="option-btn ${statusClass}" type="button" data-option-index="${index}" ${answerRecord ? "disabled" : ""}>
+        <span class="option-key">${letters[index]}</span>
+        <span>${option}</span>
+      </button>
+    `;
+  }).join("");
+
+  dom.optionsList.querySelectorAll(".option-btn").forEach((button) => {
+    button.addEventListener("click", () => chooseAnswer(Number(button.dataset.optionIndex), false));
+  });
+}
+
+function chooseAnswer(selected, timedOut) {
+  const question = currentQuestion();
+  const existing = state.answers[state.setIndex][state.questionIndex];
+  if (existing) return;
+
+  const record = {
+    id: question.id,
+    setIndex: state.setIndex,
+    questionIndex: state.questionIndex,
+    selected,
+    correct: selected === question.answer,
+    timedOut,
+    correctAnswer: question.answer
+  };
+
+  state.answers[state.setIndex][state.questionIndex] = record;
+  stopTimer();
+  renderOptions(question, record);
+  showFeedback(record);
+  dom.nextQuestionBtn.disabled = false;
+  dom.scorePill.textContent = `Score ${calculateAnswersScore(state.answers.flat().filter(Boolean))}`;
+  playTone(record.correct ? "correct" : "wrong");
+
+  if (timedOut) {
+    window.setTimeout(() => goNextQuestion(), 900);
+  }
+}
+
+function showFeedback(record) {
+  const question = currentQuestion();
+  const correctOption = question.options[question.answer];
+  if (record.timedOut) {
+    dom.feedbackBox.textContent = `Time ended. Correct answer: ${correctOption}`;
+  } else if (record.correct) {
+    dom.feedbackBox.textContent = `Correct. ${question.explanation}`;
+  } else {
+    dom.feedbackBox.textContent = `Not quite. Correct answer: ${correctOption}. ${question.explanation}`;
+  }
+  dom.feedbackBox.hidden = false;
+}
+
+function startTimer(seconds) {
+  stopTimer();
+  state.remaining = seconds;
+  updateTimerUI();
+  if (seconds <= 0) return;
+  state.timerId = window.setInterval(() => {
+    state.remaining -= 1;
+    updateTimerUI();
+    if (state.remaining <= 0) {
+      chooseAnswer(null, true);
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  if (state.timerId) {
+    window.clearInterval(state.timerId);
+    state.timerId = null;
+  }
+}
+
+function updateTimerUI() {
+  dom.timerText.textContent = formatTime(state.remaining);
+  const ratio = Math.max(0, state.remaining / QUESTION_SECONDS);
+  dom.timerCircle.style.strokeDashoffset = String((1 - ratio) * 194.78);
+  dom.timerWrap.classList.toggle("warning", state.remaining <= 30 && state.remaining > 10);
+  dom.timerWrap.classList.toggle("danger", state.remaining <= 10 && state.remaining > 0);
+}
+
+function goNextQuestion() {
+  const set = QUIZ_SETS[state.setIndex];
+  if (state.questionIndex < set.questions.length - 1) {
+    state.questionIndex += 1;
+    renderQuestion();
+    return;
+  }
+  completeCurrentSet();
+}
+
+function completeCurrentSet() {
+  stopTimer();
+  const setAnswers = state.answers[state.setIndex];
+  const stats = buildResultStats(setAnswers, QUIZ_SETS[state.setIndex].questions.length);
+  if (!state.completedSets.includes(state.setIndex)) state.completedSets.push(state.setIndex);
+
+  setHidden(dom.quizArea, true);
+  setHidden(dom.setComplete, false);
+  dom.setCompleteTitle.textContent = `${QUIZ_SETS[state.setIndex].title} finished`;
+  dom.setCompleteText.textContent = `You scored ${stats.correct}/${stats.total}. Do you want to continue to the next set?`;
+
+  const hasNext = state.setIndex < QUIZ_SETS.length - 1;
+  dom.nextSetBtn.hidden = !hasNext;
+  dom.nextSetBtn.textContent = hasNext ? "Next Set" : "Show Final Result";
+  if (!hasNext) dom.nextSetBtn.hidden = false;
+  dom.setComplete.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function showResults() {
+  stopTimer();
+  setHidden(dom.quizArea, true);
+  setHidden(dom.setComplete, true);
+  setHidden(dom.resultsArea, false);
+
+  const flatAnswers = state.answers.flat().filter((item) => item !== undefined);
+  const allQuestions = getAllQuestions();
+  const normalizedAnswers = allQuestions.map((question) => {
+    const setAnswers = state.answers[question.setIndex] || [];
+    return setAnswers[question.questionIndex] || {
+      id: question.id,
+      setIndex: question.setIndex,
+      questionIndex: question.questionIndex,
+      selected: null,
+      correct: false,
+      timedOut: false,
+      correctAnswer: question.answer
+    };
+  });
+  const stats = buildResultStats(normalizedAnswers, allQuestions.length);
+
+  dom.finalScore.textContent = `${stats.correct}/${stats.total}`;
+  dom.finalPercentage.textContent = `${stats.percentage}%`;
+  dom.correctCount.textContent = String(stats.correct);
+  dom.wrongCount.textContent = String(stats.wrong);
+  dom.performanceMessage.textContent = getPerformanceMessage(stats.percentage);
+  renderSolutions(normalizedAnswers);
+  dom.resultsArea.scrollIntoView({ behavior: "smooth", block: "start" });
+  return { stats, flatAnswers };
+}
+
+function renderSolutions(normalizedAnswers) {
+  const letters = ["A", "B", "C", "D"];
+  const allQuestions = getAllQuestions();
+  dom.solutionsList.innerHTML = allQuestions.map((question, index) => {
+    const record = normalizedAnswers[index];
+    const selectedText = record.selected === null ? "Skipped" : `${letters[record.selected]}. ${question.options[record.selected]}`;
+    const correctText = `${letters[question.answer]}. ${question.options[question.answer]}`;
+    const steps = question.steps.map((step) => `<li>${step}</li>`).join("");
+    return `
+      <article class="solution-item">
+        <h3>${index + 1}. ${question.prompt}</h3>
+        <p><span class="answer-line">Correct option: ${correctText}</span></p>
+        <p><strong>Your answer:</strong> ${selectedText}</p>
+        <p><strong>Formula used:</strong> ${question.formula}</p>
+        <p><strong>Explanation:</strong> ${question.explanation}</p>
+        <ul>${steps}</ul>
+      </article>
+    `;
+  }).join("");
+}
+
+function playTone(type) {
+  if (!state.sound || typeof AudioContext === "undefined") return;
+  const context = new AudioContext();
+  const oscillator = context.createOscillator();
+  const gain = context.createGain();
+  oscillator.type = "sine";
+  oscillator.frequency.value = type === "correct" ? 740 : 220;
+  gain.gain.value = 0.04;
+  oscillator.connect(gain);
+  gain.connect(context.destination);
+  oscillator.start();
+  oscillator.stop(context.currentTime + 0.08);
+}
+
+function bindEvents() {
+  dom.startQuizBtn.addEventListener("click", () => startSet(0));
+  dom.reviewBtn.addEventListener("click", () => document.getElementById("sets").scrollIntoView({ behavior: "smooth" }));
+  dom.nextQuestionBtn.addEventListener("click", goNextQuestion);
+  dom.leaveBtn.addEventListener("click", showResults);
+  dom.leaveAfterSetBtn.addEventListener("click", showResults);
+  dom.nextSetBtn.addEventListener("click", () => {
+    if (state.setIndex < QUIZ_SETS.length - 1) startSet(state.setIndex + 1);
+    else showResults();
+  });
+  dom.restartBtn.addEventListener("click", resetQuiz);
+  dom.solutionsBtn.addEventListener("click", () => document.getElementById("solutionsPanel").scrollIntoView({ behavior: "smooth" }));
+  dom.themeToggle.addEventListener("click", () => {
+    dom.body.classList.toggle("light");
+    const isLight = dom.body.classList.contains("light");
+    dom.themeToggle.setAttribute("aria-pressed", String(isLight));
+    dom.themeToggle.querySelector(".toggle-label").textContent = isLight ? "Dark" : "Light";
+    localStorage.setItem("cee-theme", isLight ? "light" : "dark");
+  });
+  dom.soundToggle.addEventListener("click", () => {
+    state.sound = !state.sound;
+    dom.soundToggle.setAttribute("aria-pressed", String(state.sound));
+    dom.soundToggle.classList.toggle("active", state.sound);
+  });
+}
+
+function initTheme() {
+  const saved = localStorage.getItem("cee-theme");
+  if (saved === "light") {
+    dom.body.classList.add("light");
+    dom.themeToggle.setAttribute("aria-pressed", "true");
+    dom.themeToggle.querySelector(".toggle-label").textContent = "Dark";
+  }
+}
+
+function init() {
+  initTheme();
+  renderSetCards();
+  bindEvents();
+  const audit = runDataAudit();
+  if (!audit.ok) {
+    console.warn("Quiz data audit issues:", audit.errors);
+  }
+}
+
+if (typeof window !== "undefined") {
+  window.CEE_QUIZ_SETS = QUIZ_SETS;
+  window.__quizInternals = {
+    QUESTION_SECONDS,
+    formatTime,
+    runDataAudit,
+    simulateQuiz,
+    buildResultStats,
+    getPerformanceMessage,
+    getState: () => JSON.parse(JSON.stringify({
+      setIndex: state.setIndex,
+      questionIndex: state.questionIndex,
+      answers: state.answers,
+      completedSets: state.completedSets,
+      remaining: state.remaining
+    }))
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+}
+
+if (typeof module !== "undefined") {
+  module.exports = {
+    QUESTION_SECONDS,
+    QUIZ_SETS,
+    formatTime,
+    runDataAudit,
+    simulateQuiz,
+    buildResultStats,
+    getPerformanceMessage
+  };
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Animal Tissue and Histology CEE 2083 high-yield timed Biology quiz with instant answer reveal, set-wise scores, and wrong-answer PDF export.">
+  <meta name="theme-color" content="#080b16">
+  <title>Animal Tissue and Histology | CEE 2083 Biology Practice</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <style>
+:root{color-scheme:dark;--bg:#080b16;--bg-2:#11182a;--surface:rgba(255,255,255,.09);--surface-strong:rgba(255,255,255,.14);--text:#f7fbff;--muted:#aeb9ca;--line:rgba(255,255,255,.16);--accent:#ff8fb3;--accent-2:#ffd166;--warn:#ffc857;--danger:#ff6b7a;--ok:#57e39d;--shadow:0 24px 80px rgba(0,0,0,.34);--radius:8px;--ring:194.78}body.light{color-scheme:light;--bg:#f4f7fb;--bg-2:#eaf1f8;--surface:rgba(255,255,255,.78);--surface-strong:rgba(255,255,255,.94);--text:#111827;--muted:#526071;--line:rgba(27,38,58,.14);--accent:#0b8fbd;--accent-2:#13885f;--shadow:0 22px 70px rgba(24,37,56,.14)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{min-height:100vh;margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 20% 10%,color-mix(in srgb,var(--accent) 26%,transparent),transparent 28rem),radial-gradient(circle at 85% 20%,color-mix(in srgb,var(--accent-2) 20%,transparent),transparent 24rem),linear-gradient(135deg,var(--bg),var(--bg-2));color:var(--text)}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.58}.app-shell{width:min(1180px,calc(100% - 28px));margin:0 auto}.topbar{position:sticky;top:14px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px 0 26px;padding:12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);backdrop-filter:blur(18px)}.brand{display:inline-flex;align-items:center;gap:12px;min-width:0;color:var(--text);text-decoration:none}.brand-mark{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--radius);background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06101e}.brand-mark svg{width:31px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.brand strong,.brand small{display:block}.brand small{color:var(--muted);font-size:.78rem}.nav-actions,.hero-actions,.result-actions,.quiz-footer,.setup-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.icon-btn,.theme-toggle,.primary-btn,.secondary-btn{min-height:44px;border:1px solid var(--line);border-radius:var(--radius);transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}.icon-btn:hover,.theme-toggle:hover,.primary-btn:hover,.secondary-btn:hover,.option-btn:hover,.set-card:hover{transform:translateY(-2px)}.icon-btn{width:44px;color:var(--text);background:var(--surface-strong)}.theme-toggle{display:inline-flex;align-items:center;gap:10px;padding:0 12px;color:var(--text);background:var(--surface-strong)}.toggle-knob{width:30px;height:18px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));position:relative}.toggle-knob:after{content:"";position:absolute;top:3px;left:3px;width:12px;height:12px;border-radius:50%;background:#fff;transition:transform .18s ease}body.light .toggle-knob:after{transform:translateX(12px)}.primary-btn,.secondary-btn{padding:0 16px;font-weight:750}.primary-btn{color:#06101e;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 14px 36px color-mix(in srgb,var(--accent) 24%,transparent)}.secondary-btn{color:var(--text);background:var(--surface-strong)}.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,520px);gap:28px;align-items:center;padding:18px 0 34px}.eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;color:var(--accent-2);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem}.hero h1{max-width:820px;margin:0;font-size:clamp(2.15rem,5vw,4.85rem);line-height:1.02;letter-spacing:0}.hero-text{max-width:760px;color:var(--muted);font-size:1.08rem;line-height:1.75}.hero-actions{margin-top:24px}.hero-panel,.quiz-area,.results-area,.set-complete,.solution-panel,.setup-panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);backdrop-filter:blur(18px)}.hero-panel{padding:18px;overflow:hidden}.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:15px}.stat{padding:12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-strong)}.stat strong{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.78rem}.visual-shell{position:relative;min-height:270px;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03))}.system-art{width:100%;max-height:360px;color:var(--text)}.visual-caption{position:absolute;left:14px;right:14px;bottom:12px;display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:var(--radius);background:rgba(0,0,0,.28);color:var(--text);font-size:.88rem}.set-board{padding:28px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:16px}.section-head h2{margin:0;font-size:2rem}.section-head p{margin:6px 0 0;color:var(--muted)}.set-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.set-card{display:flex;flex-direction:column;gap:12px;min-height:250px;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);text-align:left;color:var(--text);transition:transform .18s ease,border-color .18s ease}.set-card h3{margin:0;font-size:1.15rem}.set-card p{margin:0;color:var(--muted);line-height:1.55}.set-card .pill{align-self:flex-start;margin-top:auto}.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface-strong);color:var(--muted);font-size:.86rem}.setup-panel{margin:10px 0 24px;padding:16px}.setup-row{justify-content:space-between}.time-control{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.time-control input{width:94px;min-height:44px;border:1px solid var(--line);border-radius:var(--radius);padding:0 10px;color:var(--text);background:var(--surface-strong)}.quiz-area,.results-area,.set-complete,.solution-panel{padding:18px;margin:24px 0}.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}.quiz-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.progress{height:11px;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.08);margin:8px 0 18px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .25s ease}.timer-wrap{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-strong)}.timer-svg{width:42px;height:42px;transform:rotate(-90deg)}.timer-svg circle{fill:none;stroke-width:7}.timer-bg{stroke:rgba(255,255,255,.16)}.timer-ring{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:var(--ring);stroke-dashoffset:0;transition:stroke-dashoffset .25s linear,stroke .18s ease}.timer-wrap.warning .timer-ring{stroke:var(--warn)}.timer-wrap.danger .timer-ring{stroke:var(--danger)}.timer-text{font-weight:850}.question-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px;align-items:start}.question-card{min-height:330px}.question-card h2{margin:0 0 10px;font-size:1.42rem;line-height:1.35}.topic-line{color:var(--accent-2);font-weight:800;margin-bottom:8px}.diagram-card{min-height:230px;display:grid;place-items:center;padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-strong);color:var(--accent)}.diagram-card svg{width:100%;height:auto}.diagram-card p{margin:8px 0 0;color:var(--muted);font-size:.86rem;text-align:center}.options-list{display:grid;gap:10px;margin-top:16px}.option-btn{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:12px;width:100%;min-height:58px;padding:10px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-strong);color:var(--text);text-align:left;transition:transform .18s ease,border-color .18s ease,background .18s ease}.option-key{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);font-weight:850}.option-btn.correct{border-color:color-mix(in srgb,var(--ok) 70%,transparent);background:color-mix(in srgb,var(--ok) 18%,transparent)}.option-btn.wrong{border-color:color-mix(in srgb,var(--danger) 70%,transparent);background:color-mix(in srgb,var(--danger) 18%,transparent)}.feedback{margin-top:15px;padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-strong);line-height:1.65}.feedback strong{color:var(--accent-2)}.ready-box{min-height:280px;display:grid;place-items:center;text-align:center;border:1px dashed var(--line);border-radius:var(--radius);background:rgba(255,255,255,.04);padding:24px}.ready-box h2{font-size:1.7rem;margin:0 0 10px}.ready-box p{color:var(--muted);max-width:680px;line-height:1.7}.quiz-footer{justify-content:space-between;margin-top:18px}.set-score-grid,.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0}.score-tile{padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-strong)}.score-tile strong{display:block;font-size:1.6rem}.score-tile span{color:var(--muted)}.set-table{width:100%;border-collapse:collapse;margin:14px 0;overflow:hidden;border-radius:var(--radius)}.set-table th,.set-table td{border:1px solid var(--line);padding:10px;text-align:left}.set-table th{background:var(--surface-strong)}.solution-list{display:grid;gap:12px}.solution-item{padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-strong)}.solution-item h3{margin:0 0 8px}.answer-line{color:var(--ok);font-weight:850}.wrong-line{color:var(--danger);font-weight:850}.solution-item p{line-height:1.6}.solution-item ul{margin:8px 0 0;padding-left:20px;color:var(--muted);line-height:1.55}.hidden{display:none!important}@media(max-width:900px){.hero,.question-layout{grid-template-columns:1fr}.set-grid{grid-template-columns:1fr}.stat-grid,.set-score-grid,.result-grid{grid-template-columns:repeat(2,1fr)}.topbar{position:static}.section-head{display:block}.diagram-card{min-height:170px}}@media(max-width:560px){.app-shell{width:min(100% - 20px,1180px)}.hero h1{font-size:2.1rem}.nav-actions{width:100%;justify-content:space-between}.theme-toggle{flex:1;justify-content:center}.stat-grid,.set-score-grid,.result-grid{grid-template-columns:1fr}.quiz-footer,.setup-row{align-items:stretch}.quiz-footer .primary-btn,.quiz-footer .secondary-btn,.setup-row .primary-btn,.setup-row .secondary-btn{width:100%}.visual-caption{position:static;margin-top:10px}.question-card h2{font-size:1.18rem}}
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Animal Tissue and Histology">
+        <span class="brand-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M24 9h15v9H24z"/><path d="M32 18l-9 18"/><path d="M23 36h18"/><path d="M42 47H18a15 15 0 0 0 30 0h-6z"/><path d="M15 56h38"/><path d="M39 13l8 5-5 9-8-5"/></svg></span>
+        <span><strong>CEE Biology</strong><small>Animal Tissue and Histology</small></span>
+      </a>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false"><span class="toggle-knob"></span><span class="toggle-label">Light</span></button>
+        <button class="secondary-btn" id="downloadTopBtn" type="button">Wrong PDF</button>
+      </div>
+    </header>
+    <main id="home">
+      <section class="hero" aria-labelledby="pageTitle">
+        <div class="hero-copy">
+          <p class="eyebrow">CEE 2083 Biology High-Yield</p>
+          <h1 id="pageTitle">Animal Tissue and Histology</h1>
+          <p class="hero-text">A microscope-style quiz on epithelial, connective, muscular, and nervous tissues with the exact recognition clues CEE questions love to test.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="startQuizBtn" type="button">Start Set 1</button>
+            <button class="secondary-btn" id="reviewBtn" type="button">View Sets</button>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Quiz highlights">
+          <div class="stat-grid">
+            <div class="stat"><strong>18</strong><span>questions</span></div>
+            <div class="stat"><strong>3</strong><span>sets</span></div>
+            <div class="stat"><strong>PDF</strong><span>wrong answers</span></div>
+          </div>
+          <div class="visual-shell">
+            <svg class="system-art" viewBox="0 0 720 420" role="img" aria-label="Tissue layers, matrix, fibres, cells, and staining clues">
+      <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#ff8fb3"/><stop offset="1" stop-color="#ffd166"/></linearGradient></defs>
+      <rect x="38" y="42" width="644" height="336" rx="18" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)"/>
+      <circle cx="176" cy="171" r="72" fill="rgba(255,143,179,.17)" stroke="url(#g)" stroke-width="5"/>
+      <path d="M122 166c34-28 75 32 111-3M130 204c31-22 68 20 105-5" fill="none" stroke="rgba(255,255,255,.72)" stroke-width="8" stroke-linecap="round"/>
+      <rect x="315" y="92" width="88" height="180" rx="42" fill="rgba(255,255,255,.11)" stroke="url(#g)" stroke-width="5"/>
+      <rect x="430" y="105" width="92" height="154" rx="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.35)" stroke-width="4"/>
+      <circle cx="474" cy="151" r="26" fill="rgba(255,209,102,.35)"/><circle cx="474" cy="213" r="26" fill="rgba(255,143,179,.28)"/>
+      <path d="M305 334h206M360 272v62M455 259v75" stroke="url(#g)" stroke-width="9" stroke-linecap="round"/>
+      <text x="78" y="355" fill="currentColor" opacity=".82" font-size="26">epithelium</text><text x="303" y="355" fill="currentColor" opacity=".82" font-size="26">muscle</text><text x="486" y="355" fill="currentColor" opacity=".82" font-size="26">matrix</text>
+    </svg>
+            <div class="visual-caption"><strong>Histology Recognition</strong><span>Timed MCQ mode</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="setup-panel" aria-label="Timer setup">
+        <div class="setup-row">
+          <div>
+            <strong>Choose your time per question</strong>
+            <p style="margin:5px 0 0;color:var(--muted)">The timer starts only after you press the next/start-question button.</p>
+          </div>
+          <label class="time-control">Seconds
+            <input id="timeInput" type="number" min="15" max="300" step="5" value="60">
+          </label>
+        </div>
+      </section>
+
+      <section class="set-board" id="sets" aria-labelledby="setsTitle">
+        <div class="section-head">
+          <div><h2 id="setsTitle">Practice Sets</h2><p>Pick any set. Each one gives a set-wise score before you continue.</p></div>
+          <span class="pill" id="totalPill">18 most important MCQs</span>
+        </div>
+        <div class="set-grid" id="setGrid"></div>
+      </section>
+
+      <section class="quiz-area hidden" id="quizArea" aria-live="polite">
+        <div class="quiz-top">
+          <div class="quiz-meta">
+            <span class="pill" id="setPill">Set</span>
+            <span class="pill" id="questionCounter">Ready</span>
+            <span class="pill" id="scorePill">Score 0</span>
+          </div>
+          <div class="timer-wrap" id="timerWrap">
+            <svg class="timer-svg" viewBox="0 0 80 80" aria-hidden="true"><circle class="timer-bg" cx="40" cy="40" r="31"></circle><circle class="timer-ring" id="timerCircle" cx="40" cy="40" r="31"></circle></svg>
+            <span class="timer-text" id="timerText">--:--</span>
+          </div>
+        </div>
+        <div class="progress"><span id="progressFill"></span></div>
+        <div id="questionHost"></div>
+        <div class="quiz-footer">
+          <button class="secondary-btn" id="leaveBtn" type="button">Finish and Results</button>
+          <button class="primary-btn" id="nextQuestionBtn" type="button">Start Question 1</button>
+        </div>
+      </section>
+
+      <section class="set-complete hidden" id="setComplete">
+        <h2 id="setCompleteTitle">Set finished</h2>
+        <p id="setCompleteText"></p>
+        <div class="set-score-grid" id="setScoreGrid"></div>
+        <div class="result-actions">
+          <button class="primary-btn" id="nextSetBtn" type="button">Next Set</button>
+          <button class="secondary-btn" id="downloadSetBtn" type="button">Download This Set Wrong PDF</button>
+          <button class="secondary-btn" id="showFinalBtn" type="button">Final Result</button>
+        </div>
+      </section>
+
+      <section class="results-area hidden" id="resultsArea">
+        <h2>Final Result</h2>
+        <p id="performanceMessage"></p>
+        <div class="result-grid">
+          <div class="score-tile"><strong id="finalScore">0/0</strong><span>Total score</span></div>
+          <div class="score-tile"><strong id="finalPercentage">0%</strong><span>Percentage</span></div>
+          <div class="score-tile"><strong id="correctCount">0</strong><span>Correct</span></div>
+          <div class="score-tile"><strong id="wrongCount">0</strong><span>Wrong/skipped</span></div>
+        </div>
+        <table class="set-table" id="setScoreTable"></table>
+        <div class="result-actions">
+          <button class="primary-btn" id="downloadWrongBtn" type="button">Download Wrong Answers PDF</button>
+          <button class="secondary-btn" id="solutionsBtn" type="button">Review Wrong Answers</button>
+          <button class="secondary-btn" id="restartBtn" type="button">Restart</button>
+        </div>
+      </section>
+
+      <section class="solution-panel hidden" id="solutionsPanel">
+        <div class="section-head"><div><h2>Wrong Answer Review</h2><p>Only incorrect, skipped, or timed-out questions appear here.</p></div></div>
+        <div class="solution-list" id="solutionsList"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+const QUIZ_PAGE = {"file":"animal_tissue_histology.html","eyebrow":"CEE 2083 Biology High-Yield","title":"Animal Tissue and Histology","subtitle":"A microscope-style quiz on epithelial, connective, muscular, and nervous tissues with the exact recognition clues CEE questions love to test.","accent":"#ff8fb3","accent2":"#ffd166","icon":"microscope","visualTitle":"Histology Recognition","visualLabel":"Tissue layers, matrix, fibres, cells, and staining clues","sets":[{"title":"Set 1: Epithelial Tissue","summary":"Shape, layering, location, and function of major epithelia.","questions":[{"id":"ath-01","topic":"Simple Squamous","prompt":"Simple squamous epithelium is best suited for:","options":["Rapid diffusion and filtration","Strong contraction","Storage of fat","Impulse conduction"],"answer":0,"explanation":"Simple squamous epithelium is a single layer of flattened cells. Its thinness makes it ideal for diffusion and filtration, such as in alveoli, capillaries, and Bowman's capsule.","reviewPoints":["Single layer of flat cells.","Found in alveoli and capillary endothelium.","Function: diffusion, filtration, osmosis."],"visual":"epithelium"},{"id":"ath-02","topic":"Ciliated Epithelium","prompt":"Ciliated columnar epithelium in the respiratory tract mainly helps to:","options":["Secrete thyroxine","Move mucus and trapped particles","Store calcium","Produce RBCs"],"answer":1,"explanation":"Cilia beat in a coordinated way to move mucus, dust, and microbes out of the respiratory passage. Goblet cells often occur with it and secrete mucus.","reviewPoints":["Cilia move material over cell surface.","Respiratory tract: mucus clearance.","Oviduct: movement of ovum."],"visual":"epithelium"},{"id":"ath-03","topic":"Goblet Cells","prompt":"Goblet cells are specialized for secretion of:","options":["Mucus","Insulin","Bone matrix","Myelin"],"answer":0,"explanation":"Goblet cells are unicellular mucous glands present in epithelial linings. Their mucus lubricates and protects surfaces.","reviewPoints":["Goblet cells look cup-shaped.","They secrete mucin/mucus.","Common in intestine and respiratory tract."],"visual":"epithelium"},{"id":"ath-04","topic":"Transitional Epithelium","prompt":"The epithelium that allows stretching in the urinary bladder is:","options":["Keratinized stratified squamous","Transitional epithelium","Simple cuboidal epithelium","Pseudostratified epithelium"],"answer":1,"explanation":"Transitional epithelium, also called urothelium, changes shape as the bladder fills. It protects against urine while allowing expansion.","reviewPoints":["Found in urinary bladder, ureter, renal pelvis.","Cells change shape during stretching.","Specialized protective epithelium."],"visual":"epithelium"},{"id":"ath-05","topic":"Glandular Epithelium","prompt":"Endocrine glands differ from exocrine glands because endocrine glands:","options":["Have ducts opening onto surfaces","Release secretions directly into blood","Always secrete digestive enzymes","Are made only of cartilage"],"answer":1,"explanation":"Endocrine glands are ductless and release hormones into tissue fluid and blood. Exocrine glands secrete through ducts, such as salivary, sweat, and sebaceous glands.","reviewPoints":["Endocrine: ductless hormones.","Exocrine: ducts to surface or lumen.","Pancreas has both endocrine and exocrine parts."],"visual":"gland"},{"id":"ath-06","topic":"Basement Membrane","prompt":"The basement membrane mainly:","options":["Anchors epithelium to underlying connective tissue","Contracts like muscle","Produces action potentials","Stores bile"],"answer":0,"explanation":"The basement membrane is a thin extracellular layer beneath epithelial cells. It supports, anchors, and helps regulate exchange between epithelium and connective tissue.","reviewPoints":["Epithelium is avascular.","Basement membrane supports epithelium.","Underlying connective tissue supplies nutrients by diffusion."],"visual":"epithelium"}]},{"title":"Set 2: Connective Tissue","summary":"Matrix, fibres, cartilage, bone, blood, lymph, adipose, tendon, and areolar tissue.","questions":[{"id":"ath-07","topic":"Areolar Tissue","prompt":"The most widely distributed connective tissue that binds skin to muscles and fills spaces is:","options":["Areolar tissue","Compact bone","Hyaline cartilage","Cardiac muscle"],"answer":0,"explanation":"Areolar tissue is loose connective tissue containing fibroblasts, macrophages, mast cells, collagen fibres, and elastic fibres. It packs and supports organs.","reviewPoints":["Loose packing tissue.","Contains fibroblasts, mast cells, macrophages.","Binds skin to underlying structures."],"visual":"connective"},{"id":"ath-08","topic":"Mast Cells","prompt":"Mast cells in connective tissue release:","options":["Histamine and heparin","Insulin and glucagon","Actin and myosin","Thyroxine and calcitonin"],"answer":0,"explanation":"Mast cells release histamine, which promotes inflammation, and heparin, which acts as an anticoagulant. This is a frequent entrance-exam fact.","reviewPoints":["Histamine: inflammation/allergy.","Heparin: anticoagulant.","Mast cells are common in areolar tissue."],"visual":"connective"},{"id":"ath-09","topic":"Cartilage","prompt":"Hyaline cartilage is commonly found in:","options":["Intervertebral disc only","Tip of nose, tracheal rings, and articular surfaces","Haversian canals","Tendon attaching muscle to bone"],"answer":1,"explanation":"Hyaline cartilage has a glassy matrix and chondrocytes in lacunae. It supports the nose, trachea, larynx, and articular surfaces of bones.","reviewPoints":["Chondrocytes lie in lacunae.","Hyaline matrix appears glassy.","Cartilage is avascular."],"visual":"cartilage"},{"id":"ath-10","topic":"Bone Histology","prompt":"The central canal of an osteon in compact bone is called the:","options":["Haversian canal","Volkmann's capsule","Sarcolemma","Canal of Schlemm"],"answer":0,"explanation":"Compact bone is organized into osteons or Haversian systems. The Haversian canal carries blood vessels and nerves through the centre of each osteon.","reviewPoints":["Osteon is the structural unit of compact bone.","Haversian canal contains vessels and nerves.","Lamellae are concentric rings of matrix."],"visual":"bone"},{"id":"ath-11","topic":"Blood","prompt":"Platelets are primarily involved in:","options":["Oxygen transport","Blood clotting","Antibody production","Bone matrix secretion"],"answer":1,"explanation":"Platelets are cell fragments that help form the platelet plug and release factors for clotting. RBCs transport oxygen and WBCs defend the body.","reviewPoints":["Platelets are thrombocytes.","They help haemostasis.","Low platelets can cause bleeding tendency."],"visual":"bloodcells"},{"id":"ath-12","topic":"Tendon","prompt":"Tendons are mainly made of:","options":["Dense regular connective tissue rich in collagen","Simple squamous epithelium","Smooth muscle only","Fluid matrix with RBCs"],"answer":0,"explanation":"Tendons attach muscle to bone and require high tensile strength in one direction. Dense regular connective tissue has parallel collagen bundles suited for this job.","reviewPoints":["Tendon: muscle to bone.","Ligament: bone to bone.","Dense regular collagen resists pulling force."],"visual":"connective"}]},{"title":"Set 3: Muscle and Nervous Tissue","summary":"Striations, intercalated discs, voluntary control, neurons, and neuroglia.","questions":[{"id":"ath-13","topic":"Skeletal Muscle","prompt":"Skeletal muscle fibres are usually:","options":["Non-striated and uninucleate","Striated, cylindrical, voluntary, and multinucleate","Branched with intercalated discs","Avascular epithelial cells"],"answer":1,"explanation":"Skeletal muscle fibres are long, cylindrical, striated, voluntary, and multinucleate. They attach to bones and produce body movement.","reviewPoints":["Striated and voluntary.","Many nuclei per fibre.","Controlled by somatic nervous system."],"visual":"muscle"},{"id":"ath-14","topic":"Cardiac Muscle","prompt":"The diagnostic histological feature of cardiac muscle is:","options":["Goblet cells","Intercalated discs","Chondrocytes in lacunae","Haversian canals"],"answer":1,"explanation":"Cardiac muscle is striated, involuntary, branched, and connected by intercalated discs. These discs allow mechanical and electrical coupling.","reviewPoints":["Cardiac muscle is involuntary and striated.","Intercalated discs are key identification points.","Found only in heart wall."],"visual":"muscle"},{"id":"ath-15","topic":"Smooth Muscle","prompt":"Smooth muscle is best described as:","options":["Striated voluntary fibres with many nuclei","Non-striated involuntary spindle-shaped cells","Branched fibres with intercalated discs","A single layer of flat epithelial cells"],"answer":1,"explanation":"Smooth muscle cells are spindle-shaped, non-striated, uninucleate, and involuntary. They occur in walls of gut, blood vessels, uterus, bladder, and bronchioles.","reviewPoints":["No striations.","Involuntary.","Found in visceral organs."],"visual":"muscle"},{"id":"ath-16","topic":"Neuron","prompt":"The part of a neuron that usually carries impulses away from the cell body is the:","options":["Dendrite","Axon","Nissl granule","Synaptic cleft"],"answer":1,"explanation":"Dendrites usually receive impulses toward the cell body, while the axon conducts impulses away from it to another neuron, muscle, or gland.","reviewPoints":["Dendrite receives.","Axon sends.","Synapse transfers signal to next cell."],"visual":"neuronhist"},{"id":"ath-17","topic":"Neuroglia","prompt":"Neuroglial cells mainly:","options":["Conduct impulses faster than axons","Support, protect, nourish, and insulate neurons","Secrete bile","Form bone lamellae"],"answer":1,"explanation":"Neuroglia are supporting cells of nervous tissue. They maintain the environment of neurons, form myelin in many cases, and assist repair and defense.","reviewPoints":["Glia support neurons.","Schwann cells myelinate PNS axons.","Oligodendrocytes myelinate CNS axons."],"visual":"neuronhist"},{"id":"ath-18","topic":"Histological Stain","prompt":"In routine histology, haematoxylin and eosin staining generally makes nuclei appear:","options":["Blue-purple","Bright green","Colourless","Golden yellow"],"answer":0,"explanation":"Haematoxylin stains acidic structures like nuclei blue-purple, while eosin stains cytoplasm and extracellular proteins pink. This is a common microscopic recognition clue.","reviewPoints":["H&E is the routine stain.","Haematoxylin: nuclei blue-purple.","Eosin: cytoplasm/extracellular matrix pink."],"visual":"stain"}]}]};
+const letters = ["A", "B", "C", "D"];
+const dom = {};
+const state = { setIndex: null, questionIndex: -1, answers: {}, completed: {}, timerId: null, remaining: 0, perQuestionSeconds: 60, locked: false };
+
+function $(id){ return document.getElementById(id); }
+function allQuestions(){ return QUIZ_PAGE.sets.flatMap((set, setIndex) => set.questions.map((question, questionIndex) => ({...question, setIndex, questionIndex, setTitle:set.title}))); }
+function formatTime(seconds){ const m = Math.floor(seconds / 60); const s = seconds % 60; return String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0"); }
+function clampTime(value){ const n = Number(value); if (!Number.isFinite(n)) return 60; return Math.max(15, Math.min(300, Math.round(n))); }
+function currentSet(){ return QUIZ_PAGE.sets[state.setIndex]; }
+function currentQuestion(){ return currentSet().questions[state.questionIndex]; }
+function setAnswers(index = state.setIndex){ return state.answers[index] || []; }
+function scoreOf(answers){ return answers.filter(Boolean).filter((item) => item.correct).length; }
+function statsFor(setIndex){ const set = QUIZ_PAGE.sets[setIndex]; const answers = state.answers[setIndex] || []; const normalized = set.questions.map((question, questionIndex) => answers[questionIndex] || makeMissingRecord(setIndex, questionIndex)); const correct = scoreOf(normalized); const wrong = normalized.length - correct; const timedOut = normalized.filter((item) => item.timedOut).length; return { correct, wrong, timedOut, total: set.questions.length, percentage: Math.round((correct / set.questions.length) * 100), normalized }; }
+function makeMissingRecord(setIndex, questionIndex){ return { id: QUIZ_PAGE.sets[setIndex].questions[questionIndex].id, setIndex, questionIndex, selected:null, correct:false, timedOut:false, missed:true }; }
+function performanceMessage(percentage){ if (percentage >= 85) return "Excellent. Your high-yield base is strong; now revise every missed explanation once."; if (percentage >= 65) return "Good exam direction. The missed questions below are exactly where marks can still be gained."; if (percentage >= 45) return "Promising, but the concepts need one more tight revision cycle before CEE-level speed."; return "Use the wrong-answer PDF as a rescue sheet. Read the explanation, then redo the same set under a shorter timer."; }
+function escapeHtml(value){ return String(value).replace(/[&<>"']/g, (ch) => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;" }[ch])); }
+
+function renderSetCards(){
+  dom.setGrid.innerHTML = QUIZ_PAGE.sets.map((set, index) => {
+    const done = state.completed[index];
+    const label = done ? "Retake Set" : "Start Set";
+    const score = done ? "<span class=\"pill\">Last score " + done.correct + "/" + done.total + "</span>" : "<span class=\"pill\">" + set.questions.length + " timed questions</span>";
+    return '<button class="set-card" type="button" data-set-index="' + index + '"><h3>' + escapeHtml(set.title) + '</h3><p>' + escapeHtml(set.summary) + '</p>' + score + '<span class="primary-btn" style="display:inline-flex;align-items:center;align-self:flex-start">' + label + '</span></button>';
+  }).join("");
+  dom.setGrid.querySelectorAll(".set-card").forEach((card) => card.addEventListener("click", () => startSet(Number(card.dataset.setIndex))));
+}
+
+function startSet(index){
+  stopTimer();
+  state.setIndex = index;
+  state.questionIndex = -1;
+  state.perQuestionSeconds = clampTime(dom.timeInput.value);
+  dom.timeInput.value = state.perQuestionSeconds;
+  state.answers[index] = Array(QUIZ_PAGE.sets[index].questions.length).fill(null);
+  dom.quizArea.classList.remove("hidden");
+  dom.setComplete.classList.add("hidden");
+  dom.resultsArea.classList.add("hidden");
+  dom.solutionsPanel.classList.add("hidden");
+  dom.setPill.textContent = QUIZ_PAGE.sets[index].title;
+  dom.questionCounter.textContent = "Ready";
+  dom.scorePill.textContent = "Score 0";
+  dom.progressFill.style.width = "0%";
+  dom.timerText.textContent = "--:--";
+  dom.timerCircle.style.strokeDashoffset = "0";
+  dom.nextQuestionBtn.disabled = false;
+  dom.nextQuestionBtn.textContent = "Start Question 1";
+  dom.questionHost.innerHTML = '<div class="ready-box"><div><h2>' + escapeHtml(QUIZ_PAGE.sets[index].title) + '</h2><p>' + escapeHtml(QUIZ_PAGE.sets[index].summary) + '</p><p>Timer per question: <strong>' + state.perQuestionSeconds + ' seconds</strong>. Press Start Question 1 when you are ready; the timer begins only then.</p></div></div>';
+  dom.quizArea.scrollIntoView({ behavior:"smooth", block:"start" });
+}
+
+function renderQuestion(){
+  const set = currentSet();
+  const question = currentQuestion();
+  state.locked = false;
+  dom.questionCounter.textContent = "Question " + (state.questionIndex + 1) + " of " + set.questions.length;
+  dom.progressFill.style.width = ((state.questionIndex) / set.questions.length * 100) + "%";
+  dom.nextQuestionBtn.disabled = true;
+  dom.nextQuestionBtn.textContent = state.questionIndex === set.questions.length - 1 ? "Submit Set" : "Next Question";
+  const visual = question.visual ? '<aside class="diagram-card">' + diagramFor(question.visual) + '<p>' + escapeHtml(question.topic) + '</p></aside>' : "";
+  dom.questionHost.innerHTML = '<div class="question-layout"><article class="question-card"><div class="topic-line">' + escapeHtml(question.topic) + '</div><h2>' + escapeHtml(question.prompt) + '</h2><div class="options-list">' + question.options.map((option, index) => '<button class="option-btn" type="button" data-option-index="' + index + '"><span class="option-key">' + letters[index] + '</span><span>' + escapeHtml(option) + '</span></button>').join("") + '</div><div class="feedback hidden" id="feedbackBox"></div></article>' + visual + '</div>';
+  dom.questionHost.querySelectorAll(".option-btn").forEach((button) => button.addEventListener("click", () => chooseAnswer(Number(button.dataset.optionIndex), false)));
+  startTimer(state.perQuestionSeconds);
+}
+
+function diagramFor(kind){
+  const holder = document.createElement("div");
+  holder.innerHTML = DIAGRAMS[kind] || DIAGRAMS.dna;
+  return holder.innerHTML;
+}
+
+function chooseAnswer(selected, timedOut){
+  if (state.locked || state.questionIndex < 0) return;
+  state.locked = true;
+  stopTimer();
+  const question = currentQuestion();
+  const record = { id: question.id, setIndex: state.setIndex, questionIndex: state.questionIndex, selected, correct: selected === question.answer, timedOut };
+  state.answers[state.setIndex][state.questionIndex] = record;
+  renderAnsweredState(record);
+  dom.nextQuestionBtn.disabled = false;
+  dom.scorePill.textContent = "Score " + scoreOf(setAnswers()) + "/" + setAnswers().filter(Boolean).length;
+}
+
+function renderAnsweredState(record){
+  const question = currentQuestion();
+  dom.questionHost.querySelectorAll(".option-btn").forEach((button) => {
+    const index = Number(button.dataset.optionIndex);
+    button.disabled = true;
+    if (index === question.answer) button.classList.add("correct");
+    if (record.selected === index && !record.correct) button.classList.add("wrong");
+  });
+  const feedback = $("feedbackBox");
+  const selectedText = record.selected === null ? "No answer" : letters[record.selected] + ". " + question.options[record.selected];
+  const correctText = letters[question.answer] + ". " + question.options[question.answer];
+  const lead = record.timedOut ? "Time ended." : record.correct ? "Correct." : "Wrong answer.";
+  feedback.innerHTML = '<strong>' + lead + '</strong> Correct answer: <strong>' + escapeHtml(correctText) + '</strong><br>Your answer: ' + escapeHtml(selectedText) + '<br>' + escapeHtml(question.explanation);
+  feedback.classList.remove("hidden");
+}
+
+function startTimer(seconds){
+  stopTimer();
+  state.remaining = seconds;
+  updateTimer();
+  state.timerId = window.setInterval(() => {
+    state.remaining -= 1;
+    updateTimer();
+    if (state.remaining <= 0) chooseAnswer(null, true);
+  }, 1000);
+}
+function stopTimer(){ if (state.timerId) { clearInterval(state.timerId); state.timerId = null; } }
+function updateTimer(){
+  dom.timerText.textContent = formatTime(Math.max(0, state.remaining));
+  const ratio = Math.max(0, state.remaining / Math.max(1, state.perQuestionSeconds));
+  dom.timerCircle.style.strokeDashoffset = String((1 - ratio) * 194.78);
+  dom.timerWrap.classList.toggle("warning", state.remaining <= Math.ceil(state.perQuestionSeconds * .3) && state.remaining > Math.ceil(state.perQuestionSeconds * .12));
+  dom.timerWrap.classList.toggle("danger", state.remaining <= Math.ceil(state.perQuestionSeconds * .12) && state.remaining > 0);
+}
+
+function nextQuestion(){
+  if (state.setIndex === null) { startSet(0); return; }
+  const set = currentSet();
+  if (state.questionIndex < set.questions.length - 1) {
+    state.questionIndex += 1;
+    renderQuestion();
+  } else {
+    completeSet();
+  }
+}
+
+function completeSet(){
+  stopTimer();
+  const stats = statsFor(state.setIndex);
+  state.completed[state.setIndex] = stats;
+  renderSetCards();
+  dom.quizArea.classList.add("hidden");
+  dom.setComplete.classList.remove("hidden");
+  dom.setCompleteTitle.textContent = currentSet().title + " finished";
+  dom.setCompleteText.textContent = "You scored " + stats.correct + "/" + stats.total + " (" + stats.percentage + "%). Review wrong answers now or continue.";
+  dom.setScoreGrid.innerHTML = scoreTiles(stats);
+  const hasNext = state.setIndex < QUIZ_PAGE.sets.length - 1;
+  dom.nextSetBtn.textContent = hasNext ? "Next Set" : "Show Final Result";
+  dom.setComplete.scrollIntoView({ behavior:"smooth", block:"center" });
+}
+
+function scoreTiles(stats){
+  return '<div class="score-tile"><strong>' + stats.correct + '</strong><span>Correct</span></div><div class="score-tile"><strong>' + stats.wrong + '</strong><span>Wrong/skipped</span></div><div class="score-tile"><strong>' + stats.timedOut + '</strong><span>Timed out</span></div><div class="score-tile"><strong>' + stats.percentage + '%</strong><span>Accuracy</span></div>';
+}
+
+function showResults(){
+  stopTimer();
+  if (state.setIndex !== null && state.questionIndex >= 0 && !state.completed[state.setIndex]) state.completed[state.setIndex] = statsFor(state.setIndex);
+  const attemptedIndexes = QUIZ_PAGE.sets.map((_, index) => index).filter((index) => state.answers[index]);
+  const allStats = attemptedIndexes.map((index) => ({ ...statsFor(index), setIndex: index }));
+  const correct = allStats.reduce((sum, item) => sum + item.correct, 0);
+  const total = allStats.reduce((sum, item) => sum + item.total, 0);
+  const wrong = total - correct;
+  const percentage = total ? Math.round((correct / total) * 100) : 0;
+  dom.quizArea.classList.add("hidden");
+  dom.setComplete.classList.add("hidden");
+  dom.resultsArea.classList.remove("hidden");
+  dom.solutionsPanel.classList.remove("hidden");
+  dom.finalScore.textContent = correct + "/" + total;
+  dom.finalPercentage.textContent = percentage + "%";
+  dom.correctCount.textContent = correct;
+  dom.wrongCount.textContent = wrong;
+  dom.performanceMessage.textContent = performanceMessage(percentage);
+  dom.setScoreTable.innerHTML = '<thead><tr><th>Set</th><th>Score</th><th>Wrong</th><th>Accuracy</th></tr></thead><tbody>' + (allStats.length ? allStats.map((stats) => '<tr><td>' + escapeHtml(QUIZ_PAGE.sets[stats.setIndex].title) + '</td><td>' + stats.correct + '/' + stats.total + '</td><td>' + stats.wrong + '</td><td>' + stats.percentage + '%</td></tr>').join("") : '<tr><td colspan="4">No set attempted yet.</td></tr>') + '</tbody>';
+  renderWrongSolutions();
+  dom.resultsArea.scrollIntoView({ behavior:"smooth", block:"start" });
+}
+
+function wrongRecords(scopeSetIndex = null){
+  const attemptedIndexes = scopeSetIndex === null ? Object.keys(state.answers).map(Number) : [scopeSetIndex].filter((index) => state.answers[index]);
+  const questions = allQuestions().filter((question) => attemptedIndexes.includes(question.setIndex));
+  return questions.map((question) => {
+    const record = (state.answers[question.setIndex] || [])[question.questionIndex] || makeMissingRecord(question.setIndex, question.questionIndex);
+    return { question, record };
+  }).filter(({ record }) => !record.correct);
+}
+
+function renderWrongSolutions(){
+  const wrong = wrongRecords();
+  dom.solutionsList.innerHTML = wrong.length ? wrong.map(({question, record}, index) => solutionHtml(question, record, index + 1)).join("") : '<div class="solution-item"><h3>No wrong answers recorded.</h3><p>Clean set. Increase speed or try another topic.</p></div>';
+}
+
+function solutionHtml(question, record, number){
+  const selectedText = record.selected === null ? (record.timedOut ? "Timed out" : "Skipped") : letters[record.selected] + ". " + question.options[record.selected];
+  const correctText = letters[question.answer] + ". " + question.options[question.answer];
+  return '<article class="solution-item"><h3>' + number + '. ' + escapeHtml(question.prompt) + '</h3><p><span class="wrong-line">Your answer: ' + escapeHtml(selectedText) + '</span></p><p><span class="answer-line">Correct answer: ' + escapeHtml(correctText) + '</span></p><p><strong>Perfect explanation:</strong> ' + escapeHtml(question.explanation) + '</p><ul>' + question.reviewPoints.map((point) => '<li>' + escapeHtml(point) + '</li>').join("") + '</ul></article>';
+}
+
+function downloadWrongPdf(scopeSetIndex = null){
+  const wrong = wrongRecords(scopeSetIndex);
+  if (!window.jspdf || !window.jspdf.jsPDF) { alert("PDF library is still loading. Please try again in a moment."); return; }
+  const doc = new window.jspdf.jsPDF({ unit:"pt", format:"a4" });
+  const margin = 42;
+  const width = doc.internal.pageSize.getWidth() - margin * 2;
+  let y = 48;
+  function addLine(text, size = 10, bold = false){
+    doc.setFont("helvetica", bold ? "bold" : "normal");
+    doc.setFontSize(size);
+    const lines = doc.splitTextToSize(String(text), width);
+    lines.forEach((line) => {
+      if (y > 780) { doc.addPage(); y = 48; }
+      doc.text(line, margin, y);
+      y += size + 5;
+    });
+  }
+  addLine(QUIZ_PAGE.title + " - Wrong Answer Review", 16, true);
+  addLine(scopeSetIndex === null ? "All sets" : QUIZ_PAGE.sets[scopeSetIndex].title, 11, true);
+  addLine("Generated from timed CEE 2083 high-yield practice.", 10, false);
+  y += 10;
+  if (!wrong.length) {
+    addLine("No wrong answers recorded. Great work.", 12, true);
+  } else {
+    wrong.forEach(({question, record}, index) => {
+      const selectedText = record.selected === null ? (record.timedOut ? "Timed out" : "Skipped") : letters[record.selected] + ". " + question.options[record.selected];
+      const correctText = letters[question.answer] + ". " + question.options[question.answer];
+      addLine((index + 1) + ". [" + question.setTitle + "] " + question.prompt, 11, true);
+      addLine("Your answer: " + selectedText, 10, false);
+      addLine("Correct answer: " + correctText, 10, true);
+      addLine("Perfect explanation: " + question.explanation, 10, false);
+      addLine("Must remember: " + question.reviewPoints.join(" | "), 10, false);
+      y += 8;
+    });
+  }
+  const base = QUIZ_PAGE.file.replace(".html", "");
+  doc.save(base + (scopeSetIndex === null ? "_wrong_answers.pdf" : "_set_" + (scopeSetIndex + 1) + "_wrong_answers.pdf"));
+}
+
+function bind(){
+  dom.startQuizBtn.addEventListener("click", () => startSet(0));
+  dom.reviewBtn.addEventListener("click", () => $("sets").scrollIntoView({ behavior:"smooth" }));
+  dom.nextQuestionBtn.addEventListener("click", nextQuestion);
+  dom.leaveBtn.addEventListener("click", showResults);
+  dom.showFinalBtn.addEventListener("click", showResults);
+  dom.nextSetBtn.addEventListener("click", () => state.setIndex < QUIZ_PAGE.sets.length - 1 ? startSet(state.setIndex + 1) : showResults());
+  dom.restartBtn.addEventListener("click", () => { stopTimer(); state.setIndex = null; state.questionIndex = -1; state.answers = {}; state.completed = {}; dom.quizArea.classList.add("hidden"); dom.resultsArea.classList.add("hidden"); dom.setComplete.classList.add("hidden"); dom.solutionsPanel.classList.add("hidden"); renderSetCards(); window.scrollTo({ top:0, behavior:"smooth" }); });
+  dom.downloadWrongBtn.addEventListener("click", () => downloadWrongPdf(null));
+  dom.downloadTopBtn.addEventListener("click", () => downloadWrongPdf(null));
+  dom.downloadSetBtn.addEventListener("click", () => downloadWrongPdf(state.setIndex));
+  dom.solutionsBtn.addEventListener("click", () => dom.solutionsPanel.scrollIntoView({ behavior:"smooth" }));
+  dom.themeToggle.addEventListener("click", () => { document.body.classList.toggle("light"); const light = document.body.classList.contains("light"); dom.themeToggle.setAttribute("aria-pressed", String(light)); dom.themeToggle.querySelector(".toggle-label").textContent = light ? "Dark" : "Light"; localStorage.setItem("cee-bio-theme", light ? "light" : "dark"); });
+}
+
+function init(){
+  ["setGrid","timeInput","startQuizBtn","reviewBtn","downloadTopBtn","quizArea","setComplete","resultsArea","solutionsPanel","setPill","questionCounter","scorePill","timerWrap","timerCircle","timerText","progressFill","questionHost","nextQuestionBtn","leaveBtn","setCompleteTitle","setCompleteText","setScoreGrid","nextSetBtn","downloadSetBtn","showFinalBtn","performanceMessage","finalScore","finalPercentage","correctCount","wrongCount","setScoreTable","downloadWrongBtn","solutionsBtn","restartBtn","solutionsList","themeToggle"].forEach((id) => dom[id] = $(id));
+  if (localStorage.getItem("cee-bio-theme") === "light") { document.body.classList.add("light"); dom.themeToggle.setAttribute("aria-pressed","true"); dom.themeToggle.querySelector(".toggle-label").textContent = "Dark"; }
+  renderSetCards();
+  bind();
+}
+
+const DIAGRAMS = {"heart":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M120 133S38 90 38 45c0-23 16-38 37-38 16 0 27 9 35 22C118 16 129 7 145 7c21 0 37 15 37 38 0 45-62 88-62 88z\" fill=\"rgba(83,214,255,.2)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M54 78h34l14-43 28 82 16-39h38\" fill=\"none\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003c/svg>","lung":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M120 16v116\" stroke=\"currentColor\" stroke-width=\"8\" stroke-linecap=\"round\"/>\u003cpath d=\"M113 54C82 31 51 52 45 91c-5 31 10 45 38 38 22-6 30-31 30-75zM127 54c31-23 62-2 68 37 5 31-10 45-38 38-22-6-30-31-30-75z\" fill=\"rgba(83,214,255,.18)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003c/svg>","nephron":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003ccircle cx=\"69\" cy=\"43\" r=\"25\" fill=\"rgba(118,240,178,.18)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M94 43h32c30 0 30 36 0 36H98c-27 0-27 44 6 44h79\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003cpath d=\"M154 26v98\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003c/svg>","stomach":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M100 22c-2 36 33 32 42 54 12 30-16 57-52 51-32-5-46-36-33-63 9-18 28-22 43-42z\" fill=\"rgba(255,200,87,.18)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M144 76c28-3 42 7 47 30\" stroke=\"var(--accent)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003c/svg>","hormone":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003ccircle cx=\"76\" cy=\"75\" r=\"35\" fill=\"rgba(118,240,178,.2)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003ccircle cx=\"164\" cy=\"75\" r=\"26\" fill=\"rgba(83,214,255,.2)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M111 75h22M147 49l-14 26 14 26\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\u003c/svg>","neuron":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003ccircle cx=\"71\" cy=\"78\" r=\"24\" fill=\"rgba(83,214,255,.2)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M92 78h110M125 78c13-22 29-22 42 0M125 78c13 22 29 22 42 0M52 60 25 37M52 96 25 119M60 53 54 20\" stroke=\"currentColor\" stroke-width=\"5\" stroke-linecap=\"round\"/>\u003ccircle cx=\"210\" cy=\"78\" r=\"7\" fill=\"var(--accent-2)\"/>\u003c/svg>","repro":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003ccircle cx=\"120\" cy=\"86\" r=\"30\" fill=\"rgba(255,143,179,.18)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M90 81C65 76 52 60 51 37M150 81c25-5 38-21 39-44M51 37c21 2 31 12 36 30M189 37c-21 2-31 12-36 30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" stroke-linecap=\"round\"/>\u003c/svg>","immunity":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M120 17 184 42v42c0 38-28 61-64 73-36-12-64-35-64-73V42z\" fill=\"rgba(118,240,178,.18)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"m91 82 19 20 42-48\" fill=\"none\" stroke=\"var(--accent-2)\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\u003c/svg>","epithelium":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M28 80c31-26 55 26 86 0s58 26 98 0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"8\" stroke-linecap=\"round\"/>\u003cpath d=\"M28 106h184\" stroke=\"var(--accent-2)\" stroke-width=\"7\" stroke-linecap=\"round\"/>\u003ccircle cx=\"61\" cy=\"77\" r=\"7\" fill=\"var(--accent)\"/>\u003ccircle cx=\"121\" cy=\"78\" r=\"7\" fill=\"var(--accent)\"/>\u003ccircle cx=\"182\" cy=\"78\" r=\"7\" fill=\"var(--accent)\"/>\u003c/svg>","gland":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003ccircle cx=\"82\" cy=\"72\" r=\"31\" fill=\"rgba(255,143,179,.18)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003ccircle cx=\"152\" cy=\"72\" r=\"31\" fill=\"rgba(255,209,102,.18)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M113 72h8M183 72h31\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003c/svg>","connective":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M32 48c47 38 88-35 176 12M32 96c62-36 104 40 176-10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"7\" stroke-linecap=\"round\"/>\u003ccircle cx=\"78\" cy=\"83\" r=\"12\" fill=\"var(--accent)\"/>\u003ccircle cx=\"156\" cy=\"51\" r=\"10\" fill=\"var(--accent-2)\"/>\u003c/svg>","cartilage":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003crect x=\"35\" y=\"31\" width=\"170\" height=\"90\" rx=\"26\" fill=\"rgba(255,209,102,.16)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003ccircle cx=\"83\" cy=\"76\" r=\"15\" fill=\"rgba(255,255,255,.16)\" stroke=\"var(--accent)\" stroke-width=\"4\"/>\u003ccircle cx=\"132\" cy=\"61\" r=\"13\" fill=\"rgba(255,255,255,.16)\" stroke=\"var(--accent)\" stroke-width=\"4\"/>\u003ccircle cx=\"157\" cy=\"93\" r=\"15\" fill=\"rgba(255,255,255,.16)\" stroke=\"var(--accent)\" stroke-width=\"4\"/>\u003c/svg>","bone":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003ccircle cx=\"120\" cy=\"75\" r=\"51\" fill=\"rgba(255,255,255,.08)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003ccircle cx=\"120\" cy=\"75\" r=\"31\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"5\"/>\u003ccircle cx=\"120\" cy=\"75\" r=\"11\" fill=\"var(--accent-2)\"/>\u003cpath d=\"M120 24v102M69 75h102\" stroke=\"rgba(255,255,255,.4)\" stroke-width=\"4\"/>\u003c/svg>","bloodcells":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003ccircle cx=\"77\" cy=\"76\" r=\"28\" fill=\"rgba(255,107,122,.24)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003ccircle cx=\"146\" cy=\"62\" r=\"22\" fill=\"rgba(83,214,255,.18)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003ccircle cx=\"163\" cy=\"101\" r=\"9\" fill=\"var(--accent-2)\"/>\u003ccircle cx=\"188\" cy=\"92\" r=\"8\" fill=\"var(--accent-2)\"/>\u003c/svg>","muscle":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M32 54h176M32 76h176M32 98h176\" stroke=\"currentColor\" stroke-width=\"10\" stroke-linecap=\"round\"/>\u003cpath d=\"M57 39v74M98 39v74M139 39v74M180 39v74\" stroke=\"var(--accent-2)\" stroke-width=\"5\" stroke-linecap=\"round\"/>\u003c/svg>","neuronhist":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003ccircle cx=\"67\" cy=\"75\" r=\"25\" fill=\"rgba(255,143,179,.18)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M92 75h116M50 58 25 39M48 92 24 112M66 50V22\" stroke=\"currentColor\" stroke-width=\"5\" stroke-linecap=\"round\"/>\u003cpath d=\"M119 62h23M155 62h23M119 88h23M155 88h23\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003c/svg>","stain":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003crect x=\"48\" y=\"36\" width=\"144\" height=\"78\" rx=\"14\" fill=\"rgba(255,255,255,.1)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003ccircle cx=\"89\" cy=\"75\" r=\"16\" fill=\"#8172ff\"/>\u003ccircle cx=\"132\" cy=\"68\" r=\"13\" fill=\"#ff8fb3\"/>\u003ccircle cx=\"154\" cy=\"92\" r=\"11\" fill=\"#8172ff\"/>\u003c/svg>","pcr":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M45 45h150M45 75h150M45 105h150\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003cpath d=\"M78 45c35 16 35 44 0 60M162 45c-35 16-35 44 0 60\" fill=\"none\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003c/svg>","dna":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M79 22c84 38 84 68 0 106M161 22c-84 38-84 68 0 106\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003cpath d=\"M93 45h54M75 75h90M93 105h54\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003c/svg>","gel":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003crect x=\"52\" y=\"25\" width=\"136\" height=\"100\" rx=\"12\" fill=\"rgba(255,255,255,.09)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M81 49h27M81 73h55M81 97h34M149 49h16M149 73h27M149 97h12\" stroke=\"var(--accent-2)\" stroke-width=\"8\" stroke-linecap=\"round\"/>\u003c/svg>","bioreactor":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003crect x=\"76\" y=\"28\" width=\"88\" height=\"96\" rx=\"18\" fill=\"rgba(118,240,178,.15)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M120 17v121M91 74h58M97 97c24-18 42 18 48 0\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003c/svg>","culture":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M70 102h100l-12 24H82z\" fill=\"rgba(255,255,255,.1)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M89 100c16-48 47-48 62 0M120 98V45M120 45c-21 2-34-10-41-25M121 45c22-2 35-10 42-25\" fill=\"none\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003c/svg>","elisa":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003crect x=\"50\" y=\"42\" width=\"140\" height=\"72\" rx=\"14\" fill=\"rgba(255,255,255,.09)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003ccircle cx=\"82\" cy=\"66\" r=\"12\" fill=\"#ffd166\"/>\u003ccircle cx=\"120\" cy=\"66\" r=\"12\" fill=\"#76f0b2\"/>\u003ccircle cx=\"158\" cy=\"66\" r=\"12\" fill=\"#a78bfa\"/>\u003ccircle cx=\"82\" cy=\"93\" r=\"12\" fill=\"#a78bfa\"/>\u003ccircle cx=\"120\" cy=\"93\" r=\"12\" fill=\"#ffd166\"/>\u003ccircle cx=\"158\" cy=\"93\" r=\"12\" fill=\"#76f0b2\"/>\u003c/svg>","imaging":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003crect x=\"45\" y=\"29\" width=\"150\" height=\"92\" rx=\"12\" fill=\"rgba(255,255,255,.08)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M82 92c18-48 58-48 76 0\" fill=\"none\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003ccircle cx=\"120\" cy=\"67\" r=\"19\" fill=\"rgba(118,240,178,.18)\" stroke=\"currentColor\" stroke-width=\"4\"/>\u003c/svg>","sterile":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003crect x=\"57\" y=\"45\" width=\"126\" height=\"70\" rx=\"16\" fill=\"rgba(255,255,255,.08)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M82 45V28h76v17M89 80h62\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003ccircle cx=\"172\" cy=\"80\" r=\"10\" fill=\"var(--accent)\"/>\u003c/svg>","biosensor":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003crect x=\"55\" y=\"38\" width=\"130\" height=\"74\" rx=\"17\" fill=\"rgba(255,255,255,.08)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M78 82h25l10-24 14 46 11-22h25\" fill=\"none\" stroke=\"var(--accent-2)\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\u003c/svg>","vaccine":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M77 109 155 31M141 25l23 23M66 98l23 23M95 91l31 31\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/>\u003cpath d=\"M144 42 95 91\" stroke=\"var(--accent-2)\" stroke-width=\"10\" stroke-linecap=\"round\"/>\u003c/svg>","ivf":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cpath d=\"M87 23h66M98 23v55l-30 49h104l-30-49V23\" fill=\"rgba(255,255,255,.08)\" stroke=\"currentColor\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\u003ccircle cx=\"120\" cy=\"94\" r=\"19\" fill=\"rgba(118,240,178,.22)\" stroke=\"var(--accent-2)\" stroke-width=\"5\"/>\u003c/svg>","bacteria":"\u003csvg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 240 150\">\u003cellipse cx=\"120\" cy=\"75\" rx=\"72\" ry=\"35\" fill=\"rgba(118,240,178,.16)\" stroke=\"currentColor\" stroke-width=\"5\"/>\u003cpath d=\"M59 75c-18-13-31-13-45 0M181 75c18-13 31-13 45 0M93 64h4M119 84h4M146 61h4\" stroke=\"var(--accent-2)\" stroke-width=\"7\" stroke-linecap=\"round\"/>\u003c/svg>"};
+
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+window.CEE_BIOLOGY_PAGE = QUIZ_PAGE;
+  </script>
+</body>
+</html>
