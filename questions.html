@@ -1,459 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9336872943674982"
      crossorigin="anonymous"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Questions — siddhant.sh</title>
-<meta name="description" content="Siddhant Shah — practice question sets by exam center: CEE, PLUS 2, IOE.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script>
-  (function(){
-    var saved = localStorage.getItem('theme');
-    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
-  })();
-</script>
-<style>
-  :root[data-theme="dark"]{
-    --bg:#0b0b0b; --fg:#efeeea; --gray:#8c8c88; --gray-dim:#59594f;
-    --line:rgba(239,238,234,0.13); --line-strong:rgba(239,238,234,0.32);
-    --surface:#141413;
-    --green:#5fbf77; --blue:#5b9bd5; --yellow:#d9c96a; --orange:#d98c4a; --purple:#a586d9;
-  }
-  :root[data-theme="light"]{
-    --bg:#fbfbfa; --fg:#0b0b0b; --gray:#63635e; --gray-dim:#9a9a94;
-    --line:rgba(11,11,11,0.12); --line-strong:rgba(11,11,11,0.30);
-    --surface:#f0f0ee;
-    --green:#2f8f4e; --blue:#3573b5; --yellow:#a3901f; --orange:#b5651d; --purple:#7a52c7;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0;background:var(--bg);color:var(--fg);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;transition:background .25s ease,color .25s ease;}
-  ::selection{background:var(--fg);color:var(--bg);}
-  a{color:inherit;}
-  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
-
-  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb, var(--bg) 85%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-  .nav-inner{max-width:920px;margin:0 auto;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;}
-  .nav-brand{font-family:'JetBrains Mono',monospace;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:2px;}
-  .nav-brand .prompt{color:var(--gray);}
-  .nav-brand .path{color:var(--fg);font-weight:600;}
-  .nav-brand .blk{display:inline-block;width:8px;height:15px;background:var(--fg);margin-left:3px;animation:blink 1s step-end infinite;}
-  @keyframes blink{50%{opacity:0;}}
-  .nav-right{display:flex;align-items:center;gap:18px;}
-  nav.links{display:flex;gap:22px;font-size:13px;}
-  nav.links a{text-decoration:none;color:var(--gray);transition:color .2s;}
-  nav.links a:hover,nav.links a:focus-visible{color:var(--fg);}
-  nav.links a.active{color:var(--fg);}
-  .nav-div{width:1px;height:18px;background:var(--line-strong);}
-  .theme-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--fg);background:linear-gradient(90deg, var(--fg) 50%, transparent 50%);cursor:pointer;padding:0;}
-
-  /* mobile nav toggle (hamburger) */
-  .nav-toggle{
-    display:none;width:26px;height:18px;flex-direction:column;justify-content:space-between;
-    background:transparent;border:none;cursor:pointer;padding:0;
-  }
-  .nav-toggle span{display:block;height:2px;width:100%;background:var(--fg);border-radius:2px;transition:transform .25s ease,opacity .2s ease;}
-  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg);}
-  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
-  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
-  .nav-toggle:focus-visible{outline:2px solid var(--gray);outline-offset:3px;}
-
-  .mobile-menu{
-    display:none;flex-direction:column;max-height:0;overflow:hidden;
-    background:var(--bg);border-top:1px solid var(--line);transition:max-height .3s ease;
-  }
-  .mobile-menu a{
-    padding:15px 28px;text-decoration:none;color:var(--gray);
-    font-family:'JetBrains Mono',monospace;font-size:14.5px;
-    border-bottom:1px solid var(--line);
-  }
-  .mobile-menu a:last-child{border-bottom:none;}
-  .mobile-menu a:hover,.mobile-menu a.active{color:var(--fg);}
-  .mobile-menu.open{max-height:320px;}
-
-  @media (max-width:700px){
-    nav.links{display:none;}
-    .nav-toggle{display:flex;}
-    .mobile-menu{display:flex;}
-  }
-
-  .page-head{padding:140px 0 34px;border-bottom:1px solid var(--line);}
-  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--gray);letter-spacing:0.05em;margin-bottom:18px;}
-  h1.title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,6vw,54px);margin:0 0 16px;letter-spacing:-0.01em;}
-  .page-head p{color:var(--gray);font-size:16px;max-width:560px;line-height:1.7;}
-  .page-head p a{text-decoration:underline;text-underline-offset:2px;}
-
-  .controls{padding:26px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:16px;}
-  .search-row{
-    display:flex;align-items:center;gap:10px;border:1px solid var(--line-strong);border-radius:8px;
-    padding:10px 14px;background:var(--surface);
-  }
-  .search-row .prompt{font-family:'JetBrains Mono',monospace;color:var(--gray);font-size:13.5px;}
-  .search-row input{
-    flex:1;background:transparent;border:none;outline:none;color:var(--fg);
-    font-family:'JetBrains Mono',monospace;font-size:13.5px;
-  }
-  .search-row input::placeholder{color:var(--gray-dim);}
-  .search-count{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray-dim);white-space:nowrap;}
-
-  .filter-row{display:flex;flex-wrap:wrap;gap:8px;}
-  .filter-btn{
-    font-family:'JetBrains Mono',monospace;font-size:12px;border:1px solid var(--line-strong);
-    background:transparent;color:var(--gray);padding:6px 12px;border-radius:20px;cursor:pointer;
-    transition:all .15s ease;
-  }
-  .filter-btn:hover{color:var(--fg);border-color:var(--fg);}
-  .filter-btn.active{background:var(--fg);color:var(--bg);border-color:var(--fg);}
-
-  section.pad{padding:44px 0 60px;}
-  .repo-grid{display:flex;flex-direction:column;gap:22px;}
-
-  .repo-card{
-    border:1px solid var(--line-strong);border-radius:10px;padding:26px 28px;
-    background:var(--surface);transition:border-color .2s ease;
-  }
-  .repo-card:hover{border-color:var(--fg);}
-  .repo-card.hidden{display:none;}
-  .repo-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:10px;flex-wrap:wrap;}
-  .repo-name{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;}
-  .repo-name .icon{color:var(--gray);font-weight:400;}
-  .repo-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-dim);border:1px solid var(--line-strong);border-radius:20px;padding:3px 10px;}
-  .repo-desc{color:var(--gray);font-size:14.5px;line-height:1.7;margin:0 0 16px;max-width:640px;}
-  .repo-desc.placeholder{font-style:italic;color:var(--gray-dim);}
-
-  .repo-meta{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);align-items:center;}
-  .repo-meta .lang{display:flex;align-items:center;gap:6px;}
-  .lang-dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
-  .repo-meta .stat{display:flex;align-items:center;gap:5px;}
-
-  .repo-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
-  .chip{font-family:'JetBrains Mono',monospace;font-size:11.5px;border:1px solid var(--line-strong);padding:5px 10px;color:var(--gray);border-radius:4px;}
-
-  /* accordion: source code / output, independent dropdowns */
-  .accordion{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg);margin-bottom:18px;}
-  .accordion + .accordion{margin-top:10px;margin-bottom:0;}
-  .acc-item + .acc-item{border-top:1px solid var(--line);}
-  .acc-head{
-    display:flex;align-items:center;justify-content:space-between;width:100%;
-    background:transparent;border:none;cursor:pointer;padding:11px 16px;
-    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--fg);text-align:left;
-  }
-  .acc-head:hover{background:var(--surface);}
-  .acc-head .chevron{color:var(--gray);transition:transform .2s ease;font-size:11px;}
-  .acc-head[aria-expanded="true"] .chevron{transform:rotate(180deg);}
-  .acc-panel{max-height:0;overflow:hidden;transition:max-height .25s ease;}
-  .acc-panel-inner{padding:14px 18px 16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.75;
-    color:var(--gray-dim);font-style:italic;white-space:pre-wrap;max-height:260px;overflow-y:auto;}
-  .acc-panel-inner.filled{color:var(--fg);font-style:normal;white-space:pre;overflow-x:auto;}
-  .acc-panel-inner.output{color:var(--gray);}
-
-  .repo-links{display:flex;gap:20px;flex-wrap:wrap;}
-  .proj-link{
-    font-family:'JetBrains Mono',monospace;font-size:13px;text-decoration:none;
-    border-bottom:1px solid var(--line-strong);padding-bottom:2px;color:var(--fg);
-  }
-  .proj-link:hover{border-color:var(--fg);}
-
-  .no-results{display:none;text-align:center;padding:60px 0;font-family:'JetBrains Mono',monospace;color:var(--gray);font-size:13.5px;}
-  .no-results.show{display:block;}
-
-  /* ── Online Compiler ── */
-  .compiler{border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);padding:26px 28px;margin:34px 0;}
-  .compiler-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
-  .compiler-title{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;}
-  .compiler-sub{color:var(--gray);font-size:13.5px;line-height:1.6;margin:4px 0 18px;max-width:640px;}
-  .compiler-sub code{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-family:'JetBrains Mono',monospace;font-size:12px;}
-  .gear-btn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line-strong);background:transparent;color:var(--gray);cursor:pointer;font-size:14px;flex-shrink:0;transition:all .15s;}
-  .gear-btn:hover{color:var(--fg);border-color:var(--fg);}
-
-  .lang-tabs{display:flex;gap:8px;margin-bottom:14px;}
-  .lang-tab{font-family:'JetBrains Mono',monospace;font-size:12.5px;border:1px solid var(--line-strong);background:transparent;color:var(--gray);padding:7px 16px;border-radius:20px;cursor:pointer;transition:all .15s ease;}
-  .lang-tab:hover{color:var(--fg);border-color:var(--fg);}
-  .lang-tab.active{background:var(--fg);color:var(--bg);border-color:var(--fg);}
-
-  .compiler-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
-  .filename-input{
-    font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--bg);
-    border:1px solid var(--line-strong);border-radius:6px;padding:7px 10px;color:var(--fg);
-    outline:none;min-width:160px;
-  }
-  .filename-input:focus{border-color:var(--fg);}
-  .toolbar-spacer{flex:1;}
-  .tbtn{
-    font-family:'JetBrains Mono',monospace;font-size:12.5px;border:1px solid var(--line-strong);
-    background:transparent;color:var(--fg);padding:8px 16px;border-radius:6px;cursor:pointer;
-    transition:all .15s ease;display:inline-flex;align-items:center;gap:6px;
-  }
-  .tbtn:hover{border-color:var(--fg);}
-  .tbtn.primary{background:var(--green);color:#08130b;border-color:var(--green);font-weight:700;}
-  .tbtn.primary:hover{opacity:.88;}
-  .tbtn.primary:disabled{opacity:.5;cursor:not-allowed;}
-  .tbtn:disabled{opacity:.5;cursor:not-allowed;}
-
-  .code-editor{
-    width:100%;min-height:220px;resize:vertical;
-    background:var(--bg);color:var(--fg);border:1px solid var(--line-strong);border-radius:8px;
-    font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;padding:14px 16px;
-    outline:none;tab-size:4;white-space:pre;overflow:auto;
-  }
-  .code-editor:focus{border-color:var(--fg);}
-
-  .stdin-wrap{margin-top:10px;}
-  .stdin-label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray-dim);margin-bottom:6px;display:block;}
-  .stdin-input{
-    width:100%;min-height:60px;resize:vertical;background:var(--bg);color:var(--fg);
-    border:1px solid var(--line);border-radius:8px;font-family:'JetBrains Mono',monospace;
-    font-size:12.5px;padding:10px 12px;outline:none;
-  }
-  .stdin-input:focus{border-color:var(--fg);}
-
-  .run-status{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);margin:10px 0 4px;min-height:16px;}
-  .run-status.err{color:#e0685f;}
-  .run-status.ok{color:var(--green);}
-
-  .output-console{
-    margin-top:8px;background:var(--bg);border:1px solid var(--line);border-radius:8px;
-    padding:14px 16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.7;
-    white-space:pre-wrap;word-break:break-word;max-height:340px;overflow-y:auto;color:var(--gray-dim);font-style:italic;
-  }
-  .output-console.filled{color:var(--fg);font-style:normal;}
-  .output-console .stderr-line{color:#e0685f;}
-  .output-console .meta-line{color:var(--gray-dim);font-size:11.5px;margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);}
-
-  .settings-panel{
-    display:none;margin-top:14px;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--bg);
-  }
-  .settings-panel.open{display:block;}
-  .settings-row{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
-  .settings-row label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
-  .settings-row input{
-    font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--surface);
-    border:1px solid var(--line-strong);border-radius:6px;padding:8px 10px;color:var(--fg);outline:none;
-  }
-  .settings-row input:focus{border-color:var(--fg);}
-  .settings-note{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:12px;}
-  .settings-note a{text-decoration:underline;text-underline-offset:2px;}
-
-  .back{display:inline-flex;gap:8px;font-family:'JetBrains Mono',monospace;font-size:13.5px;text-decoration:none;color:var(--gray);margin-top:30px;}
-  .back:hover{color:var(--fg);}
-  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-dim);}
-
-  /* Questions page — per-center blocks */
-  .filter-row a.filter-btn{text-decoration:none;display:inline-block;}
-  .center-block{margin:0 0 52px;scroll-margin-top:96px;}
-  .center-block:last-child{margin-bottom:0;}
-  .center-head{
-    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-    border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:22px;
-  }
-  .center-title{font-family:'Fraunces',serif;font-weight:500;font-size:26px;margin:0;}
-  .center-sub{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--gray);}
-  .center-count{
-    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-dim);
-    border:1px solid var(--line-strong);border-radius:20px;padding:3px 10px;margin-left:auto;
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrance Practice Hub - CEE and IOE</title>
+  <meta name="description" content="Compatibility page for entrance practice resources, linking directly to CEE and IOE pages plus the existing chapter-wise quiz files.">
+  <link rel="canonical" href="https://www.sahsiddhant.com.np/questions.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Entrance Practice Hub - CEE and IOE">
+  <meta property="og:description" content="Compatibility page for entrance practice resources, linking directly to CEE and IOE pages plus the existing chapter-wise quiz files.">
+  <meta property="og:url" content="https://www.sahsiddhant.com.np/questions.html">
+  <meta property="og:site_name" content="Siddhant Shah">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <style>:root[data-theme=dark]{--bg:#0b0b0b;--fg:#efeeea;--gray:#a6a6a0;--gray-dim:#76766f;--line:rgba(239,238,234,.13);--line-strong:rgba(239,238,234,.32);--surface:#141413}:root[data-theme=light]{--bg:#fbfbfa;--fg:#0b0b0b;--gray:#4f4f49;--gray-dim:#6f6f68;--line:rgba(11,11,11,.12);--line-strong:rgba(11,11,11,.3);--surface:#f0f0ee}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:absolute;left:12px;top:8px;z-index:100;background:var(--fg);color:var(--bg);padding:8px 12px;border-radius:6px;transform:translateY(-140%);transition:transform .16s}.skip-link:focus{transform:translateY(0)}.wrap{max-width:980px;margin:0 auto;padding:0 28px}header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}.nav-inner{max-width:980px;margin:0 auto;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;gap:18px}.nav-brand{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:14px;text-decoration:none;white-space:nowrap}.prompt,.cmdtag{color:var(--gray)}.path{font-weight:700}.blk{display:inline-block;width:8px;height:15px;background:var(--fg);margin-left:3px;animation:blink 1s step-end infinite}@keyframes blink{50%{opacity:0}}.links{display:flex;gap:20px;font-size:13px}.links a{text-decoration:none;color:var(--gray)}.links a:hover,.links a.active{color:var(--fg)}.theme-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--fg);background:linear-gradient(90deg,var(--fg) 50%,transparent 50%);cursor:pointer}.hero{padding:88px 0 48px;border-bottom:1px solid var(--line)}.eyebrow,.sec-num,.tag{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:12.5px;color:var(--gray);letter-spacing:.04em}.title{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(36px,6vw,62px);line-height:1.1;margin:18px 0 20px}.lede{color:var(--gray);font-size:17px;line-height:1.75;max-width:720px}.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}.btn{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:13px;text-decoration:none;border:1px solid var(--line-strong);border-radius:6px;padding:10px 13px}.btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}section.pad{padding:56px 0;border-top:1px solid var(--line);content-visibility:auto;contain-intrinsic-size:1px 760px}.sec-title{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(26px,4vw,38px);margin:12px 0 22px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}.card{background:var(--bg);padding:22px}.card h3{margin:0 0 10px;font-size:18px}.card p,.card li{color:var(--gray);line-height:1.7}.card ul,.topic-list{margin:12px 0 0;padding-left:18px}.full{grid-column:1/-1}.mini{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:12px;color:var(--gray-dim)}.qa{display:grid;gap:14px}.qa article{border-top:1px solid var(--line);padding-top:14px}.qa h3{font-size:16px;margin:0 0 8px}.answer{color:var(--fg)!important}.source-list a{display:inline-block;margin:0 12px 10px 0;color:var(--fg);text-underline-offset:3px}.footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:11px;color:var(--gray-dim)}@media(max-width:760px){.nav-inner{align-items:flex-start;flex-direction:column}.links{flex-wrap:wrap}.grid{grid-template-columns:1fr}.hero{padding-top:54px}.wrap{padding:0 20px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Entrance Practice Hub - CEE and IOE","description":"Compatibility page for entrance practice resources, linking directly to CEE and IOE pages plus the existing chapter-wise quiz files.","url":"https://www.sahsiddhant.com.np/questions.html"}</script>
 </head>
 <body>
-
+<a class="skip-link" href="#main">Skip to main content</a>
 <header class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand"><span class="prompt">&gt; $</span>&nbsp;<span class="path">cd /home/siddhant</span><span class="blk"></span></a>
-    <div class="nav-right">
-      <nav class="links">
-        <a href="index.html#about">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="questions.html" class="active">Questions</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
-      <div class="nav-div"></div>
-      <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme"></button>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <a href="index.html" class="nav-brand"><span class="prompt">&gt; $</span> <span class="path">cd /home/siddhant</span><span class="blk"></span></a>
+    <nav class="links" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="cee.html">CEE</a>
+      <a href="ioe.html">IOE</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme"></button>
   </div>
-  <nav class="mobile-menu" id="mobileMenu">
-    <a href="index.html#about">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="questions.html" class="active">Questions</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
 </header>
-
-<div class="wrap">
-  <div class="page-head">
-    <div class="eyebrow">// $ ls -la questions/ --by-center</div>
-    <h1 class="title">Practice questions, by exam</h1>
-    <p>Question sets grouped by the exam center they're built for. Pick one below —
-    each set opens as its own quiz with scoring and detailed solutions.</p>
-  </div>
-
-  <div class="controls">
-    <div class="filter-row" id="filterRow">
-      <a href="#cee" class="filter-btn">CEE</a>
-      <a href="#plus2" class="filter-btn">PLUS 2</a>
-      <a href="#ioe" class="filter-btn">IOE</a>
-    </div>
-  </div>
-</div>
-
-<section class="pad">
-  <div class="wrap">
-
-    <div class="center-block" id="cee">
-      <div class="center-head">
-        <h2 class="center-title">CEE</h2>
-        <span class="center-sub">Common Entrance Examination — medical stream (PCB)</span>
-        <span class="center-count">6 sets</span>
-      </div>
-      <div class="repo-grid">
-
-        <div class="repo-card">
-          <div class="repo-top">
-            <div class="repo-name"><span class="icon">📝</span> Alcohols — Full Chapter Practice</div>
-            <div class="repo-tag">Chemistry</div>
-          </div>
-          <p class="repo-desc">Practice quiz built from past CEE questions on the Alcohols chapter — 10 sets of 20 questions each, with scoring and no auto-skip.</p>
-          <div class="repo-chips"><span class="chip">200 Questions</span><span class="chip">10 Sets</span><span class="chip">Organic Chemistry</span></div>
-          <div class="repo-links">
-            <a class="proj-link" href="Alcohol_Updated_NoAutoSkip.html" target="_blank" rel="noopener">Start practicing →</a>
-          </div>
-        </div>
-
-        <div class="repo-card">
-          <div class="repo-top">
-            <div class="repo-name"><span class="icon">📝</span> Haloalkanes, Alcohols &amp; Ethers — Most Repeated</div>
-            <div class="repo-tag">Chemistry</div>
-          </div>
-          <p class="repo-desc">The most frequently repeated CEE questions from this chapter (2075–2082), with timed MCQs, reaction diagrams, and detailed solutions.</p>
-          <div class="repo-chips"><span class="chip">2075–2082</span><span class="chip">Organic Chemistry</span></div>
-          <div class="repo-links">
-            <a class="proj-link" href="haloalkane__alochol__ether.html" target="_blank" rel="noopener">Start practicing →</a>
-          </div>
-        </div>
-
-        <div class="repo-card">
-          <div class="repo-top">
-            <div class="repo-name"><span class="icon">📝</span> Animal Tissue and Histology</div>
-            <div class="repo-tag">Biology</div>
-          </div>
-          <p class="repo-desc">A microscope-style quiz on epithelial, connective, muscular, and nervous tissues with the exact recognition clues CEE questions love to test.</p>
-          <div class="repo-chips"><span class="chip">18 Questions</span><span class="chip">3 Sets</span><span class="chip">CEE 2083</span></div>
-          <div class="repo-links">
-            <a class="proj-link" href="animal_tissue_histology.html" target="_blank" rel="noopener">Start practicing →</a>
-          </div>
-        </div>
-
-        <div class="repo-card">
-          <div class="repo-top">
-            <div class="repo-name"><span class="icon">📝</span> Human Biology and Physiology</div>
-            <div class="repo-tag">Biology</div>
-          </div>
-          <p class="repo-desc">Timed MCQ practice for the most repeated and most exam-worthy human physiology ideas: circulation, respiration, digestion, excretion, endocrine control, nerves, muscles, reproduction, and immunity.</p>
-          <div class="repo-chips"><span class="chip">18 Questions</span><span class="chip">3 Sets</span><span class="chip">CEE 2083</span></div>
-          <div class="repo-links">
-            <a class="proj-link" href="human_biology_physiology.html" target="_blank" rel="noopener">Start practicing →</a>
-          </div>
-        </div>
-
-        <div class="repo-card">
-          <div class="repo-top">
-            <div class="repo-name"><span class="icon">📝</span> Medical Technology and Applied Biology</div>
-            <div class="repo-tag">Biology</div>
-          </div>
-          <p class="repo-desc">A high-priority applied biology quiz on biotechnology, diagnostics, medical imaging, sterilization, reproductive technology, gene tools, and public-health biology.</p>
-          <div class="repo-chips"><span class="chip">18 Questions</span><span class="chip">3 Sets</span><span class="chip">CEE 2083</span></div>
-          <div class="repo-links">
-            <a class="proj-link" href="medical_technology_applied_biology.html" target="_blank" rel="noopener">Start practicing →</a>
-          </div>
-        </div>
-
-        <div class="repo-card">
-          <div class="repo-top">
-            <div class="repo-name"><span class="icon">📝</span> Optics — Most Repeated Questions</div>
-            <div class="repo-tag">Physics</div>
-          </div>
-          <p class="repo-desc">The most frequently repeated CEE Physics questions on mirrors, total internal reflection, and refraction at plane surfaces, with timers and worked solutions.</p>
-          <div class="repo-chips"><span class="chip">20 Questions</span><span class="chip">3 Sets</span><span class="chip">2075–2082</span></div>
-          <div class="repo-links">
-            <a class="proj-link" href="optics_v2.html" target="_blank" rel="noopener">Start practicing →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="center-block" id="plus2">
-      <div class="center-head">
-        <h2 class="center-title">PLUS 2</h2>
-        <span class="center-sub">Higher secondary board exams</span>
-        <span class="center-count">0 sets</span>
-      </div>
-      <div class="repo-grid">
-        <div class="repo-card">
-          <div class="repo-top">
-            <div class="repo-name"><span class="icon">📝</span> No sets added yet</div>
-          </div>
-          <p class="repo-desc placeholder">Add your first PLUS 2 question set here — same card format as the CEE sets above, just point the link at your quiz file.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="center-block" id="ioe">
-      <div class="center-head">
-        <h2 class="center-title">IOE</h2>
-        <span class="center-sub">Institute of Engineering entrance</span>
-        <span class="center-count">0 sets</span>
-      </div>
-      <div class="repo-grid">
-        <div class="repo-card">
-          <div class="repo-top">
-            <div class="repo-name"><span class="icon">📝</span> No sets added yet</div>
-          </div>
-          <p class="repo-desc placeholder">Add your first IOE question set here — same card format as the CEE sets above, just point the link at your quiz file.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="wrap">
-  <a class="back" href="index.html">← back home</a>
-</div>
-
-<footer>© 2026 Siddhant Shah — Kathmandu, Nepal</footer>
-
+<main id="main">
+  <section class="hero"><div class="wrap"><div class="eyebrow">// entrance practice</div><h1 class="title">Practice moved to CEE and IOE pages</h1><p class="lede">The old Questions navigation has been removed. Use the direct CEE and IOE pages for syllabus, important topics, solved answers, and chapter-wise links.</p><div class="cta-row"><a class="btn primary" href="cee.html">Open CEE</a><a class="btn" href="ioe.html">Open IOE</a></div></div></section>
+  <section class="pad"><div class="wrap"><div class="sec-num">Legacy quiz links</div><h2 class="sec-title">Existing chapter-wise sets</h2><div class="grid"><div class="card"><h3>CEE Biology</h3><ul><li><a href="animal_tissue_histology.html">Animal Tissue and Histology</a></li><li><a href="human_biology_physiology.html">Human Biology and Physiology</a></li><li><a href="medical_technology_applied_biology.html">Medical Technology and Applied Biology</a></li></ul></div><div class="card"><h3>CEE Chemistry</h3><ul><li><a href="Alcohol_Updated_NoAutoSkip.html">Alcohols</a></li><li><a href="haloalkane-alcohol-ether.html">Haloalkanes, Alcohols and Ethers</a></li></ul></div><div class="card"><h3>CEE Physics</h3><ul><li><a href="optics_v2.html">Optics</a></li></ul></div><div class="card"><h3>IOE</h3><p><a href="ioe.html">Open IOE syllabus and solved starter questions</a></p></div></div></div></section>
+</main><footer class="footer">© 2026 Siddhant Shah - Kathmandu, Nepal</footer>
 <script>
-  const root = document.documentElement;
-  const themeBtn = document.getElementById('themeToggle');
-  function currentTheme(){ return root.getAttribute('data-theme') || 'dark'; }
-  themeBtn.addEventListener('click', ()=>{
-    const next = currentTheme() === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
+(function(){
+  var root=document.documentElement;
+  var saved=localStorage.getItem("theme");
+  if(saved) root.setAttribute("data-theme", saved);
+  var btn=document.getElementById("themeToggle");
+  if(btn) btn.addEventListener("click", function(){
+    var next=(root.getAttribute("data-theme")||"dark")==="dark"?"light":"dark";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
   });
-
-  // mobile nav toggle
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  navToggle.addEventListener('click', ()=>{
-    const open = mobileMenu.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
-  mobileMenu.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=>{
-      mobileMenu.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+})();
 </script>
-
 </body>
 </html>
