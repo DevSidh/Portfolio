@@ -207,6 +207,27 @@
     td{color:var(--gray);line-height:1.6;}
     td strong{color:var(--fg);}
 
+    .comment-box{border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);padding:20px;}
+    .comment-form{display:grid;gap:12px;}
+    .comment-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .comment-box label{display:block;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:11.5px;color:var(--gray);margin-bottom:6px;}
+    .comment-box input[type="text"],.comment-box textarea{
+      width:100%;background:var(--bg);border:1px solid var(--line-strong);border-radius:6px;
+      padding:10px 12px;color:var(--fg);font-family:inherit;font-size:14px;resize:vertical;
+    }
+    .comment-box input[type="text"]:focus,.comment-box textarea:focus{outline:2px solid var(--gray);outline-offset:1px;}
+    .comment-box textarea{min-height:90px;}
+    .comment-form-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    .comment-note{color:var(--gray-dim);font-size:12px;margin:0;}
+    .comment-list{display:grid;gap:12px;margin-top:22px;}
+    .comment-item{border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:14px 16px;}
+    .comment-item-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+    .comment-author{font-weight:650;font-size:14px;}
+    .comment-time{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:11.5px;color:var(--gray-dim);}
+    .comment-body{color:var(--gray);line-height:1.65;font-size:14.5px;white-space:pre-wrap;}
+    .comment-empty{color:var(--gray-dim);font-size:13.5px;}
+    @media (max-width:560px){ .comment-form-row{grid-template-columns:1fr;} }
+
     .question-bank{display:grid;gap:14px;}
     .real-test-cta{margin-top:18px;border:1px solid var(--line-strong);border-radius:12px;background:linear-gradient(135deg,var(--surface),var(--surface-soft));padding:22px;text-align:center;}
     .real-test-cta p{color:var(--gray);font-size:13.5px;margin:0 0 14px;}
@@ -493,6 +514,7 @@
           <a href="#resources">Resources <small>13</small></a>
           <a href="#faq">FAQ <small>14</small></a>
           <a href="#contact">Contact <small>15</small></a>
+          <a href="#reader-comments">Comments <small>16</small></a>
         </nav>
       </aside>
 
@@ -1084,6 +1106,35 @@
           </div>
         </section>
 
+        <section class="pad" id="reader-comments">
+          <div class="sec-num reveal">17 - Reader Comments <span class="cmdtag">// $ echo "$COMMENT" >> comments.log</span></div>
+          <h2 class="sec-title reveal">Leave a comment</h2>
+          <p class="section-note reveal">Spotted an error, want a chapter added, or have a doubt on a question? Leave a note below. Comments are saved in your own browser (no sign-in needed) so only you will see comments you post here.</p>
+          <div class="comment-box reveal">
+            <form class="comment-form" id="commentForm">
+              <div class="comment-form-row">
+                <div>
+                  <label for="commentName">Name</label>
+                  <input type="text" id="commentName" maxlength="60" placeholder="Your name" autocomplete="name" required>
+                </div>
+                <div>
+                  <label for="commentSubject">Topic (optional)</label>
+                  <input type="text" id="commentSubject" maxlength="60" placeholder="e.g. Physics - Optics">
+                </div>
+              </div>
+              <div>
+                <label for="commentMessage">Comment</label>
+                <textarea id="commentMessage" maxlength="1000" placeholder="Write your comment, correction or question..." required></textarea>
+              </div>
+              <div class="comment-form-foot">
+                <p class="comment-note">Stored locally in this browser only.</p>
+                <button class="btn primary" type="submit">Post comment</button>
+              </div>
+            </form>
+            <div class="comment-list" id="commentList"></div>
+          </div>
+        </section>
+
         <section class="pad" aria-label="Footer links">
           <div class="footer-grid reveal">
             <div class="footer-col">
@@ -1284,20 +1335,16 @@
     });
   }
   function renderQuestionBank(){
+    // NOTE: previously this waited for an IntersectionObserver on #questionBank
+    // before injecting any HTML. #questionBank's parent (section.pad) also has
+    // CSS `content-visibility:auto`, which manages its own visibility/relevance
+    // detection. Stacking a second, independent "wait until visible" check on
+    // top of that caused the observer to never reliably fire, so the bank
+    // stayed empty. Render immediately instead, same as renderStaticQuestions().
     if(!questionBank) return;
-    var rendered = false;
-    var doRender = function(){
-      if(rendered) return;
-      rendered = true;
-      questionBank.innerHTML = QUESTIONS.map(questionHtml).join("");
-      updateBookmarksUI();
-      applyFilters();
-    };
-    if(!("IntersectionObserver" in window)){ doRender(); return; }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){ if(entry.isIntersecting){ doRender(); io.disconnect(); } });
-    }, {rootMargin:"300px"});
-    io.observe(questionBank);
+    questionBank.innerHTML = QUESTIONS.map(questionHtml).join("");
+    updateBookmarksUI();
+    applyFilters();
   }
   function updateBookmarksUI(){
     document.querySelectorAll(".bookmark-btn").forEach(function(btn){
@@ -1686,6 +1733,45 @@
     }, {rootMargin:"200px"});
     io.observe(host);
   }
+  function renderComments(){
+    var list = document.getElementById("commentList");
+    if(!list) return;
+    var comments = readJson("ceeReaderComments", []);
+    if(!comments.length){
+      list.innerHTML = '<p class="comment-empty">No comments yet. Be the first to leave one.</p>';
+      return;
+    }
+    list.innerHTML = comments.slice().reverse().map(function(c){
+      var when = new Date(c.time);
+      var stamp = isNaN(when.getTime()) ? "" : when.toLocaleString();
+      var subject = c.subject ? ' <span class="mini">- ' + escapeHtml(c.subject) + '</span>' : "";
+      return '<div class="comment-item">' +
+        '<div class="comment-item-head"><span class="comment-author">' + escapeHtml(c.name) + subject + '</span>' +
+        '<span class="comment-time">' + escapeHtml(stamp) + '</span></div>' +
+        '<div class="comment-body">' + escapeHtml(c.message) + '</div>' +
+        '</div>';
+    }).join("");
+  }
+  function initReaderComments(){
+    var form = document.getElementById("commentForm");
+    if(!form) return;
+    renderComments();
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var nameEl = document.getElementById("commentName");
+      var subjectEl = document.getElementById("commentSubject");
+      var messageEl = document.getElementById("commentMessage");
+      var name = (nameEl.value || "").trim();
+      var subject = (subjectEl.value || "").trim();
+      var message = (messageEl.value || "").trim();
+      if(!name || !message) return;
+      var comments = readJson("ceeReaderComments", []);
+      comments.push({name:name, subject:subject, message:message, time:Date.now()});
+      writeJson("ceeReaderComments", comments);
+      messageEl.value = "";
+      renderComments();
+    });
+  }
   function initLoader(){
     window.setTimeout(function(){
       var loader = document.getElementById("loader");
@@ -1711,6 +1797,7 @@
     safe("initRandom", initRandom);
     safe("initFormulas", initFormulas);
     safe("initDownloads", initDownloads);
+    safe("initReaderComments", initReaderComments);
     safe("initReveal", initReveal);
     safe("initToc", initToc);
     safe("initTop", initTop);
