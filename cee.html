@@ -21,6 +21,32 @@
   <meta name="twitter:description" content="Complete MECEE-BL CEE preparation portal for Nepal medical entrance aspirants.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+  <link rel="preconnect" href="https://giscus.app">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What is CEE or MECEE-BL?","acceptedAnswer":{"@type":"Answer","text":"CEE / MECEE-BL is the common entrance examination for bachelor level medical education programs in Nepal. Always follow MEC notices for the current application and admission cycle."}},
+      {"@type":"Question","name":"Which subjects are most important?","acceptedAnswer":{"@type":"Answer","text":"All subjects matter, but Physics, Chemistry, Botany, Zoology and MAT need different strategies. Biology rewards memory plus diagrams, Chemistry rewards reactions and calculations, Physics rewards formulas and concepts, and MAT rewards speed."}},
+      {"@type":"Question","name":"How should I use this page?","acceptedAnswer":{"@type":"Answer","text":"Start at the syllabus, tick the revision checklist, practice model questions, then run timed practice sets. Bookmark weak questions and review them before mocks."}},
+      {"@type":"Question","name":"Which books are recommended?","acceptedAnswer":{"@type":"Answer","text":"Use NEB Grade 11 and 12 textbooks as the base, then add a CEE-focused MCQ book or coaching material for speed practice. Official syllabus alignment matters more than collecting too many books."}},
+      {"@type":"Question","name":"How many mock tests should I take?","acceptedAnswer":{"@type":"Answer","text":"After completing the first syllabus pass, take one full mock per week. Near the exam, increase frequency only if you can still review mistakes properly."}},
+      {"@type":"Question","name":"Where do scholarship and admission details come from?","acceptedAnswer":{"@type":"Answer","text":"Scholarship, matching, seat and admission details should be checked from MEC notices and official college/admission documents for the current year."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.sahsiddhant.com.np/index.html"},
+      {"@type":"ListItem","position":2,"name":"CEE Nepal 2026 Preparation","item":"https://www.sahsiddhant.com.np/cee.html"}
+    ]
+  }
+  </script>
   <script>
     (function(){
       var saved = localStorage.getItem("theme");
@@ -182,6 +208,12 @@
     td strong{color:var(--fg);}
 
     .question-bank{display:grid;gap:14px;}
+    .real-test-cta{margin-top:18px;border:1px solid var(--line-strong);border-radius:12px;background:linear-gradient(135deg,var(--surface),var(--surface-soft));padding:22px;text-align:center;}
+    .real-test-cta p{color:var(--gray);font-size:13.5px;margin:0 0 14px;}
+    .real-test-cta .cta-row{justify-content:center;margin-top:0;}
+    .real-test-btn{display:inline-block;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-weight:700;font-size:15px;letter-spacing:.01em;text-decoration:none;color:var(--bg);background:var(--fg);border:1px solid var(--fg);border-radius:8px;padding:16px 26px;transition:transform .15s ease,opacity .15s ease;}
+    .real-test-btn:hover{transform:translateY(-2px);opacity:.92;}
+    .real-test-btn small{display:block;font-weight:500;font-size:11px;opacity:.75;margin-top:3px;}
     .question-card{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:18px;transition:border-color .15s ease,transform .15s ease;}
     .question-card:hover{border-color:var(--line-strong);}
     .question-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:10px;}
@@ -211,8 +243,8 @@
     .quiz-progress{height:9px;background:var(--line);border-radius:999px;overflow:hidden;margin:12px 0 18px;}
     .quiz-progress span{display:block;height:100%;background:var(--fg);width:0;transition:width .25s ease;}
     .quiz-question h3{font-size:18px;line-height:1.5;margin:0 0 16px;}
-    .quiz-options{display:grid;gap:9px;}
-    .quiz-option{display:grid;grid-template-columns:30px minmax(0,1fr);align-items:center;text-align:left;width:100%;min-height:52px;background:var(--bg);}
+    .quiz-options{display:grid;gap:9px;position:relative;z-index:2;}
+    .quiz-option{display:grid;grid-template-columns:30px minmax(0,1fr);align-items:center;text-align:left;width:100%;min-height:52px;background:var(--bg);position:relative;z-index:2;touch-action:manipulation;}
     .quiz-option .key{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--surface);color:var(--fg);font-weight:700;}
     .quiz-option.correct{border-color:var(--green);background:color-mix(in srgb,var(--green) 14%,var(--bg));}
     .quiz-option.wrong{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 13%,var(--bg));}
@@ -591,6 +623,12 @@
             <article class="card full searchable reveal" data-category="physics questions">
               <h3>Physics model questions</h3>
               <div class="question-bank compact" data-static-questions="physics"></div>
+              <div class="real-test-cta reveal">
+                <p>Done with the preview? Try the full timed Physics test.</p>
+                <div class="cta-row">
+                  <a class="real-test-btn" href="optics_v2.html">Give a Real Test<small>Optics - most repeated questions, full solutions</small></a>
+                </div>
+              </div>
             </article>
           </div>
         </section>
@@ -636,6 +674,13 @@
             <article class="card full searchable reveal" data-category="chemistry questions">
               <h3>Chemistry model questions</h3>
               <div class="question-bank compact" data-static-questions="chemistry"></div>
+              <div class="real-test-cta reveal">
+                <p>Done with the preview? Try a full timed Chemistry test.</p>
+                <div class="cta-row">
+                  <a class="real-test-btn" href="haloalkane-alcohol-ether.html">Give a Real Test<small>Haloalkanes, Alcohols and Ethers</small></a>
+                  <a class="real-test-btn" href="Alcohol_Updated_NoAutoSkip.html">Give a Real Test<small>Alcohols chapter, full solutions</small></a>
+                </div>
+              </div>
             </article>
           </div>
         </section>
@@ -671,17 +716,17 @@
                 <li>Photosynthesis pigments, C3/C4 plants, transpiration pull and plant hormones.</li>
               </ul>
             </article>
-            <article class="card searchable reveal" data-category="biology resources">
-              <h3>Existing chapter sets</h3>
-              <ul>
-                <li><a href="animal_tissue_histology.html">Animal Tissue and Histology</a></li>
-                <li><a href="human_biology_physiology.html">Human Biology and Physiology</a></li>
-                <li><a href="medical_technology_applied_biology.html">Medical Technology and Applied Biology</a></li>
-              </ul>
-            </article>
             <article class="card full searchable reveal" data-category="biology questions">
               <h3>Biology model questions</h3>
               <div class="question-bank compact" data-static-questions="biology"></div>
+              <div class="real-test-cta reveal">
+                <p>Done with the preview? Try a full timed Biology test.</p>
+                <div class="cta-row">
+                  <a class="real-test-btn" href="animal_tissue_histology.html">Give a Real Test<small>Animal Tissue and Histology</small></a>
+                  <a class="real-test-btn" href="human_biology_physiology.html">Give a Real Test<small>Human Biology and Physiology</small></a>
+                  <a class="real-test-btn" href="medical_technology_applied_biology.html">Give a Real Test<small>Medical Technology and Applied Biology</small></a>
+                </div>
+              </div>
             </article>
           </div>
         </section>
@@ -1013,8 +1058,15 @@
           </details>
         </section>
 
+        <section class="pad" id="comments">
+          <div class="sec-num reveal">15 - Comments <span class="cmdtag">// $ tail -f discussion.log</span></div>
+          <h2 class="sec-title reveal">Questions, corrections and discussion</h2>
+          <p class="section-note reveal">Found an error, want a chapter added, or have a doubt on a question? Leave a comment below (sign-in with GitHub).</p>
+          <div id="giscus-comments" class="reveal" style="min-height:120px"></div>
+        </section>
+
         <section class="pad" id="contact">
-          <div class="sec-num reveal">15 - Contact <span class="cmdtag">// $ ./reach_out.sh</span></div>
+          <div class="sec-num reveal">16 - Contact <span class="cmdtag">// $ ./reach_out.sh</span></div>
           <h2 class="sec-title reveal">Keep this page expandable</h2>
           <div class="grid">
             <article class="card reveal">
@@ -1196,14 +1248,56 @@
       '<div class="question-top"><h3>' + escapeHtml(q.prompt) + '</h3>' +
       '<button class="tool-btn bookmark-btn ' + (saved ? "saved" : "") + '" type="button" data-bookmark="' + q.id + '">' + (saved ? "Saved" : "Bookmark") + '</button></div>' +
       '<div class="question-meta"><span class="pill">' + cap(q.subject) + '</span><span class="pill">' + escapeHtml(q.chapter) + '</span><span class="pill">' + escapeHtml(q.topic) + '</span><span class="pill">' + escapeHtml(q.difficulty) + '</span></div>' +
-      '<ol class="options-list">' + q.options.map(function(opt, i){return '<li>' + optionLetter(i) + '. ' + escapeHtml(opt) + '</li>';}).join("") + '</ol>' +
-      '<div class="answer-box"><strong>Correct answer:</strong> ' + optionLetter(q.answer) + '. ' + escapeHtml(q.options[q.answer]) + '<br><strong>Explanation:</strong> ' + escapeHtml(q.explanation) + '</div>' +
+      '<div class="quiz-options static-options" data-static-qid="' + q.id + '">' + q.options.map(function(opt, i){
+        return '<button class="quiz-option" type="button" data-static-option="' + i + '"><span class="key">' + optionLetter(i) + '</span><span>' + escapeHtml(opt) + '</span></button>';
+      }).join("") + '</div>' +
+      '<div class="feedback hidden" data-static-feedback></div>' +
       '</article>';
   }
+  function answerStaticQuestion(group, selectedIndex){
+    if(group.dataset.answered === "1") return;
+    group.dataset.answered = "1";
+    var qid = group.dataset.staticQid;
+    var q = byId(qid);
+    if(!q) return;
+    var card = group.closest(".question-card");
+    var feedback = card ? card.querySelector("[data-static-feedback]") : null;
+    var correct = selectedIndex === q.answer;
+    group.querySelectorAll("[data-static-option]").forEach(function(btn){
+      var option = Number(btn.dataset.staticOption);
+      if(option === q.answer) btn.classList.add("correct");
+      if(option === selectedIndex && !correct) btn.classList.add("wrong");
+      btn.disabled = true;
+    });
+    if(feedback){
+      feedback.classList.remove("hidden");
+      feedback.innerHTML = '<strong>' + (correct ? "Correct." : "Not quite.") + '</strong> Correct answer: ' + optionLetter(q.answer) + '. ' + escapeHtml(q.options[q.answer]) + '<br>' + escapeHtml(q.explanation);
+    }
+  }
+  function initStaticQuiz(){
+    document.addEventListener("click", function(e){
+      var btn = e.target.closest("[data-static-option]");
+      if(!btn) return;
+      var group = btn.closest("[data-static-qid]");
+      if(!group) return;
+      answerStaticQuestion(group, Number(btn.dataset.staticOption));
+    });
+  }
   function renderQuestionBank(){
-    if(questionBank) questionBank.innerHTML = QUESTIONS.map(questionHtml).join("");
-    updateBookmarksUI();
-    applyFilters();
+    if(!questionBank) return;
+    var rendered = false;
+    var doRender = function(){
+      if(rendered) return;
+      rendered = true;
+      questionBank.innerHTML = QUESTIONS.map(questionHtml).join("");
+      updateBookmarksUI();
+      applyFilters();
+    };
+    if(!("IntersectionObserver" in window)){ doRender(); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){ if(entry.isIntersecting){ doRender(); io.disconnect(); } });
+    }, {rootMargin:"300px"});
+    io.observe(questionBank);
   }
   function updateBookmarksUI(){
     document.querySelectorAll(".bookmark-btn").forEach(function(btn){
@@ -1359,10 +1453,34 @@
       '<div class="quiz-question"><h3>' + escapeHtml(quiz.set.title) + ' result</h3>' +
       '<div class="result-grid"><div class="result-tile"><strong>' + quiz.score + '/' + total + '</strong><span>Score</span></div><div class="result-tile"><strong>' + pct + '%</strong><span>Accuracy</span></div><div class="result-tile"><strong>' + (total - quiz.score) + '</strong><span>Wrong/skipped</span></div><div class="result-tile"><strong>' + bookmarks.length + '</strong><span>Bookmarks</span></div></div>' +
       '<div class="quiz-actions"><button class="tool-btn primary" id="retryQuizBtn" type="button">Retry</button><button class="tool-btn" id="downloadResultBtn" type="button">Download Set</button></div>' +
+      '<div class="real-test-cta" style="margin-top:16px"><p>Ready for more? Give a real, full-length chapter test.</p><div class="cta-row">' + realTestLinksFor(quiz.set) + '</div></div>' +
       '<div class="answer-box" style="margin-top:14px">' + rows + '</div></div>';
     document.getElementById("retryQuizBtn").addEventListener("click", function(){startSet(quiz.set);});
     document.getElementById("downloadResultBtn").addEventListener("click", downloadCurrentSet);
     timerPill.textContent = "timer --:--";
+  }
+  var REAL_TESTS = {
+    physics:[{href:"optics_v2.html",label:"Optics - full test"}],
+    chemistry:[{href:"haloalkane-alcohol-ether.html",label:"Haloalkanes, Alcohols and Ethers"},{href:"Alcohol_Updated_NoAutoSkip.html",label:"Alcohols chapter"}],
+    biology:[{href:"animal_tissue_histology.html",label:"Animal Tissue and Histology"},{href:"human_biology_physiology.html",label:"Human Biology and Physiology"},{href:"medical_technology_applied_biology.html",label:"Medical Technology and Applied Biology"}],
+    mat:[]
+  };
+  function realTestLinksFor(set){
+    var subjects = {};
+    set.questionIds.forEach(function(id){
+      var q = byId(id);
+      if(q) subjects[q.subject] = true;
+    });
+    var links = [];
+    Object.keys(subjects).forEach(function(subject){
+      (REAL_TESTS[subject] || []).forEach(function(item){links.push(item);});
+    });
+    if(!links.length){
+      Object.keys(REAL_TESTS).forEach(function(subject){REAL_TESTS[subject].forEach(function(item){links.push(item);});});
+    }
+    return links.map(function(item){
+      return '<a class="real-test-btn" href="' + item.href + '">Give a Real Test<small>' + escapeHtml(item.label) + '</small></a>';
+    }).join("");
   }
   function renderChecklist(){
     var host = document.getElementById("checklist");
@@ -1536,6 +1654,38 @@
   function initTop(){
     document.getElementById("topBtn").addEventListener("click", function(){window.scrollTo({top:0,behavior:"smooth"});});
   }
+  function initComments(){
+    var host = document.getElementById("giscus-comments");
+    if(!host || !("IntersectionObserver" in window)) return;
+    var loaded = false;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting && !loaded){
+          loaded = true;
+          var script = document.createElement("script");
+          script.src = "https://giscus.app/client.js";
+          script.async = true;
+          script.crossOrigin = "anonymous";
+          // TODO: replace these four values from https://giscus.app after enabling
+          // GitHub Discussions on your repo (Settings -> General -> Features -> Discussions).
+          script.setAttribute("data-repo", "YOUR_GH_USERNAME/YOUR_REPO");
+          script.setAttribute("data-repo-id", "REPLACE_WITH_REPO_ID");
+          script.setAttribute("data-category", "General");
+          script.setAttribute("data-category-id", "REPLACE_WITH_CATEGORY_ID");
+          script.setAttribute("data-mapping", "pathname");
+          script.setAttribute("data-strict", "0");
+          script.setAttribute("data-reactions-enabled", "1");
+          script.setAttribute("data-emit-metadata", "0");
+          script.setAttribute("data-input-position", "top");
+          script.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark_dimmed");
+          script.setAttribute("data-lang", "en");
+          host.appendChild(script);
+          io.disconnect();
+        }
+      });
+    }, {rootMargin:"200px"});
+    io.observe(host);
+  }
   function initLoader(){
     window.setTimeout(function(){
       var loader = document.getElementById("loader");
@@ -1543,25 +1693,35 @@
     }, 360);
   }
 
-  function init(){
-    initTheme();
-    initNav();
-    renderStaticQuestions();
-    renderQuestionBank();
-    initBookmarks();
-    initSearch();
-    renderSetList();
-    renderChecklist();
-    initPlanner();
-    initPomodoro();
-    initRandom();
-    initFormulas();
-    initDownloads();
-    initReveal();
-    initToc();
-    initTop();
-    initLoader();
+  function safe(name, fn){
+    try { fn(); } catch(err) { if(window.console) console.error("CEE init step failed: " + name, err); }
   }
+  function init(){
+    safe("initTheme", initTheme);
+    safe("initNav", initNav);
+    safe("renderStaticQuestions", renderStaticQuestions);
+    safe("renderQuestionBank", renderQuestionBank);
+    safe("initBookmarks", initBookmarks);
+    safe("initStaticQuiz", initStaticQuiz);
+    safe("initSearch", initSearch);
+    safe("renderSetList", renderSetList);
+    safe("renderChecklist", renderChecklist);
+    safe("initPlanner", initPlanner);
+    safe("initPomodoro", initPomodoro);
+    safe("initRandom", initRandom);
+    safe("initFormulas", initFormulas);
+    safe("initDownloads", initDownloads);
+    safe("initReveal", initReveal);
+    safe("initToc", initToc);
+    safe("initTop", initTop);
+    safe("initComments", initComments);
+    safe("initLoader", initLoader);
+  }
+  // Hard failsafe: whatever else happens, never let the loading overlay block the page.
+  window.setTimeout(function(){
+    var loader = document.getElementById("loader");
+    if(loader) loader.classList.add("done");
+  }, 2500);
   if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
   window.CEE_PORTAL_QUESTIONS = QUESTIONS;
 })();
