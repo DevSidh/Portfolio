@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - Siddhant Shah</title>
+<meta name="description" content="Privacy policy for sahsiddhant.com.np, including how cookies and Google AdSense are used on this site.">
+<script>
+  (function(){
+    var saved = localStorage.getItem('theme');
+    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
+  })();
+</script>
+<style>
+  :root[data-theme="dark"]{
+    --bg:#000000; --fg:#ffffff; --gray:#a6a6a0; --gray-dim:#76766f;
+    --line:rgba(255,255,255,0.13); --line-strong:rgba(255,255,255,0.32);
+    --surface:#131313; --accent:#ff7a1a; --accent-dim:rgba(255,122,26,0.16);
+  }
+  :root[data-theme="light"]{
+    --bg:#ffffff; --fg:#0b0b0b; --gray:#4f4f49; --gray-dim:#6f6f68;
+    --line:rgba(11,11,11,0.12); --line-strong:rgba(11,11,11,0.30);
+    --surface:#f3f3f1; --accent:#e8630a; --accent-dim:rgba(232,99,10,0.12);
+  }
+  *{box-sizing:border-box;}
+  .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .skip-link{position:absolute;left:12px;top:8px;z-index:100;background:var(--fg);color:var(--bg);padding:8px 12px;border-radius:6px;transform:translateY(-140%);transition:transform .16s}
+  .skip-link:focus{transform:translateY(0)}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;transition:background .25s ease,color .25s ease;
+  }
+  a{color:var(--accent);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:920px;margin:0 auto;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;}
+  .nav-brand{
+    font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:14px;text-decoration:none;
+    display:flex;align-items:center;gap:2px;color:var(--fg);
+  }
+  .nav-brand .prompt{color:var(--gray);}
+  .nav-brand .path{color:var(--fg);font-weight:600;}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .links{display:flex;gap:22px;font-size:14px;}
+  .links a{color:var(--gray);text-decoration:none;}
+  .links a:hover{color:var(--fg);}
+  .theme-btn{
+    width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);
+    cursor:pointer;position:relative;
+  }
+  .theme-btn::before{content:"☀";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  :root[data-theme="dark"] .theme-btn::before{content:"☾";}
+  @media (max-width:720px){ .links{display:none;} }
+
+  main{padding:120px 0 60px;}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(28px,5vw,42px);margin:0 0 8px;}
+  .updated{color:var(--gray);font-size:13px;margin:0 0 40px;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;}
+  h2{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:22px;margin:36px 0 12px;}
+  p,li{color:var(--gray);line-height:1.75;font-size:15.5px;}
+  ul{padding-left:20px;}
+  li{margin-bottom:8px;}
+  strong{color:var(--fg);}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:11px;color:var(--gray-dim);}
+  footer a{color:var(--gray-dim);}
+</style>
+
+<link rel="canonical" href="https://www.sahsiddhant.com.np/privacy-policy.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="prompt">&gt; $</span>&nbsp;<span class="path">cd /home/siddhant</span></a>
+    <div class="nav-right">
+      <nav class="links">
+        <a href="index.html#about">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="cee.html">CEE</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme"></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: July 18, 2026</p>
+
+    <p>This Privacy Policy explains how sahsiddhant.com.np ("this site," "we," or "I") handles information when you visit. This site is operated by Siddhant Shah, based in Kathmandu, Nepal.</p>
+
+    <h2>Information this site collects</h2>
+    <p>This site does not require account creation or collect personal information directly from visitors. If you contact me by email, I receive whatever information you choose to include in that message.</p>
+
+    <h2>Cookies and advertising</h2>
+    <p>This site uses <strong>Google AdSense</strong> to display ads. Google and its partners use cookies and similar technologies to serve ads based on your prior visits to this and other websites. This may include:</p>
+    <ul>
+      <li>Using cookies to serve ads based on a visitor's prior visits to this site or other sites on the internet.</li>
+      <li>Allowing Google and its partners to use cookies to personalize the ads shown to you across the web.</li>
+      <li>Third-party vendors, including Google, may show this site's ads on other sites and use cookies for measurement and personalization purposes.</li>
+    </ul>
+    <p>You can opt out of personalized advertising by visiting <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google Ads Settings</a>. You can also learn more about how Google uses data at <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google's Partner Sites policy</a>, and generally opt out of third-party vendor cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info</a>.</p>
+
+    <h2>Analytics</h2>
+    <p>This site may use standard web hosting logs and/or analytics tools to understand aggregate traffic (such as page views and general location at a country/city level). This data is not used to personally identify visitors.</p>
+
+    <h2>Third-party links</h2>
+    <p>This site links to third-party platforms, including GitHub, LinkedIn, and Facebook. These sites have their own privacy policies, and I am not responsible for their content or practices.</p>
+
+    <h2>Children's privacy</h2>
+    <p>This site is not directed at children under 13, and I do not knowingly collect personal information from children.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>This policy may be updated occasionally to reflect changes in how the site operates or in applicable requirements. Updates will be posted on this page with a revised "last updated" date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy can be sent to <a href="mailto:siddhant106shah@gmail.com">siddhant106shah@gmail.com</a>.</p>
+  </div>
+</main>
+
+<footer>© 2026 Siddhant Shah — Kathmandu, Nepal · <a href="privacy-policy.html">Privacy Policy</a></footer>
+
+<script>
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeToggle');
+  function currentTheme(){ return root.getAttribute('data-theme') || 'dark'; }
+  themeBtn.addEventListener('click', ()=>{
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>
+
+</body>
+</html>

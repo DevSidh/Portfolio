@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9336872943674982"
+   crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handnotes &amp; Study Material - Siddhant Shah</title>
+<meta name="description" content="Downloadable CEE handnotes and study material for Physics, Chemistry, and Biology, organized by chapter.">
+<script>
+  (function(){
+    var saved = localStorage.getItem('theme');
+    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
+  })();
+</script>
+<style>
+  :root[data-theme="dark"]{
+    --bg:#000000; --fg:#ffffff; --gray:#a6a6a0; --gray-dim:#76766f;
+    --line:rgba(255,255,255,0.13); --line-strong:rgba(255,255,255,0.32);
+    --surface:#131313; --accent:#ff7a1a; --accent-dim:rgba(255,122,26,0.16);
+  }
+  :root[data-theme="light"]{
+    --bg:#ffffff; --fg:#0b0b0b; --gray:#4f4f49; --gray-dim:#6f6f68;
+    --line:rgba(11,11,11,0.12); --line-strong:rgba(11,11,11,0.30);
+    --surface:#f3f3f1; --accent:#e8630a; --accent-dim:rgba(232,99,10,0.12);
+  }
+  *{box-sizing:border-box;}
+  .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .skip-link{position:absolute;left:12px;top:8px;z-index:100;background:var(--fg);color:var(--bg);padding:8px 12px;border-radius:6px;transform:translateY(-140%);transition:transform .16s}
+  .skip-link:focus{transform:translateY(0)}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;transition:background .25s ease,color .25s ease;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:920px;margin:0 auto;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;}
+  .nav-brand{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:2px;}
+  .nav-brand .prompt{color:var(--gray);}
+  .nav-brand .path{color:var(--fg);font-weight:600;}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .links{display:flex;gap:22px;font-size:14px;}
+  .links a{color:var(--gray);text-decoration:none;}
+  .links a:hover{color:var(--fg);}
+  .links a.active{color:var(--accent);}
+  .theme-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;position:relative;}
+  .theme-btn::before{content:"☀";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  :root[data-theme="dark"] .theme-btn::before{content:"☾";}
+  @media (max-width:720px){ .links{display:none;} }
+
+  main{padding:120px 0 60px;}
+  .eyebrow{color:var(--accent);font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px;}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(30px,5vw,46px);margin:0 0 14px;}
+  .lede{color:var(--gray);font-size:16px;line-height:1.7;max-width:640px;margin:0 0 40px;}
+
+  h2.group-title{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:22px;margin:44px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+  .notes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;}
+  .note-card{
+    border:1px solid var(--line);border-radius:10px;padding:18px;background:var(--surface);
+    display:flex;flex-direction:column;gap:8px;transition:border-color .2s ease,transform .2s ease;
+  }
+  .note-card:hover{border-color:var(--line-strong);transform:translateY(-2px);}
+  .note-card h3{margin:0;font-size:15.5px;}
+  .note-card .tag{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:11px;color:var(--gray-dim);text-transform:uppercase;letter-spacing:.04em;}
+  .note-card .dl{
+    margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;
+    color:var(--accent);text-decoration:none;
+  }
+  .note-card.coming-soon{opacity:.55;}
+  .note-card.coming-soon .dl{color:var(--gray-dim);}
+
+  .setup-note{
+    margin:50px 0 0;padding:18px 20px;border:1px dashed var(--line-strong);border-radius:10px;
+    color:var(--gray);font-size:14px;line-height:1.7;background:var(--surface);
+  }
+  .setup-note strong{color:var(--fg);}
+  .setup-note code{background:var(--accent-dim);color:var(--accent);padding:1px 6px;border-radius:4px;font-size:13px;}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:11px;color:var(--gray-dim);}
+  footer a{color:var(--gray-dim);}
+</style>
+
+<link rel="canonical" href="https://www.sahsiddhant.com.np/handnotes.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b0b0b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Handnotes & Study Material - Siddhant Shah">
+<meta property="og:description" content="Downloadable CEE handnotes and study material for Physics, Chemistry, and Biology, organized by chapter.">
+<meta property="og:url" content="https://www.sahsiddhant.com.np/handnotes.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="prompt">&gt; $</span>&nbsp;<span class="path">cd /home/siddhant</span></a>
+    <div class="nav-right">
+      <nav class="links">
+        <a href="index.html#about">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="cee.html">CEE</a>
+        <a href="handnotes.html" class="active" aria-current="page">Handnotes</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme"></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <p class="eyebrow">CEE 2083 · Handnotes</p>
+    <h1>Handnotes and study material</h1>
+    <p class="lede">Chapter-wise handwritten notes and short summary sheets to go alongside the practice sets on the <a href="cee.html" style="color:var(--accent);">CEE prep page</a>. Download the PDF, work through it, then test yourself with the matching quiz.</p>
+
+    <h2 class="group-title">Biology</h2>
+    <div class="notes-grid">
+      <div class="note-card coming-soon">
+        <span class="tag">Chapter</span>
+        <h3>Animal Tissue &amp; Histology</h3>
+        <span class="dl">Notes coming soon</span>
+      </div>
+      <div class="note-card coming-soon">
+        <span class="tag">Chapter</span>
+        <h3>Human Physiology</h3>
+        <span class="dl">Notes coming soon</span>
+      </div>
+      <div class="note-card coming-soon">
+        <span class="tag">Chapter</span>
+        <h3>Medical Technology &amp; Applied Biology</h3>
+        <span class="dl">Notes coming soon</span>
+      </div>
+    </div>
+
+    <h2 class="group-title">Chemistry</h2>
+    <div class="notes-grid">
+      <div class="note-card coming-soon">
+        <span class="tag">Chapter</span>
+        <h3>Haloalkanes, Alcohols &amp; Ethers</h3>
+        <span class="dl">Notes coming soon</span>
+      </div>
+    </div>
+
+    <h2 class="group-title">Physics</h2>
+    <div class="notes-grid">
+      <div class="note-card coming-soon">
+        <span class="tag">Chapter</span>
+        <h3>Optics</h3>
+        <span class="dl">Notes coming soon</span>
+      </div>
+    </div>
+
+    <div class="setup-note">
+      <strong>For Siddhant:</strong> this page is ready to go live — it just needs the actual files.
+      Drop each PDF or image into <code>assets/notes/</code> (create that folder next to this page)
+      using names like <code>animal-tissue-histology.pdf</code>, then change the matching card above from:<br><br>
+      <code>&lt;span class="dl"&gt;Notes coming soon&lt;/span&gt;</code><br><br>
+      to:<br><br>
+      <code>&lt;a class="dl" href="assets/notes/animal-tissue-histology.pdf" target="_blank" rel="noopener"&gt;Download PDF →&lt;/a&gt;</code><br><br>
+      and drop the <code>coming-soon</code> class from that card's <code>&lt;div class="note-card"&gt;</code> tag.
+      Send me the actual note files any time and I'll wire all of this in for you and repackage the site.
+    </div>
+  </div>
+</main>
+
+<footer>© 2026 Siddhant Shah — Kathmandu, Nepal · <a href="privacy-policy.html">Privacy Policy</a></footer>
+
+<script>
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeToggle');
+  function currentTheme(){ return root.getAttribute('data-theme') || 'dark'; }
+  themeBtn.addEventListener('click', function(){
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>
+
+</body>
+</html>
