@@ -1816,6 +1816,7 @@
     });
     updateProgress();
   }
+  
   function updateProgress(){
     var done = CHECKS.filter(function(_, i){return progress["check-" + i];}).length;
     var pct = Math.round((done / CHECKS.length) * 100);
